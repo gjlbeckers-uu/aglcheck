@@ -1,0 +1,43 @@
+# The string sets originate from: Wilson B, Smith K, Petkov CI (2015)
+# Mixed-complexity artificial grammar learning in humans and macaque monkeys:
+# evaluating learning strategies. Eur J Neurosci 41:568–578.
+
+strings:
+    - E1:  acf
+    - E2:  acfcg
+    - E3:  acgf
+    - E4:  acgfcg
+    - E5:  adcf
+    - E6:  adcfc
+    - E7:  adcfcg
+    - E8:  adcgfcg
+    - T01: acfcg
+    - T02: adcfc
+    - T03: acgfc
+    - T04: adcgf
+    - T05: adcfg
+    - T06: adfcg
+    - T07: adgcf
+    - T08: adgfc
+    - T09: agcfc
+    - T10: agfgc
+    - T11: agdcf
+    - T12: agfdc
+
+comparisons:
+    Habituation_vs_Test:
+        - Exposure: [E1, E2, E3, E4, E5, E6, E7, E8]
+        - Test: [T01, T02, T03, T04, T05, T06, T07, T08, T09, T10, T11, T12]
+                         
+labelcolors:
+    "#0071c1":  [T01, T02, T03, T04]
+    "#c00000":  [T05, T06, T07, T08, T09, T10, T11, T12]
+
+tokendurations:
+    a: 413.
+    c: 413.
+    d: 413.
+    f: 413.
+    g: 413.
+    
+isiduration: 150.

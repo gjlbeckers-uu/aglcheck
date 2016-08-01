@@ -1,0 +1,47 @@
+# The string sets originate from: Attaheri A, Kikuchi Y, Milne AE, Wilson B,
+# Alter K, Petkov CI (2015) EEG potentials associated with artificial grammar
+# learning in the primate brain. Brain and Language 148:74–80.
+
+
+strings:
+    - E1:  acfc
+    - E2:  acfcg
+    - E3:  acgf
+    - E4:  acgfcg
+    - E5:  adcf
+    - E6:  adcfc
+    - E7:  adcfcg
+    - E8:  adcgfc
+    - CB11: acfcg
+    - CB12: acgfc
+    - CB21: adcgf
+    - CB22: adcfc
+    - CC11: acgfc
+    - CC12: acfcg
+    - CC21: adcgf
+    - CC22: adcfc
+    - VB11: adfcg
+    - VB12: adgfc
+    - VB21: acfcg
+    - VB22: adcgc
+    - VC11: agfcd
+    - VC12: afcgc
+    - VC21: agcfc
+    - VC22: acdfc
+    
+comparisons:
+    Exposure_vs_Test: [[E1, E2, E3, E4, E5, E6, E7, E8],
+                         [CB11, CB12, CB21, CB22, CC11, CC12, CC21, CC22, VB11, VB12, VB21, VB22, VC11, VC12, VC21, VC22]]
+                         
+labelcolors:
+    "#0071c1":  [CB11, CB12, CB21, CB22, CC11, CC12, CC21, CC22]
+    "#c00000":  [VB11, VB12, VB21, VB22, VC11, VC12, VC21, VC22]
+
+tokendurations:
+    a: 0.64
+    c: 0.40
+    d: 0.62
+    f: 0.56
+    g: 0.39
+    
+isiduration: 0.1

@@ -1,0 +1,122 @@
+# The strings sets originate from: Chen J, Rossum D van, Cate C ten (2015)
+# Artificial grammar learning in zebra finches and human adults: XYX versus
+# XXY. Anim Cogn 18:151–164.
+
+strings:
+    - AYA_1: ABA
+    - AYA_2: ACA
+    - AYA_3: ADA
+    - AAY_1: AAB
+    - AAY_2: AAC
+    - AAY_3: AAD
+    - BAB:   BAB
+    - BCB:   BCB
+    - BDB:   BDB
+    - BBA:   BBA   
+    - BBC:   BBC
+    - BBD:   BBD
+    
+    - BYB_1: BAB
+    - BYB_2: BCB
+    - BYB_3: BDB
+    - BBY_1: BBA
+    - BBY_2: BBC
+    - BBY_3: BBD
+    - CAC:   CAC
+    - CBC:   CBC
+    - CDC:   CDC
+    - CCA:   CCA
+    - CCB:   CCB
+    - CCD:   CCD
+    
+    - CYC_1: CAC
+    - CYC_2: CBC
+    - CYC_3: CDC
+    - CCY_1: CCA
+    - CCY_2: CCB
+    - CCY_3: CCD
+    - DAD:   DAD
+    - DBD:   DBD
+    - DCD:   DCD
+    - DDA:   DDA
+    - DDB:   DDB
+    - DDC:   DDC
+    
+    - DYD_1: DAD
+    - DYD_2: DBD
+    - DYD_3: DCD
+    - DDY_1: DDA
+    - DDY_2: DDB
+    - DDY_3: DDC
+    - ABA:   ABA
+    - ADA:   ADA
+    - BCB:   BCB
+    - CAC:   CAC
+    - CDC:   CDC
+    - AAB:   AAB
+    - AAD:   AAD
+    - BBC:   BBC
+    - CCA:   CCA
+    - CCD:   CCD
+   
+    - Train_XYX_1: ABA
+    - Train_XYX_2: ADA
+    - Train_XYX_3: BCB
+    - Train_XYX_4: CAC
+    - Train_XYX_5: CDC
+    - Train_XYX_6: DAD
+    - Train_XXY_1: AAB
+    - Train_XXY_2: AAD
+    - Train_XXY_3: BBC
+    - Train_XXY_4: CCA
+    - Train_XXY_5: CCD
+    - Train_XXY_6: DDA
+    - Test_XYX_1:  EFE
+    - Test_XYX_2:  FEF
+    - Test_XXY_1:  EEF
+    - Test_XXY_2:  FFE
+    - Test_XYY_1:  FEE
+    - Test_XYY_2:  EFF
+    
+    - Test1_XYX_1:  EFE
+    - Test1_XYX_2:  FEF
+    - Test1_XXY_1:  EEF
+    - Test1_XXY_2:  FFE
+    - Test1_XYY_1:  FEE
+    - Test1_XYY_2:  EFF
+    - Test2_XYX_1:  BAB
+    - Test2_XYX_2:  CBC
+    - Test2_XYX_3:  ACA
+    - Test2_XYX_4:  DCD
+    - Test2_XXY_1:  BBA
+    - Test2_XXY_2:  CCB
+    - Test2_XXY_3:  AAC
+    - Test2_XXY_4:  DDC
+
+       
+comparisons:
+    Experiment_1a_phase_1:
+        - Train: [AYA_1, AYA_2, AYA_3, AAY_1, AAY_2, AAY_3]
+        - Test: [BAB, BCB, BDB, BBA, BBC, BBD]
+    Experiment_1a_phase_2:
+        - Train: [BYB_1, BYB_2, BYB_3, BBY_1, BBY_2, BBY_3]
+        - Test: [CAC, CBC, CDC, CCA, CCB, CCD]
+    Experiment_1a_phase_3:
+        - Train: [CYC_1, CYC_2, CYC_3, CCY_1, CCY_2, CCY_3]
+        - Test:  [DAD, DBD, DCD, DDA, DDB, DDC]
+    Experiment_1a_phase_4:
+        - Train: [DYD_1, DYD_2, DYD_3, DDY_1, DDY_2, DDY_3]
+        - Test: [ABA, ADA, BCB, CAC, CDC, AAB, AAD, BBC, CCA, CCD]
+    Experiment_1a_phase_5:
+        - Train: [Train_XYX_1, Train_XYX_2, Train_XYX_3, Train_XYX_4, Train_XYX_5, Train_XYX_6, Train_XXY_1, Train_XXY_2, Train_XXY_3, Train_XXY_4, Train_XXY_5, Train_XXY_6]
+          Test: [Test_XYX_1, Test_XYX_2, Test_XXY_1, Test_XXY_2, Test_XYY_1, Test_XYY_2]
+    Experiment_1b:
+        - Train: [Train_XYX_1, Train_XYX_2, Train_XYX_3, Train_XYX_4, Train_XYX_5, Train_XYX_6, Train_XXY_1, Train_XXY_2, Train_XXY_3, Train_XXY_4, Train_XXY_5, Train_XXY_6]
+        - Test: [Test1_XYX_1, Test1_XYX_2, Test1_XXY_1, Test1_XXY_2, Test1_XYY_1, Test1_XYY_2, Test2_XYX_1, Test2_XYX_2, Test2_XYX_3, Test2_XYX_4, Test2_XXY_1, Test2_XXY_2, Test2_XXY_3, Test2_XXY_4]
+
+labelcolors:
+     "#0071c1":  [AYA_1, AYA_2, AYA_3, BYB_1, BYB_2, BYB_3, CYC_1, CYC_2, CYC_3, DYD_1, DYD_2, DYD_3, Train_XYX_1, Train_XYX_2, Train_XYX_3, Train_XYX_4, Train_XYX_5, Train_XYX_6]
+     "#c00000":  [AAY_1, AAY_2, AAY_3, BBY_1, BBY_2, BBY_3, CCY_1, CCY_2, CCY_3, DDY_1, DDY_2, DDY_3, Train_XXY_1, Train_XXY_2, Train_XXY_3, Train_XXY_4, Train_XXY_5, Train_XXY_6]
+     
+     "#7100c0": [Test2_XYX_1, Test2_XYX_2, Test2_XYX_3, Test2_XYX_4]
+     "#00a000": [Test2_XXY_1, Test2_XXY_2, Test2_XXY_3, Test2_XXY_4]

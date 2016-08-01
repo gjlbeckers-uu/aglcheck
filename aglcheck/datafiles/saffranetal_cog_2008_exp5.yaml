@@ -1,0 +1,70 @@
+# The string sets originate from Experiment 3 in: Saffran J, Hauser M,
+# Seibel R, Kapfhamer J, Tsao F, Cushman F (2008) Grammatical pattern learning
+# by human infants and cotton-top tamarin monkeys. Cognition 107:479–500.
+
+# Experiment 5
+strings:
+    - f_bc: bc
+    - f_bl: bl
+    - f_hc: hc
+    - f_hl: hl
+    - f_hkc: hkc
+    - f_bpc: bpc
+    - f_hpc: hpc
+    - f_bkl: bkl
+    - f_hkl: hkl
+    - f_bpl: bpl
+    - f_hpl: hpl
+    - f_hct: hct
+    - f_blt: blt
+    - f_hlt: hlt
+    - f_bcj: bcj
+    - f_hcj: hcj
+    - f_blj: blj
+    - f_hlj: hlj
+    - f_bkct: bkct
+    - f_hkct: hkct
+    - f_hpct: hpct
+    - f_bklt: bklt
+    - f_hklt: hklt
+    - f_bplt: bplt
+    - f_hplt: hplt
+    - f_bkcj: bkcj
+    - f_hkcj: hkcj
+    - f_bpcj: bpcj
+    - f_hpcj: hpcj
+    - f_bklj: bklj
+    - f_bplj: bplj
+    - f_hplj: hplj
+    
+    - hgt_bkc: bkc
+    - hgt_bpct: bpct
+    - hgt_hklj: hklj
+    
+    - hut_hkt: hkt
+    - hut_bjc: hkt
+    - hut_hlkj: hlkj
+    - hut_bcpt: bcpt
+    
+    - egt_bcj: bcj
+    - egt_hpl: hpl
+    - egt_hkcj: hkcj
+    - egt_bklt: bklt
+    - egt_hlt: hlt
+    
+    - eug_lpb: lpb
+    - eug_tch: tch
+    - eug_jckh: jckh
+    - eug_tlpb: tlpb
+        
+comparisons:
+    Familiarization_vs_Test:  [[f_bc, f_bl, f_hc, f_hl, f_hkc, f_bpc, f_hpc, f_bkl, f_hkl, f_bpl, f_hpl, f_hct, f_blt, f_hlt, f_bcj, f_hcj, f_blj, f_hlj, f_bkct, f_hkct, f_hpct, f_bklt, f_hklt, f_bplt, f_hplt, f_bkcj, f_hkcj, f_bpcj, f_hpcj, f_bklj, f_bplj, f_hplj], [hgt_bkc, hgt_bpct, hgt_hklj, hut_hkt, hut_bjc, hut_hlkj, hut_bcpt, egt_bcj, egt_hpl, egt_hkcj, egt_bklt, egt_hlt, eug_lpb, eug_tch, eug_jckh, eug_tlpb]]
+    
+                         
+labelcolors:
+    "#000000":  [f_bl, f_hc, f_hl, f_hkc, f_bpc, f_hpc, f_bkl, f_hkl, f_bpl, f_hpl, f_hct, f_blt, f_hlt, f_bcj, f_hcj, f_blj]
+    "#01b0f1":  [hgt_bkc, hgt_bpct, hgt_hklj]
+    "#0071c1":  [egt_bcj, egt_hpl, egt_hkcj, egt_bklt, egt_hlt]
+    "#c00000":  [hut_hkt, hut_bjc, hut_hlkj, hut_bcpt]
+    "#fe0000":  [eug_lpb, eug_tch, eug_jckh, eug_tlpb]
+    

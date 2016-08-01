@@ -1,0 +1,95 @@
+# The string sets originate from: Knowlton BJ, Squire LR (1996) Artificial
+# Grammar Learning Depends on Implicit Acquisition of Both Abstract and
+# Exemplar-Specific Information. Journal of Experimental Psychology 22:169–181.
+
+
+strings:
+    - TR01: XXVT
+    - TR02: XXVXJJ
+    - TR03: VXJJ
+    - TR04: XVJTVJ
+    - TR05: XXVXJ
+    - TR06: XVX
+    - TR07: VXJJJJ
+    - TR08: XVT
+    - TR09: XXXVT
+    - TR10: VJ
+    - TR11: XVXJJJ
+    - TR12: VJTVTV
+    - TR13: XXVJ
+    - TR14: VTVJ
+    - TR15: VJTVX
+    - TR16: XXXVTV
+    - TR17: XXVJ
+    - TR18: VJTVX
+    - TR19: XXXVTV
+    - TR20: XVXJJ
+    - TR21: VT
+    - TR22: VJTVXJ
+    - TR23: XXXVX
+    - TR24: VJTXVJ
+    - TR25: XVXJ
+    - TR26: XXXXVX
+
+    - GH01: XXVXJ
+    - GH02: XVTV
+    - GH03: VXJ
+    - GH04: XXVTV
+    - GH05: XVJTVX
+    - GH06: XXVTVJ
+    - GH07: VJTXVX
+    - GH08: VX
+
+    - GL01: VJTVT
+    - GL02: VTVJJ
+    - GL03: VTVJ
+    - GL04: XVJTVT
+    - GL05: VTV
+    - GL06: XVTVJ
+    - GL07: XVTVJ
+    - GL08: VTVJJ
+
+    - NH01: VJTV
+    - NH02: XXV
+    - NH03: XVXV
+    - NH04: XVXVJ
+    - NH05: XXVJJJ
+    - NH06: XJJ
+    - NH07: VXVJ
+    - NH08: XVXT
+
+    - NL01: XXJJ
+    - NL02: VXJTJ
+    - NL03: XXVVJJ
+    - NL04: JXVT
+    - NL05: XXTX
+    - NL06: TVJ
+    - NL07: VXJJX
+    - NL08: VJJXVT
+
+comparisons:
+    Training_vs_test: [['TR01', 'TR02', 'TR03', 'TR04', 'TR05', 'TR06', 'TR07', 'TR08',
+                        'TR09', 'TR10', 'TR11', 'TR12', 'TR13', 'TR14', 'TR15', 'TR16',
+                        'TR17', 'TR18', 'TR19', 'TR20', 'TR21', 'TR22', 'TR23', 'TR24',
+                        'TR25', 'TR26'],
+                          ['GH01', 'GH02', 'GH03', 'GH04', 'GH05', 'GH06', 'GH07', 'GH08',
+                          'GL01', 'GL02', 'GL03', 'GL04', 'GL05', 'GL06', 'GL07', 'GL08',
+                          'NH01', 'NH02', 'NH03', 'NH04', 'NH05', 'NH06', 'NH07', 'NH08',
+                          'NL01', 'NL02', 'NL03', 'NL04', 'NL05', 'NL06', 'NL07', 'NL08']]
+subgroups:
+    'TR': ['TR01', 'TR02', 'TR03', 'TR04', 'TR05', 'TR06', 'TR07', 'TR08',
+           'TR09', 'TR10', 'TR11', 'TR12', 'TR13', 'TR14', 'TR15', 'TR16',
+           'TR17', 'TR18', 'TR19', 'TR20', 'TR21', 'TR22', 'TR23', 'TR24',
+           'TR25', 'TR26']
+    'GH': ['GH01', 'GH02', 'GH03', 'GH04', 'GH05', 'GH06', 'GH07', 'GH08']
+    'GL': ['GL01', 'GL02', 'GL03', 'GL04', 'GL05', 'GL06', 'GL07', 'GL08']
+    'NH': ['NH01', 'NH02', 'NH03', 'NH04', 'NH05', 'NH06', 'NH07', 'NH08']
+    'NL': ['NL01', 'NL02', 'NL03', 'NL04', 'NL05', 'NL06', 'NL07', 'NL08']
+
+
+labelcolors:
+    "#0071c1": ['GH', 'GH01', 'GH02', 'GH03', 'GH04', 'GH05', 'GH06', 'GH07', 'GH08']
+    "#01b0f1": ['GL01', 'GL02', 'GL03', 'GL04', 'GL05', 'GL06', 'GL07', 'GL08']
+    "#c00000": ['NH01', 'NH02', 'NH03', 'NH04', 'NH05', 'NH06', 'NH07', 'NH08']
+    "#fe0000": ['NL01', 'NL02', 'NL03', 'NL04', 'NL05', 'NL06', 'NL07', 'NL08']
+

@@ -1,0 +1,41 @@
+# The string sets originate from: Wilson B, Kikuchi Y, Sun L, Hunter D, Dick F,
+# Smith K, Thiele A, Griffiths TD, Marslen-Wilson WD, Petkov CI (2015)
+# Auditory sequence processing reveals evolutionarily conserved regions of
+# frontal cortex in macaques and humans. Nat Commun 6:8901.
+
+strings:
+    - E1:  acf
+    - E2:  acfc
+    - E3:  acgf
+    - E4:  acgfc
+    - E5:  adcf
+    - E6:  adcfc
+    - E7:  adcfcg
+    - E8:  adcgf
+    - E9:  acgfcg
+    - CT1: acgfc
+    - CT2: adcfcg
+    - CT3: acfcg
+    - CT4: adcgfc
+    - VT1: afgcd
+    - VT2: afcdgc
+    - VT3: fadgc
+    - VT4: dcafgc
+    
+comparisons:
+    Exposure_vs_Test:
+        - Exposure: [E1, E2, E3, E4, E5, E6, E7, E8, E9]
+        - Test: [CT1, CT2, CT3, CT4, VT1, VT2, VT3, VT4]
+                         
+labelcolors:
+    "#0071c1":  [CT1, CT2, CT3, CT4]
+    "#c00000":  [VT1, VT2, VT3, VT4]
+
+tokendurations:
+    a: 0.64
+    c: 0.40
+    d: 0.62
+    f: 0.56
+    g: 0.39
+    
+isiduration: 0.1

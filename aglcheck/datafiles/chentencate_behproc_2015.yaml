@@ -1,0 +1,68 @@
+# The string sets originate from: Chen J, ten Cate C (2015) Zebra finches can
+# use positional and transitional cues to distinguish vocal element strings.
+# Behavioural Processes, 117:29–34.
+
+strings:
+    - Go:    abcdefabefcdab
+    - NoGo:  abdfcedfabceab
+    - Go1:   abcdefabefcdab
+    - Go2:   abefcdabcdefab
+    - Go3:   abefcdefabcdab
+    - NoGo1: abdfcedfabceab
+    - NoGo2: abcedfceabdfab
+    - NoGo3: abcedfabdfceab
+    - A1:    abefcdabcdefab
+    - A2:    abefcdefabcdab
+    - B1:    abcedfceabdfab
+    - B2:    abcedfabdfceab
+    - A3:    cdefabcdabefab
+    - A4:    cdefabefcdabab
+    - A5:    efabefcdababcd
+    - A6:    abefcdababcdef
+    - A7:    efcdababcdefab
+    - A8:    cdababcdefabef
+    - A9:    ababcdefabefcd
+    - A10:   cdef
+    - A11:   efcd
+    - B3:    ceabdfabcedfab
+    - B4:    dfcedfabceabab
+    - B5:    cedfabceababdf
+    - B6:    dfabceababdfce
+    - B7:    abceababdfcedf
+    - B8:    ceababdfcedfab
+    - B9:    ababdfcedfabce
+    - B10:   cedf
+    - B11:   dfce
+
+comparisons:
+    Exp1_Training_vs_Test:
+        - Training: [Go, NoGo]
+        - Test: [A1, A2, B1, B2]
+    Exp2_Training_vs_Test1:
+        - Training: [Go1, Go2, Go3, NoGo1, NoGo2, NoGo3]
+        - Test: [A3, B3]
+    Exp2_Training_vs_Test2:
+        - Training: [Go1, Go2, Go3, NoGo1, NoGo2, NoGo3]
+        - Test: [A4, A5, A6, A7, A8, A9, B4, B5, B6, B7, B8, B9]
+    Exp2_Training_vs_Test3:
+        - Training: [Go1, Go2, Go3, NoGo1, NoGo2, NoGo3]
+        - Test: [A10, A11, B10, B11]
+
+labelcolors:
+    "#0071c1": [Go, Go1, Go2, Go3]
+    "#c00000": [NoGo, NoGo1, NoGo2, NoGo3]
+    "#7100c0": [A1, A2, A3, A4, A5, A6, A7, A8, A9, A10, A11]
+    "#00a000": [B1, B2, B3, B4, B5, B6, B7, B8, B9, B10, B11]
+    
+tokendurations:
+    a: 98
+    b: 53
+    c: 85
+    d: 58
+    e: 58
+    f: 36
+    
+isiduration: 40
+
+
+

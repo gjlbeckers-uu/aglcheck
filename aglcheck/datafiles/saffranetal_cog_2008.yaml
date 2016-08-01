@@ -1,0 +1,52 @@
+# The string sets originate from Experiment 3 in: Saffran J, Hauser M,
+# Seibel R, Kapfhamer J, Tsao F, Cushman F (2008) Grammatical pattern learning
+# by human infants and cotton-top tamarin monkeys. Cognition 107:479–500.
+
+# Experiment 3
+
+strings:
+    - PLS_1: bcd
+    - PLS_2: bcjd
+    - PLS_3: bkcjd
+    - PLS_4: bkcd
+    - PLS_5: bcdcj
+    - PLS_6: bkcdcj
+    - PLS_7: bcdc
+    - PLS_8: bkcdc
+    
+    - NPLS_1: bcd
+    - NPLS_2: bcjd
+    - NPLS_3: bkcjd
+    - NPLS_4: bkcd
+    - NPLS_5: kcjd
+    - NPLS_6: bkjd
+    - NPLS_7: kcd
+    - NPLS_8: bjd
+    
+    - GTS_1:  bcd
+    - GTS_2:  bkcjd
+    - GTS_3:  bkcd
+    - GTS_4:  bcjd
+    
+    - UTS_1:  bckd
+    - UTS_2:  bjcd
+    - UTS_3:  bkd
+    - UTS_4:  bcjkd
+
+comparisons:
+    Familiarization_vs_Test:
+        - Fam: [PLS_1, PLS_2, PLS_3, PLS_4, PLS_5, PLS_6, PLS_7, PLS_8, NPLS_1,
+              NPLS_2, NPLS_3, NPLS_4, NPLS_5, NPLS_6, NPLS_7, NPLS_8]
+        - Test: [GTS_1, GTS_2, GTS_3, GTS_4, UTS_1, UTS_2, UTS_3, UTS_4]
+
+subgroups:
+    "PLS":  [PLS_1, PLS_2, PLS_3, PLS_4, PLS_5, PLS_6, PLS_7, PLS_8]
+    "NPLS":  [NPLS_1, NPLS_2, NPLS_3, NPLS_4, NPLS_5, NPLS_6, NPLS_7, NPLS_8]
+    "GTS":  [GTS_1, GTS_2, GTS_3, GTS_4]
+    "UTS":  [UTS_1, UTS_2, UTS_3, UTS_4]
+                         
+labelcolors:
+    "#7100c0":  [PLS_1, PLS_2, PLS_3, PLS_4, PLS_5, PLS_6, PLS_7, PLS_8]
+    "#00a000":  [NPLS_1, NPLS_2, NPLS_3, NPLS_4, NPLS_5, NPLS_6, NPLS_7, NPLS_8]
+    "#0071c1":  [GTS_1, GTS_2, GTS_3, GTS_4]
+    "#c00000":  [UTS_1, UTS_2, UTS_3, UTS_4]

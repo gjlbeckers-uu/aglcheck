@@ -1,0 +1,42 @@
+# The string sets originate from: Wilson B, Slater H, Kikuchi Y, Milne AE,
+# Marslen-Wilson WD, Smith K, Petkov CI (2013) Auditory Artificial Grammar
+# Learning in Macaque and Marmoset Monkeys. J Neurosci 33:18825–18835.
+
+strings:
+    - Hab_1:            acf
+    - Hab_2:            acfc
+    - Hab_3:            acgf
+    - Hab_4:            acgfc
+    - Hab_5:            acgfcg
+    - Hab_6:            adcf
+    - Hab_7:            adcfc
+    - Hab_8:            adcfcg
+    - Hab_9:            adcgf
+    - Fam_1:            acgfc
+    - Fam_2:            adcfcg
+    - Novel_1:          acfcg
+    - Novel_2:          adcgfc
+    - Viol_bA_1:        afgcd
+    - Viol_bA_2:        afcdgc
+    - Viol_nbA_1:       fadgc
+    - Viol_nbA_2:       dcafgc
+    
+comparisons:
+    Habituation_vs_Test:
+        - Hab: [Hab_1, Hab_2, Hab_3, Hab_4, Hab_5, Hab_6, Hab_7 ,Hab_8 ,Hab_9]
+        - Test: [Fam_1, Fam_2, Novel_1, Novel_2, Viol_bA_1, Viol_bA_2, Viol_nbA_1, Viol_nbA_2]
+
+labelcolors:
+    "#0071c1": [Fam_1, Fam_2]
+    "#01b0f1": [Novel_1, Novel_2]
+    "#c00000": [Viol_bA_1, Viol_bA_2]
+    "#fe0000": [Viol_nbA_1, Viol_nbA_2]
+    
+tokendurations:
+    a: 0.64
+    c: 0.40
+    d: 0.62
+    f: 0.56
+    g: 0.39
+    
+isiduration: 0.1

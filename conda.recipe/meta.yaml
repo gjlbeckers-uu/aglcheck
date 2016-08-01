@@ -1,0 +1,26 @@
+package:
+  name: aglcheck
+  version: "0.1.0"
+
+source:
+  path: ..
+
+requirements:
+  build:
+    - python
+    - setuptools
+  run:
+    - python
+    - pyyaml
+    - numpy
+    - matplotlib
+
+test:
+  requires:
+    - yaml
+  imports:
+    - aglcheck
+
+about:
+  license: BSD
+  license_file: LICENSE
