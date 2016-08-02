@@ -1,0 +1,8 @@
+-------------------------------------------------------------------------------
+aglcheck-0.1.0:
+
+2016.08.01: aglcheck 0.1.0 released. This version is intended to enable
+referees of the paper for which this package was written to verify that the
+code is openly available. However, documentation still has to be written.
+Coming 0.1.x versions should be compatible with the jupyter notebook that
+forms the supplementary information of the paper.
