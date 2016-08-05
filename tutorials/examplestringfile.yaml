@@ -1,0 +1,9 @@
+# Example stringfile used for tutorial
+
+strings:
+    - ABA
+    - BAB
+    - AABA
+    - BBA
+    - BAA
+    - ABBA
