@@ -1,31 +1,39 @@
 from __future__ import print_function
 import yaml
 
-__all__ = ['read_stringdata']
+__all__ = ['read_stringdata', 'StringData']
 
 
 class StringData(object):
 
-    def __init__(self, stringdatadict):
+    def __init__(self, strings, readingframe=1, comparisons=None,
+                 labelcolors=None, subgroups=None, tokendurations=None,
+                 isiduration=None):
 
-        self._stringdatadict = stringdatadict
-        self.stringdict = {l: s for d in stringdatadict['strings'] for l, s in
-                           d.items()}
-        self.stringlabels = [l for d in stringdatadict['strings'] for l, s in
-                             d.items()]
-        self.strings = [s for d in stringdatadict['strings'] for l, s in
-                        d.items()]
-        self.readingframe = stringdatadict.get('readingframe', 1)
-        self.comparisons = stringdatadict.get('comparisons', {})
-        self.labelcolors = stringdatadict.get('labelcolors', {})
-        self.subgroups = stringdatadict.get('subgroups', {})
+        strings = self._checkstrings(strings)
+
+        self.stringdict = {l: s for d in strings for l, s in d.items()}
+        self.stringlabels = [l for d in strings for l, s in d.items()]
+        self.strings = [s for d in strings for l, s in d.items()]
+        self.readingframe = readingframe
+        self.comparisons = {} if comparisons is None else comparisons
+        self.labelcolors = {} if labelcolors is None else labelcolors
+        self.subgroups = {} if subgroups is None else subgroups
+        self.tokendurations = tokendurations
+        self.isiduration = isiduration
         if 'full' not in self.comparisons:
             l = self.stringlabels
             self.comparisons.update({'full': [{'strings_a': l}, {'strings_b': l}]})
-        for key in ('tokendurations', 'isiduration'):
-            if key in stringdatadict:
-                setattr(self, key, stringdatadict[key])
 
+    def _checkstrings(self, strings):
+        """
+        Makes sure that 'strings' is a list of dicts. If it is just a
+        sequence of strings, it will return a list with dicts in which keys
+        that are identical to the strings.
+
+        """
+        return [si if isinstance(si, dict) else {si: si}
+                for si in strings]
 
     def print_strings(self, comparison='full'):
 
@@ -61,5 +69,5 @@ def read_stringdata(filename):
         d = yaml.load(f)
     if 'strings' not in d:
         raise ValueError("No 'strings' entry found")
-    return StringData(d)
+    return StringData(**d)
 
