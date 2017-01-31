@@ -25,7 +25,7 @@ corresponding duration is ('E' strings are exposure strings, 'CT' grammar
 correct test strings, and 'VT' grammar violating test strings):
 
     .. image:: example_figures/example_fig_sharedchunklength_1.png
-    :width: 100%
+        :width: 100%
 
 Quantifications and visualizations can be produced from a very simple text file
 (yaml format) that lists the strings of interest, and, optionally, provides
