@@ -30,6 +30,12 @@ notebook that produces the supplementary information. The 0.2.x series should
 be refactored so that functions and classes are more logically named and
 organized for general use.
 
+An example of a visualization that shows a bias the shared chunk length and
+corresponding duration is:
+
+.. image:: example_figures/example_fig_sharechunklength_1.png
+   :width: 100%
+
 Documentation
 -------------
 There is no documentation yet, but for now hopefully the jupyter notebooks in
