@@ -33,8 +33,8 @@ durations (see example_)
     .. _example: aglcheck/datafiles/wilsonetal_natcomm_2015.yaml
 
 More details on matches at the level of individual strings can be scrutinized
-in generated HTML tables (see example_)
-    .. _example: example_figures/example_table.html
+in generated HTML tables (e.g., see table_)
+    .. _table: example_figures/example_table.html
 
 
 
