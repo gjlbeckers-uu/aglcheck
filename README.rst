@@ -10,9 +10,14 @@ aglcheck is a python library for analyzing similarity between strings used in
 artificial grammar learning (AGL) experiments.
 
 aglcheck was initially written to analyze string sets for acoustic similarity
-in a sample of 9 AGL studies in nonhuman animals for a scientific paper, but
-the goal is to provide software that can be used to analyze AGL string design
-in general.
+in a sample of 9 AGL studies in nonhuman animals for the scientific paper:
+
+Beckers, G.J.L., Berwick B.C., Okanoya, K. and Bolhuis, J.J. (2016) What do
+animals learn in artificial grammar studies? Neuroscience & Biobehavioral
+Reviews [http://dx.doi.org/10.1016/j.neubiorev.2016.12.021])
+
+However the wider objective is to provide visualization software that can be
+used to analyze AGL string design in general.
 
 Development status
 ------------------
