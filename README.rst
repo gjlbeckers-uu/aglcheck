@@ -33,7 +33,7 @@ organized for general use.
 An example of a visualization that shows a bias the shared chunk length and
 corresponding duration is:
 
-.. image:: example_figures/example_fig_sharechunklength_1.png
+.. image:: example_figures/example_fig_sharedchunklength_1.png
    :width: 100%
 
 Documentation
