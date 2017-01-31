@@ -34,7 +34,7 @@ durations (see example_)
 
 More details on matches at the level of individual strings can be scrutinized
 in generated HTML tables (e.g., see table_)
-    .. _table: example_figures/example_table.html
+    .. _table: https://rawgit.com/gjlbeckers-uu/aglcheck/master/example_figures/example_table.html
 
 
 
