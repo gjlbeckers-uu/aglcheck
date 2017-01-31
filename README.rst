@@ -41,8 +41,8 @@ in HTML tables (e.g., see table_)
 Development status
 ------------------
 This is alpha software. It works for what it was initially was designed for,
-and also also be usable for wider application. The lack of documentation is the
-biggest hurdle, but see below. Contributions in any form are very welcome.
+and should also be usable for other applications. The lack of documentation is
+the biggest hurdle, but see below. Contributions in any form are very welcome.
 
 The 0.1.x series is intended to remain compatible with the the jupyter
 notebook that produces the supplementary information. The 0.2.x series should
@@ -54,6 +54,13 @@ Documentation
 -------------
 There is no documentation yet, but for now hopefully the jupyter notebooks in
 the tutorials folder show the library can be used.
+
+Installation
+------------
+The *aglcheck* library requires Python 2.7 or 3.5 or higher, and the packages
+*numpy*, *matplotlib*, *yaml*, and *pandas*. I recommend the scientific Python
+distribution Anaconda_ for easy installation, although it is not required.
+    .. _Anaconda: https://www.continuum.io/downloads
 
 Copyright and License
 ---------------------
