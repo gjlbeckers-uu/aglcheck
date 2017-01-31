@@ -17,6 +17,10 @@ Beckers, G.J.L., Berwick B.C., Okanoya, K. and Bolhuis, J.J. (2016) What do
 animals learn in artificial grammar studies? Neuroscience & Biobehavioral
 Reviews [http://dx.doi.org/10.1016/j.neubiorev.2016.12.021])
 
+See the supplementary information of this paper to see the results of such
+analyses: here_.
+        .. _here: https://rawgit.com/gjlbeckers-uu/aglcheck/master/agl_stimulussets_analyzed/suppl_info_beckers_etal_2016_jneurobiorev_revision1.html
+
 However, the wider objective is to provide visualization software that can be
 used to analyze AGL string set design more generally.
 
