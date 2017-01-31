@@ -24,12 +24,12 @@ An example of a visualization that shows a bias in shared chunk length and
 corresponding duration is ('E' strings are exposure strings, 'CT' grammar
 correct test strings, and 'VT' grammar violating test strings):
 
-.. image:: example_figures/example_fig_sharedchunklength_1.png
-   :width: 100%
+    .. image:: example_figures/example_fig_sharedchunklength_1.png
+    :width: 100%
 
 Quantifications and visualizations can be produced from a very simple text file
-(yaml format), that lists the strings of interest, and, optionally, provides token
-durations (see example_)
+(yaml format) that lists the strings of interest, and, optionally, provides
+token durations (see example_)
     .. _example: aglcheck/datafiles/wilsonetal_natcomm_2015.yaml
 
 More details on matches at the level of individual strings can be scrutinized
@@ -40,7 +40,7 @@ in HTML tables (e.g., see table_)
 
 Development status
 ------------------
-This is alpha software. It works for what it was initially was designed for,
+This is alpha software. It does what it was initially was designed for,
 and should also be usable for other applications. The lack of documentation is
 the biggest hurdle, but see below. Contributions in any form are very welcome.
 
@@ -52,8 +52,9 @@ organized for general use.
 
 Documentation
 -------------
-There is no documentation yet, but for now hopefully the jupyter notebooks in
-the tutorials folder show the library can be used.
+There is no documentation yet, but for now the jupyter notebooks in the
+tutorials folder show basic usage.
+
 
 Installation
 ------------
