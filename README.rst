@@ -19,6 +19,19 @@ Reviews [http://dx.doi.org/10.1016/j.neubiorev.2016.12.021])
 However the wider objective is to provide visualization software that can be
 used to analyze AGL string design in general.
 
+An example of a visualization that shows a bias in shared chunk length and
+corresponding duration is ('E' strings are exposure strings, 'CT' grammar
+correct test strings, and 'VT' grammar violating test strings):
+
+.. image:: example_figures/example_fig_sharedchunklength_1.png
+   :width: 100%
+
+Quantifications and visualizations are produced from a simple text file (yaml),
+that lists the strings of interest, and, optionally, provides token durations
+(see example_
+    .. _example: aglcheck/datafiles/wilsonetal_natcomm_2015.yaml
+
+
 Development status
 ------------------
 This is alpha software. It works for what it was initially was designed for,
@@ -30,11 +43,6 @@ notebook that produces the supplementary information. The 0.2.x series should
 be refactored so that functions and classes are more logically named and
 organized for general use.
 
-An example of a visualization that shows a bias the shared chunk length and
-corresponding duration is:
-
-.. image:: example_figures/example_fig_sharedchunklength_1.png
-   :width: 100%
 
 Documentation
 -------------
