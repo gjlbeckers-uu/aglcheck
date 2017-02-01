@@ -7,28 +7,68 @@ aglcheck
 What is aglcheck?
 -----------------
 *aglcheck* is a python library for analyzing non-grammatical similaritites
-between strings used in artificial grammar learning (AGL) experiments.
-
-*aglcheck* was initially written to analyze string sets for potential
-confounds based on acoustic similarity in a sample of 9 AGL studies in nonhuman
-animals for the scientific paper:
+between strings used in artificial grammar learning (AGL) experiments. It was
+initially written to analyze string sets for potential confounds based on
+acoustic similarity in a sample of 9 AGL studies in nonhuman animals for the
+scientific paper:
 
 Beckers, G.J.L., Berwick B.C., Okanoya, K. and Bolhuis, J.J. (2016) What do
 animals learn in artificial grammar studies? *Neuroscience & Biobehavioral
 Reviews* [http://dx.doi.org/10.1016/j.neubiorev.2016.12.021]
-
 
 See the supplementary information of this paper to see the results of such
 analyses: here_.
 
 .. _here: https://rawgit.com/gjlbeckers-uu/aglcheck/master/agl_stimulussets_analyzed/suppl_info_beckers_etal_2016_jneurobiorev_revision1.html
 
+These were produced with version 0.1.0, which is saved as a separate branch.
 However, the wider objective is to provide visualization software that can be
-used to analyze AGL string set design more generally.
+used to analyze AGL string set design more generally. Hence, the software
+continues to be developed.
 
-An example of a visualization that shows a bias in shared chunk length and
-corresponding duration is ('E' strings are exposure strings, 'CT' grammar
-correct test strings, and 'VT' grammar violating test strings):
+An example of how visualization is useful, consider the following strings, used
+in Wilson et al. (2015) Nat. Commun. [http://dx.doi.org/10.1038/ncomms9901]:
+
++-----------+-------+---------+
+| type      | label | string  |
++===========+=======+=========+
+|           | E1    |  acf    |
+|           +-------+---------+
+|           | E2    |  acfc   |
+|           +-------+---------+
+|           | E3    |  acgf   |
+|           +-------+---------+
+|           | E4    |  acgfc  |
+|           +-------+---------+
+| Exposure  | E5    |  adcf   |
+| strings   +-------+---------+
+|           | E6    |  adcfc  |
+|           +-------+---------+
+|           | E7    |  adcfcg |
+|           +-------+---------+
+|           | E8    |  adcgf  |
+|           +-------+---------+
+|           | E9    |  acgfcg |
++-----------+-------+---------+
+|           | CT1   |  acgfc  |
+| Grammar   +-------+---------+
+| Cosistent | CT2   |  adcfcg |
+| Test      +-------+---------+
+| strings   | CT3   |  acfcg  |
+|           +-------+---------+
+|           | CT4   |  adcgfc |
++-----------+-------+---------+
+|           | VT1   |  afgcd  |
+| Grammar   +-------+---------+
+| Violating | VT2   |  afcdgc |
+| Test      +-------+---------+
+| strings   | VT3   |  fadgc  |
+|           +-------+---------+
+|           | VT4   |  dcafgc |
++-----------+-------+---------+
+
+In this string design, there is a bias in shared chunk length (A) and
+corresponding duration (B):
 
 .. image:: example_figures/example_fig_sharedchunklength_1.png
     :width: 100%
@@ -37,7 +77,7 @@ Quantifications and visualizations can be produced from a very simple text file
 (yaml format) that lists the strings of interest, and, optionally, provides
 token durations (see example_)
 
-.. _example: aglcheck/datafiles/wilsonetal_natcomm_2015.yaml
+.. _example: https://github.com/gjlbeckers-uu/aglcheck/blob/master/aglcheck/datafiles/wilsonetal_natcomm_2015.yaml
 
 More details on matches at the level of individual strings can be scrutinized
 in HTML tables (e.g., see table_)
