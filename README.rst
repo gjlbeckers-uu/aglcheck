@@ -9,17 +9,19 @@ What is aglcheck?
 *aglcheck* is a python library for analyzing non-grammatical similaritites
 between strings used in artificial grammar learning (AGL) experiments.
 
-*aglcheck* was initially written to analyze string sets for unintentional
+*aglcheck* was initially written to analyze string sets for potential
 confounds based on acoustic similarity in a sample of 9 AGL studies in nonhuman
 animals for the scientific paper:
 
 Beckers, G.J.L., Berwick B.C., Okanoya, K. and Bolhuis, J.J. (2016) What do
-animals learn in artificial grammar studies? Neuroscience & Biobehavioral
-Reviews [http://dx.doi.org/10.1016/j.neubiorev.2016.12.021])
+animals learn in artificial grammar studies? *Neuroscience & Biobehavioral
+Reviews* [http://dx.doi.org/10.1016/j.neubiorev.2016.12.021]
+
 
 See the supplementary information of this paper to see the results of such
 analyses: here_.
-    .. _here: https://rawgit.com/gjlbeckers-uu/aglcheck/master/agl_stimulussets_analyzed/suppl_info_beckers_etal_2016_jneurobiorev_revision1.html
+
+.. _here: https://rawgit.com/gjlbeckers-uu/aglcheck/master/agl_stimulussets_analyzed/suppl_info_beckers_etal_2016_jneurobiorev_revision1.html
 
 However, the wider objective is to provide visualization software that can be
 used to analyze AGL string set design more generally.
@@ -28,17 +30,19 @@ An example of a visualization that shows a bias in shared chunk length and
 corresponding duration is ('E' strings are exposure strings, 'CT' grammar
 correct test strings, and 'VT' grammar violating test strings):
 
-    .. image:: example_figures/example_fig_sharedchunklength_1.png
-        :width: 100%
+.. image:: example_figures/example_fig_sharedchunklength_1.png
+    :width: 100%
 
 Quantifications and visualizations can be produced from a very simple text file
 (yaml format) that lists the strings of interest, and, optionally, provides
 token durations (see example_)
-    .. _example: aglcheck/datafiles/wilsonetal_natcomm_2015.yaml
+
+.. _example: aglcheck/datafiles/wilsonetal_natcomm_2015.yaml
 
 More details on matches at the level of individual strings can be scrutinized
 in HTML tables (e.g., see table_)
-    .. _table: https://rawgit.com/gjlbeckers-uu/aglcheck/master/example_figures/example_table.html
+
+.. _table: https://rawgit.com/gjlbeckers-uu/aglcheck/master/example_figures/example_table.html
 
 
 
@@ -56,8 +60,10 @@ organized for general use.
 
 Documentation
 -------------
-There is no documentation yet, but for now the jupyter notebooks in the
-tutorials folder show basic usage.
+There is no real documentation yet, but for now the jupyter notebooks in the
+tutorials_ folder show basic usage.
+
+.. _tutorials: https://github.com/gjlbeckers-uu/aglcheck/tree/master/tutorials
 
 
 Installation
@@ -65,7 +71,8 @@ Installation
 The *aglcheck* library requires Python 2.7 or 3.5 or higher, and the packages
 *numpy*, *matplotlib*, *yaml*, and *pandas*. I recommend the scientific Python
 distribution Anaconda_ for easy installation, although it is not required.
-    .. _Anaconda: https://www.continuum.io/downloads
+
+.. _Anaconda: https://www.continuum.io/downloads
 
 Copyright and License
 ---------------------
