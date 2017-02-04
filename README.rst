@@ -67,7 +67,7 @@ in Wilson et al. (2015) Nat. Commun. [http://dx.doi.org/10.1038/ncomms9901]:
 |           | VT4   |  dcafgc |
 +-----------+-------+---------+
 
-In this string design, there is a bias in shared chunk length (A) and
+In this string design, there is a bias in shared maximum chunk length (A) and
 corresponding duration (B):
 
 .. image:: example_figures/example_fig_sharedchunklength_1.png
