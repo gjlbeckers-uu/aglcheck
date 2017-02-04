@@ -3,8 +3,8 @@ package:
   version: "0.2.0b"
 
 source:
-  #git-rev: v0.2.0b
   git-url: https://github.com/gjlbeckers-uu/aglcheck.git
+  git-rev: v0.2.0b
 
 requirements:
   build:
