@@ -1,8 +1,8 @@
 import numpy as np
 from . import algorithms as alg
 
-__all__ = ['crosscorrelationmax', 'lengthnsubstringcount',
-           'longestsubstringlength', 'longestsubstringduration',
+__all__ = ['crosscorrelationmax', 'sharedlengthnsubstringcount',
+           'longestsharedsubstringlength', 'longestsharedsubstringduration',
            'commonstartduration', 'commonstartlength', 'issubstring', 'issame',
            'samestart', 'levenshtein', 'plot_comparison']
 
@@ -81,10 +81,10 @@ def _analyze_dataset(stringdata, analysisf, dataaccessf,
                            title=title)
 
 
-def longestsubstringlength(stringdata, comparison='full'):
+def longestsharedsubstringlength(stringdata, comparison='full'):
 
     def analysisf(s1, s2, readingframe):
-        items = alg.longestsubstrings(s1, s2, readingframe=readingframe)
+        items = alg.longestsharedsubstrings(s1, s2, readingframe=readingframe)
         if items:
             return int(len(items[0][0]) / readingframe)
         else:
@@ -93,21 +93,21 @@ def longestsubstringlength(stringdata, comparison='full'):
     def dataaccessfunc(count):
         return count
 
-    title = 'Length longest substring match'
+    title = 'Length longest shared substring'
     return _analyze_dataset(stringdata, analysisf, dataaccessfunc,
                             title=title, comparison=comparison)
 
 
-def longestsubstringduration(stringdata, comparison='full'):
+def longestsharedsubstringduration(stringdata, comparison='full'):
     def analysisf(s1, s2, readingframe):
-        return alg.longestsubstringduration(s1, s2,
-                                            tokendurations=stringdata.tokendurations,
-                                            isiduration=stringdata.isiduration,
-                                            readingframe=readingframe)
+        return alg.longestsharedsubstringduration(s1, s2,
+                                                  tokendurations=stringdata.tokendurations,
+                                                  isiduration=stringdata.isiduration,
+                                                  readingframe=readingframe)
 
     def dataaccessfunc(duration):
         return duration
-    title = 'Duration longest substring match'
+    title = 'Duration longest shared substring'
     return _analyze_dataset(stringdata, analysisf, dataaccessfunc,
                             title=title, comparison=comparison)
 
@@ -122,17 +122,17 @@ def crosscorrelationmax(stringdata, comparison='full'):
                             title=title, comparison=comparison)
 
 
-def lengthnsubstringcount(stringdata, n, comparison='full'):
+def sharedlengthnsubstringcount(stringdata, n, comparison='full'):
 
     def analysisf(s1, s2, readingframe):
-        return alg.lengthnsubstrings(s1, s2, n, readingframe)
+        return alg.sharedlengthnsubstrings(s1, s2, n, readingframe)
 
     def dataaccessfunc(item):
         if item != ():
             return sum([len(c[1]) for c in item])
         else:
             return 0
-    title = 'Number of {}-length substring matches'.format(n)
+    title = 'Number of {}-length shared substrings'.format(n)
     return _analyze_dataset(stringdata, analysisf, dataaccessfunc,
                             title=title, comparison=comparison)
 

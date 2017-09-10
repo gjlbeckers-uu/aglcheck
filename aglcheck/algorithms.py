@@ -1,15 +1,17 @@
 import numpy as np
 
 __all__ = ['commonstart', 'commonstartlength', 'commonstartduration',
-           'crosscorrelate', 'lengthnsubstrings', 'longestsubstrings',
-           'longestsubstringduration', 'samestart', 'samestart', 'substrings']
+           'crosscorrelate', 'sharedlengthnsubstrings',
+           'longestsharedsubstrings',
+           'longestsharedsubstringduration', 'samestart', 'samestart',
+           'sharedsubstrings']
 
 
 # Notations:
 # ---------
 # s1, s2, ..., sn : strings
-# s1ss, s2ss, ..., snss: substrings of s1, s2, ..., sn
-# ss1, ss2, ..., ssn : substrings
+# s1ss, s2ss, ..., snss: sharedsubstrings of s1, s2, ..., sn
+# ss1, ss2, ..., ssn : sharedsubstrings
 
 
 def _checkpositiveint(i):
@@ -27,9 +29,9 @@ def _checkstring(s, readingframe=1):
                              'readingframe of {}'.format(s, readingframe))
 
 
-def lengthnsubstrings(s1, s2, n, readingframe=1):
+def sharedlengthnsubstrings(s1, s2, n, readingframe=1):
     """
-    Finds length-n substrings of s1 in s2.
+    Finds length-n shared substrings of s1 in s2.
 
     Parameters
     ----------
@@ -38,7 +40,7 @@ def lengthnsubstrings(s1, s2, n, readingframe=1):
     s2 : string
         String within which length-n substrings of s1 are matched
     n : positive int
-        Length of the substrings of s1 that are considered
+        Length of the shared substrings that are considered
     readingframe : positive int, default 1
         The number of characters that make up one string token. Normally 1,
         so that, e.g. the string "abcd" has 4 tokens. However if there exist
@@ -48,9 +50,9 @@ def lengthnsubstrings(s1, s2, n, readingframe=1):
     Returns
     -------
     Tuple with hits. Each hit is a two-tuple, containing a
-    substring match and a two-tuple of the positions where the substrings
-    occur in s1 and s2.. Note that the positions refer to the python strings,
-    and do not take into account the reading frame.
+    substring match and a two-tuple of the positions where the shared 
+    substrings occur in s1 and s2.. Note that the positions refer to the 
+    python strings, and do not take into account the reading frame.
 
     """
 
@@ -73,9 +75,9 @@ def lengthnsubstrings(s1, s2, n, readingframe=1):
     return tuple((ss, positions) for (ss, positions) in matches if positions)
 
 
-def substrings(s1, s2, readingframe=1):
+def sharedsubstrings(s1, s2, readingframe=1):
     """
-    Finds all possible substrings of s1 in s2.
+    Finds all possible shared substrings of s1 in s2.
 
     Parameters
     ----------
@@ -95,17 +97,18 @@ def substrings(s1, s2, readingframe=1):
     substring match and the number of times it occurs.
 
     """
-    # we apply find_lengthnsubstrings on all possible length-n substrings of s1
-    # this returns a list (n-lengths) of lists of tuples (string, count)
-    matches = [lengthnsubstrings(s1, s2, n, readingframe)
+    # we apply find_lengthnsubstrings on all possible length-n
+    # substrings of s1 this returns a list (n-lengths) of lists of tuples
+    # (string, count)
+    matches = [sharedlengthnsubstrings(s1, s2, n, readingframe)
                for n in range(1, len(s1) + 1)]
     # remove empty 'matches'
     return tuple(match for match in matches if match)
 
 
-def longestsubstrings(s1, s2, readingframe=1):
+def longestsharedsubstrings(s1, s2, readingframe=1):
     """
-    Finds longest substrings of s1 in s2. If there are multiple
+    Finds longest shared substrings of s1 in s2. If there are multiple
     matches, return every match.
 
     Parameters
@@ -127,17 +130,17 @@ def longestsubstrings(s1, s2, readingframe=1):
     
     """
     for n in range(len(s1)//readingframe, 0, -1):
-        matches = lengthnsubstrings(s1, s2, n, readingframe)
+        matches = sharedlengthnsubstrings(s1, s2, n, readingframe)
         if matches:
             return matches
     return ()
 
 
-def longestsubstringduration(s1, s2, tokendurations, isiduration,
-                             readingframe=1):
+def longestsharedsubstringduration(s1, s2, tokendurations, isiduration,
+                                   readingframe=1):
     durations = [0.]
-    for s, positions in longestsubstrings(s1=s1, s2=s2,
-                                          readingframe=readingframe):
+    for s, positions in longestsharedsubstrings(s1=s1, s2=s2,
+                                                readingframe=readingframe):
         elements = [s[i:i + readingframe] for i in
                     range(0, len(s), readingframe)]
         sounddur = sum([tokendurations[el] for el in elements])

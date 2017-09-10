@@ -1,10 +1,10 @@
 package:
   name: aglcheck
-  version: "0.2.0b"
+  version: "0.1.0"
 
 source:
   git-url: https://github.com/gjlbeckers-uu/aglcheck.git
-  git-rev: v0.2.0b
+  git-rev: v0.1.0
 
 requirements:
   build:
