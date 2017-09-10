@@ -3,6 +3,7 @@ from . import algorithms as alg
 
 __all__ = ['crosscorrelationmax', 'sharedlengthnsubstringcount',
            'longestsharedsubstringlength', 'longestsharedsubstringduration',
+           'novellengthnsubstringcount',
            'commonstartduration', 'commonstartlength', 'issubstring', 'issame',
            'samestart', 'levenshtein', 'plot_comparison']
 
@@ -63,8 +64,8 @@ class ComparisonTable(object):
         return pd.Series(values, index=index)
 
 
-def _analyze_dataset(stringdata, analysisf, dataaccessf,
-                     title=None, comparison='full'):
+def _analyze_datastringbystring(stringdata, analysisf, dataaccessf,
+                                title=None, comparison='full'):
     stringgroups = stringdata.comparisons[comparison]
     rf = stringdata.readingframe
     results = {}
@@ -94,8 +95,8 @@ def longestsharedsubstringlength(stringdata, comparison='full'):
         return count
 
     title = 'Length longest shared substring'
-    return _analyze_dataset(stringdata, analysisf, dataaccessfunc,
-                            title=title, comparison=comparison)
+    return _analyze_datastringbystring(stringdata, analysisf, dataaccessfunc,
+                                       title=title, comparison=comparison)
 
 
 def longestsharedsubstringduration(stringdata, comparison='full'):
@@ -108,8 +109,8 @@ def longestsharedsubstringduration(stringdata, comparison='full'):
     def dataaccessfunc(duration):
         return duration
     title = 'Duration longest shared substring'
-    return _analyze_dataset(stringdata, analysisf, dataaccessfunc,
-                            title=title, comparison=comparison)
+    return _analyze_datastringbystring(stringdata, analysisf, dataaccessfunc,
+                                       title=title, comparison=comparison)
 
 def crosscorrelationmax(stringdata, comparison='full'):
 
@@ -118,8 +119,8 @@ def crosscorrelationmax(stringdata, comparison='full'):
     def dataaccessfunc(items): return max(items[0])
 
     title = 'Maximum crosscorrelation'
-    return _analyze_dataset(stringdata, analysisf, dataaccessfunc,
-                            title=title, comparison=comparison)
+    return _analyze_datastringbystring(stringdata, analysisf, dataaccessfunc,
+                                       title=title, comparison=comparison)
 
 
 def sharedlengthnsubstringcount(stringdata, n, comparison='full'):
@@ -133,9 +134,22 @@ def sharedlengthnsubstringcount(stringdata, n, comparison='full'):
         else:
             return 0
     title = 'Number of {}-length shared substrings'.format(n)
-    return _analyze_dataset(stringdata, analysisf, dataaccessfunc,
-                            title=title, comparison=comparison)
+    return _analyze_datastringbystring(stringdata, analysisf, dataaccessfunc,
+                                       title=title, comparison=comparison)
 
+def novellengthnsubstringcount(stringdata, n, comparison='full'):
+
+    def analysisf(s1, s2, readingframe):
+        return alg.novellengthnsubstrings(s2, s1, n, readingframe)
+
+    def dataaccessfunc(item):
+        if item != ():
+            return len(item)
+        else:
+            return 0
+    title = 'Number of novel {}-length substrings'.format(n)
+    return _analyze_datastringbystring(stringdata, analysisf, dataaccessfunc,
+                                       title=title, comparison=comparison)
 
 def commonstartlength(stringdata, comparison='full'):
     analysisf = alg.commonstartlength
@@ -143,8 +157,8 @@ def commonstartlength(stringdata, comparison='full'):
     def dataaccessfunc(item): return item
 
     title = "Length of shared start substring"
-    return _analyze_dataset(stringdata, analysisf, dataaccessfunc,
-                            title=title, comparison=comparison)
+    return _analyze_datastringbystring(stringdata, analysisf, dataaccessfunc,
+                                       title=title, comparison=comparison)
 
 
 def commonstartduration(stringdata, comparison='full'):
@@ -156,8 +170,8 @@ def commonstartduration(stringdata, comparison='full'):
 
     def dataaccessfunc(duration): return duration
     title = 'Duration of shared start substring'
-    return _analyze_dataset(stringdata, analysisf, dataaccessfunc,
-                            title=title, comparison=comparison)
+    return _analyze_datastringbystring(stringdata, analysisf, dataaccessfunc,
+                                       title=title, comparison=comparison)
 
 
 def issame(stringdata, comparison='full'):
@@ -167,8 +181,8 @@ def issame(stringdata, comparison='full'):
     def dataaccessfunc(item): return item
 
     title = 'Identical strings'
-    return _analyze_dataset(stringdata, analysisf, dataaccessfunc,
-                            title=title, comparison=comparison)
+    return _analyze_datastringbystring(stringdata, analysisf, dataaccessfunc,
+                                       title=title, comparison=comparison)
 
 
 def issubstring(stringdata, comparison='full'):
@@ -178,8 +192,8 @@ def issubstring(stringdata, comparison='full'):
     def dataaccessfunc(item): return item
 
     title = 'Is substring'
-    return _analyze_dataset(stringdata, analysisf, dataaccessfunc,
-                            title=title, comparison=comparison)
+    return _analyze_datastringbystring(stringdata, analysisf, dataaccessfunc,
+                                       title=title, comparison=comparison)
 
 def samestart(stringdata, n, comparison='full'):
 
@@ -189,8 +203,8 @@ def samestart(stringdata, n, comparison='full'):
     def dataaccessfunc(item): return item
 
     title = 'Has same {}-length substring start'.format(n)
-    return _analyze_dataset(stringdata, analysisf, dataaccessfunc,
-                            title, comparison=comparison)
+    return _analyze_datastringbystring(stringdata, analysisf, dataaccessfunc,
+                                       title, comparison=comparison)
 
 
 def levenshtein(stringdata, comparison='full'):
@@ -201,8 +215,8 @@ def levenshtein(stringdata, comparison='full'):
     def dataaccessfunc(item): return item
 
     title = 'Levenshtein distance'
-    return _analyze_dataset(stringdata, analysisf, dataaccessfunc,
-                            title, comparison=comparison)
+    return _analyze_datastringbystring(stringdata, analysisf, dataaccessfunc,
+                                       title, comparison=comparison)
 
 def plot_comparison(comparisontable, cmap=None,
                     colorbarorientation='vertical',

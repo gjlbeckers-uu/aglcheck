@@ -1,7 +1,7 @@
 import numpy as np
 from .algorithms import longestsharedsubstrings, crosscorrelate, startswith, \
                         issubstring, commonstart
-from .compare_sets import _analyze_dataset
+from .compare_sets import _analyze_datastringbystring
 
 __all__ = ['crosscorrelationmaxtable', 'htmltable',
            'longestsharedsubstringstable',
@@ -99,8 +99,8 @@ def longestsharedsubstringstable(stringdata, minlen=1, comparison='full',
     def dataaccessfunc(items):
         return items
 
-    ct = _analyze_dataset(stringdata, analysisf, dataaccessfunc,
-                                      title=title, comparison=comparison)
+    ct = _analyze_datastringbystring(stringdata, analysisf, dataaccessfunc,
+                                     title=title, comparison=comparison)
     return htmltable(ct, transpose=transpose)
 
 
@@ -117,8 +117,8 @@ def commonstartsubstringstable(stringdata, comparison='full',
     def dataaccessfunc(items):
         return items
 
-    ct = _analyze_dataset(stringdata, analysisf, dataaccessfunc,
-                                      title=title, comparison=comparison)
+    ct = _analyze_datastringbystring(stringdata, analysisf, dataaccessfunc,
+                                     title=title, comparison=comparison)
     return htmltable(ct, transpose=transpose)
 
 
@@ -141,8 +141,8 @@ def crosscorrelationmaxtable(stringdata, minlen=1, mismatchchar='_',
 
     def dataaccessfunc(items): return items
 
-    return htmltable(_analyze_dataset(stringdata, analysisf, dataaccessfunc,
-                                      title=title, comparison=comparison),
+    return htmltable(_analyze_datastringbystring(stringdata, analysisf, dataaccessfunc,
+                                                 title=title, comparison=comparison),
                      transpose=transpose)
 
 def startswithtable(stringdata, comparison='full',
@@ -161,8 +161,8 @@ def startswithtable(stringdata, comparison='full',
 
     def dataaccessfunc(items): return items
 
-    return htmltable(_analyze_dataset(stringdata, analysisf, dataaccessfunc,
-                                      title=title, comparison=comparison),
+    return htmltable(_analyze_datastringbystring(stringdata, analysisf, dataaccessfunc,
+                                                 title=title, comparison=comparison),
                      transpose=transpose)
 
 
@@ -181,6 +181,6 @@ def issubstringtable(stringdata, comparison='full', title = 'Is substring',
 
     def dataaccessfunc(item): return item
 
-    return htmltable(_analyze_dataset(stringdata, analysisf, dataaccessfunc,
-                                      title, comparison=comparison),
-                    transpose=transpose)
+    return htmltable(_analyze_datastringbystring(stringdata, analysisf, dataaccessfunc,
+                                                 title, comparison=comparison),
+                     transpose=transpose)

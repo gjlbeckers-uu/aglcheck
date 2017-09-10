@@ -2,8 +2,8 @@ import numpy as np
 
 __all__ = ['commonstart', 'commonstartlength', 'commonstartduration',
            'crosscorrelate', 'sharedlengthnsubstrings',
-           'longestsharedsubstrings',
-           'longestsharedsubstringduration', 'samestart', 'samestart',
+           'longestsharedsubstrings', 'longestsharedsubstringduration',
+           'novellengthnsubstrings', 'samestart', 'samestart',
            'sharedsubstrings']
 
 
@@ -27,6 +27,35 @@ def _checkstring(s, readingframe=1):
         if not len(s) % readingframe == 0:
             raise ValueError('string "{}" not comatible with '
                              'readingframe of {}'.format(s, readingframe))
+
+def lengthnsubstrings(s, n, readingframe=1):
+    """
+    Finds length-n substrings of s.
+    
+    Parameters
+    ----------
+    s : string
+        String from which length-n substrings are generated. 
+    n : positive int
+        Length of the shared substrings that are considered
+    readingframe : positive int, default 1
+        The number of characters that make up one string token. Normally 1,
+        so that, e.g. the string "abcd" has 4 tokens. However if there exist
+        many tokens, these can be coded with multiple ascii symbols. E.g., if
+        readingframe is 2, then "abcd" has two tokens, namely "ab" and "cd".
+
+    Returns
+    -------
+    Tuple with substrings.
+    
+    """
+    _checkpositiveint(readingframe)
+    _checkstring(s, readingframe=readingframe)
+    _checkpositiveint(n)
+    # how many length-n substrings exist in in s1?
+    nss1 = int(len(s) / readingframe) - n + 1
+    return tuple(s[i:i + n * readingframe]
+                 for i in range(0, nss1 * readingframe, readingframe))
 
 
 def sharedlengthnsubstrings(s1, s2, n, readingframe=1):
@@ -60,11 +89,8 @@ def sharedlengthnsubstrings(s1, s2, n, readingframe=1):
     _checkstring(s1, readingframe=readingframe)
     _checkstring(s2, readingframe=readingframe)
     _checkpositiveint(n)
-    # how many length-n substrings exist in in s1?
-    nss1 = int(len(s1) / readingframe) - n + 1
-    # create a generator of all length-n substrings of s1
-    s1ss = (s1[i:i + n * readingframe] for i in
-            range(0, nss1 * readingframe, readingframe))
+    # which length-n substrings exist in in s1?
+    s1ss = lengthnsubstrings(s1, n=n, readingframe=readingframe)
     # create a generator of tuples with s1 substrings together
     # with the positions where they occur in s2
     matches = ((ss, [(pos * readingframe, i) for i in
@@ -146,6 +172,44 @@ def longestsharedsubstringduration(s1, s2, tokendurations, isiduration,
         sounddur = sum([tokendurations[el] for el in elements])
         durations.append(sounddur + (len(elements) - 1) * isiduration)
     return float(np.max(durations))
+
+
+def novellengthnsubstrings(s1, s2, n, readingframe=1):
+    """
+    Finds length-n shared substrings of s1 that are absent in s2.
+
+    Parameters
+    ----------
+    s1 : string
+        String from which length-n substrings are generated.
+    s2 : string
+        String within which length-n substrings of s1 are matched
+    n : positive int
+        Length of the shared substrings that are considered
+    readingframe : positive int, default 1
+        The number of characters that make up one string token. Normally 1,
+        so that, e.g. the string "abcd" has 4 tokens. However if there exist
+        many tokens, these can be coded with multiple ascii symbols. E.g., if
+        readingframe is 2, then "abcd" has two tokens, namely "ab" and "cd".
+
+    Returns
+    -------
+    Tuple with hits. Each hit is a two-tuple, containing a 
+    substring mismatch and the position where the shared 
+    substrings occurs in s1. Note that the positions refer to the 
+    python strings, and do not take into account the reading frame.
+
+    """
+
+    _checkpositiveint(readingframe)
+    _checkstring(s1, readingframe=readingframe)
+    _checkstring(s2, readingframe=readingframe)
+    _checkpositiveint(n)
+    # which length-n substrings exist in in s1?
+    s1ss = lengthnsubstrings(s1, n=n, readingframe=readingframe)
+    s2ss = set(lengthnsubstrings(s2, n=n, readingframe=readingframe))
+    return tuple((ss, pos) for pos, ss in enumerate(s1ss) if ss not in s2ss)
+
 
 
 def commonstart(s1, s2, readingframe=1):
