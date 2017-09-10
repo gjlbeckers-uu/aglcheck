@@ -81,6 +81,7 @@ def _analyze_datastringbystring(stringdata, analysisf, dataaccessf,
                            stringgroups=stringgroups,
                            title=title)
 
+#FIXME add _analyze_datastringbyset
 
 def longestsharedsubstringlength(stringdata, comparison='full'):
 
