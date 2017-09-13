@@ -1,4 +1,3 @@
-import numpy as np
 from . import algorithms as alg
 
 __all__ = ['crosscorrelationmax', 'sharedlengthnsubstringcount',
@@ -7,8 +6,9 @@ __all__ = ['crosscorrelationmax', 'sharedlengthnsubstringcount',
            'commonstartduration', 'commonstartlength', 'issubstring', 'issame',
            'samestart', 'levenshtein']
 
+#FIXME naming of functions should be different from algorithms
 
-class ComparisonTable(object):
+class ComparisonMatrix(object):
     def __init__(self, resultsdict, dataaccessfunc,
                  stringdata, comparison, title=None):
 
@@ -55,30 +55,34 @@ class ComparisonTable(object):
     #     return pd.Series(values, index=index)
 
 
-def _analyze_datastringbystring(stringdata, analysisf, dataaccessf,
-                                title=None, comparison=('All','All')):
+def _analyze_stringbystring(stringdata, analysisf, dataaccessf,
+                            title=None, comparison=('All','All')):
     """
     Private function that takes string data sets, applies an analysis function
-    to each string from a set with each string from another set. Which strings
-    are compared is determined by the `comparison` parameter. Default is `full`
-    which means that every string is compared with every other string.
+    to each string from the first set in `comparison` with each string from 
+    the second set in `comparison`. The sets should be defined in `stringdata`.
 
-    The analysisf must take two strings as the first two arguments.
+    The analysisf must take two strings as the first two arguments and 
+    readingframe as the third.
 
     The dataaccessf can be used to further process the results of the
     analysisf before the result is returned. E.g. count the number of items
-    returned.
+    returned by analysisf.
 
     Parameters
     ----------
     stringdata
-    analysisf
-    dataaccessf
+    analysisf : a function
+        The function compares two strings and returns an outcome. It must take 
+        two strings as the first two arguments and readingframe as the third.
+    dataaccessf : a function
     title
     comparison
 
     Returns
     -------
+    A ComparisonMatrix instance that can be used for further analyses or 
+    visualization.
 
     """
     stringcategory0 = stringdata.stringcategories[comparison[0]]
@@ -91,18 +95,11 @@ def _analyze_datastringbystring(stringdata, analysisf, dataaccessf,
             s0 = stringdata.stringdict[s0label]
             s1 = stringdata.stringdict[s1label]
             results[s0label][s1label] = analysisf(s0, s1, readingframe=rf)
-    return ComparisonTable(resultsdict=results,
-                           dataaccessfunc=dataaccessf,
-                           stringdata=stringdata,
-                           comparison=comparison,
-                           title=title)
-
-# def _analyze_datastringbystringset(stringdata, analysisf, dataaccessf,
-#                              title=None, comparison='full',
-#                              setname='stringsa'):
-#     stringlabels1 = stringdata.comparisons[comparison][0].items()
-#     stringlabels2 = stringdata.comparisons[comparison][1].items()
-#
+    return ComparisonMatrix(resultsdict=results,
+                            dataaccessfunc=dataaccessf,
+                            stringdata=stringdata,
+                            comparison=comparison,
+                            title=title)
 
 #FIXME add _analyze_datastringbyset
 #FIXME add what is ploted against what
@@ -120,8 +117,8 @@ def longestsharedsubstringlength(stringdata, comparison=('All','All')):
         return count
 
     title = 'Length longest shared substring'
-    return _analyze_datastringbystring(stringdata, analysisf, dataaccessfunc,
-                                       title=title, comparison=comparison)
+    return _analyze_stringbystring(stringdata, analysisf, dataaccessfunc,
+                                   title=title, comparison=comparison)
 
 
 def longestsharedsubstringduration(stringdata, comparison=('All','All')):
@@ -134,8 +131,8 @@ def longestsharedsubstringduration(stringdata, comparison=('All','All')):
     def dataaccessfunc(duration):
         return duration
     title = 'Duration longest shared substring'
-    return _analyze_datastringbystring(stringdata, analysisf, dataaccessfunc,
-                                       title=title, comparison=comparison)
+    return _analyze_stringbystring(stringdata, analysisf, dataaccessfunc,
+                                   title=title, comparison=comparison)
 
 def crosscorrelationmax(stringdata, comparison=('All','All')):
 
@@ -144,8 +141,8 @@ def crosscorrelationmax(stringdata, comparison=('All','All')):
     def dataaccessfunc(items): return max(items[0])
 
     title = 'Maximum crosscorrelation'
-    return _analyze_datastringbystring(stringdata, analysisf, dataaccessfunc,
-                                       title=title, comparison=comparison)
+    return _analyze_stringbystring(stringdata, analysisf, dataaccessfunc,
+                                   title=title, comparison=comparison)
 
 
 def sharedlengthnsubstringcount(stringdata, n, comparison=('All','All')):
@@ -159,8 +156,8 @@ def sharedlengthnsubstringcount(stringdata, n, comparison=('All','All')):
         else:
             return 0
     title = 'Number of {}-length shared substrings'.format(n)
-    return _analyze_datastringbystring(stringdata, analysisf, dataaccessfunc,
-                                       title=title, comparison=comparison)
+    return _analyze_stringbystring(stringdata, analysisf, dataaccessfunc,
+                                   title=title, comparison=comparison)
 
 def novellengthnsubstringcount(stringdata, n, comparison=('All','All')):
 
@@ -173,8 +170,8 @@ def novellengthnsubstringcount(stringdata, n, comparison=('All','All')):
         else:
             return 0
     title = 'Number of novel {}-length substrings'.format(n)
-    return _analyze_datastringbystring(stringdata, analysisf, dataaccessfunc,
-                                       title=title, comparison=comparison)
+    return _analyze_stringbystring(stringdata, analysisf, dataaccessfunc,
+                                   title=title, comparison=comparison)
 
 def commonstartlength(stringdata, comparison=('All','All')):
     analysisf = alg.commonstartlength
@@ -182,8 +179,8 @@ def commonstartlength(stringdata, comparison=('All','All')):
     def dataaccessfunc(item): return item
 
     title = "Length of shared start substring"
-    return _analyze_datastringbystring(stringdata, analysisf, dataaccessfunc,
-                                       title=title, comparison=comparison)
+    return _analyze_stringbystring(stringdata, analysisf, dataaccessfunc,
+                                   title=title, comparison=comparison)
 
 
 def commonstartduration(stringdata, comparison=('All','All')):
@@ -195,8 +192,8 @@ def commonstartduration(stringdata, comparison=('All','All')):
 
     def dataaccessfunc(duration): return duration
     title = 'Duration of shared start substring'
-    return _analyze_datastringbystring(stringdata, analysisf, dataaccessfunc,
-                                       title=title, comparison=comparison)
+    return _analyze_stringbystring(stringdata, analysisf, dataaccessfunc,
+                                   title=title, comparison=comparison)
 
 
 def issame(stringdata, comparison=('All','All')):
@@ -206,8 +203,8 @@ def issame(stringdata, comparison=('All','All')):
     def dataaccessfunc(item): return item
 
     title = 'Identical strings'
-    return _analyze_datastringbystring(stringdata, analysisf, dataaccessfunc,
-                                       title=title, comparison=comparison)
+    return _analyze_stringbystring(stringdata, analysisf, dataaccessfunc,
+                                   title=title, comparison=comparison)
 
 
 def issubstring(stringdata, comparison=('All','All')):
@@ -217,8 +214,8 @@ def issubstring(stringdata, comparison=('All','All')):
     def dataaccessfunc(item): return item
 
     title = 'Is substring'
-    return _analyze_datastringbystring(stringdata, analysisf, dataaccessfunc,
-                                       title=title, comparison=comparison)
+    return _analyze_stringbystring(stringdata, analysisf, dataaccessfunc,
+                                   title=title, comparison=comparison)
 
 def samestart(stringdata, n, comparison=('All','All')):
 
@@ -228,8 +225,8 @@ def samestart(stringdata, n, comparison=('All','All')):
     def dataaccessfunc(item): return item
 
     title = 'Has same {}-length substring start'.format(n)
-    return _analyze_datastringbystring(stringdata, analysisf, dataaccessfunc,
-                                       title, comparison=comparison)
+    return _analyze_stringbystring(stringdata, analysisf, dataaccessfunc,
+                                   title, comparison=comparison)
 
 
 def levenshtein(stringdata, comparison=('All','All')):
@@ -240,5 +237,5 @@ def levenshtein(stringdata, comparison=('All','All')):
     def dataaccessfunc(item): return item
 
     title = 'Levenshtein distance'
-    return _analyze_datastringbystring(stringdata, analysisf, dataaccessfunc,
-                                       title, comparison=comparison)
+    return _analyze_stringbystring(stringdata, analysisf, dataaccessfunc,
+                                   title, comparison=comparison)

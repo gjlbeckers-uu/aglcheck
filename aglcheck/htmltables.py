@@ -1,11 +1,10 @@
 import numpy as np
 from .algorithms import longestsharedsubstrings, crosscorrelate, startswith, \
                         issubstring, commonstart
-from .compare_sets import _analyze_datastringbystring
+from .compare_sets import _analyze_stringbystring
 
-__all__ = ['crosscorrelationmaxtable', 'htmltable',
-           'longestsharedsubstringstable',
-           'write_html', 'startswithtable', 'issubstringtable']
+__all__ = ['crosscorrelationmaxtable', 'htmltable', 'issubstringtable',
+           'longestsharedsubstringstable', 'save_html', 'startswithtable']
 
 
 def htmlcolor_string(s, color='#FF4500'):
@@ -26,7 +25,7 @@ def htmlcolor_substrings(ss, s, position=None, color='#FF4500'):
             p3 = ''
         return '{}<span style="color:{}">{}</span>{}'.format(p1, color, p2, p3)
 
-def write_html(htmlcode, filename, include_doctags=True):
+def save_html(htmlcode, filename, include_doctags=True):
     with open(filename, 'w', encoding='utf-8') as f:
         if include_doctags:
             header = '<!DOCTYPE html>' \
@@ -107,8 +106,8 @@ def longestsharedsubstringstable(stringdata, minlen=1, comparison=('All', 'All')
     def dataaccessfunc(items):
         return items
 
-    ct = _analyze_datastringbystring(stringdata, analysisf, dataaccessfunc,
-                                     title=title, comparison=comparison)
+    ct = _analyze_stringbystring(stringdata, analysisf, dataaccessfunc,
+                                 title=title, comparison=comparison)
     return htmltable(ct, transpose=transpose)
 
 
@@ -132,8 +131,8 @@ def commonstartsubstringstable(stringdata, comparison=('All', 'All'),
     def dataaccessfunc(items):
         return items
 
-    ct = _analyze_datastringbystring(stringdata, analysisf, dataaccessfunc,
-                                     title=title, comparison=comparison)
+    ct = _analyze_stringbystring(stringdata, analysisf, dataaccessfunc,
+                                 title=title, comparison=comparison)
     return htmltable(ct, transpose=transpose)
 
 
@@ -156,8 +155,8 @@ def crosscorrelationmaxtable(stringdata, minlen=1, mismatchchar='_',
 
     def dataaccessfunc(items): return items
 
-    return htmltable(_analyze_datastringbystring(stringdata, analysisf, dataaccessfunc,
-                                                 title=title, comparison=comparison),
+    return htmltable(_analyze_stringbystring(stringdata, analysisf, dataaccessfunc,
+                                             title=title, comparison=comparison),
                      transpose=transpose)
 
 def startswithtable(stringdata, comparison=('All', 'All'),
@@ -187,9 +186,9 @@ def startswithtable(stringdata, comparison=('All', 'All'),
             title = 'Col strings starting with complete row string'
 
 
-    return htmltable(_analyze_datastringbystring(stringdata, analysisf, dataaccessfunc,
-                                                 title=title,
-                                                 comparison=comparison),
+    return htmltable(_analyze_stringbystring(stringdata, analysisf, dataaccessfunc,
+                                             title=title,
+                                             comparison=comparison),
                      transpose=transpose)
 
 
@@ -216,7 +215,7 @@ def issubstringtable(stringdata, comparison=('All', 'All'), title=None,
         else:
             title = 'Col string is substring of row string'
 
-    return htmltable(_analyze_datastringbystring(stringdata, analysisf, dataaccessfunc,
-                                                 title=title,
-                                                 comparison=comparison),
+    return htmltable(_analyze_stringbystring(stringdata, analysisf, dataaccessfunc,
+                                             title=title,
+                                             comparison=comparison),
                      transpose=transpose)
