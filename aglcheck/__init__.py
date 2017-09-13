@@ -3,6 +3,7 @@ from .stringdata import read_stringdata, StringData
 from ._examples import examplestringdata, get_examplestringdata
 from . import algorithms
 from . import compare_sets
+from . import plotting
 from . import htmltables
 
 from numpy.testing import Tester
