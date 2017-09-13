@@ -96,9 +96,9 @@ def sharedlengthnsubstrings(s1, s2, n, readingframe=1):
     --------
     >>> from aglcheck.algorithms import sharedlengthnsubstrings
     >>> sharedlengthnsubstrings('abcdefg', 'cdfgbcd', n=2)
-    (('bc', [(1, 4)]), ('cd', [(2, 0), (2, 5)]), ('fg', [(5, 2)]))
+    (('bc', ((1, 4),)), ('cd', ((2, 0), (2, 5))), ('fg', ((5, 2),)))
     >>> sharedlengthnsubstrings('a1a2c1b2b1', 'c1b2b1a1a2', n=2, readingframe=2)
-    (('a1a2', [(0, 6)]), ('c1b2', [(4, 0)]), ('b2b1', [(6, 2)]))
+    (('a1a2', ((0, 6),)), ('c1b2', ((4, 0),)), ('b2b1', ((6, 2),)))
 
     """
 
@@ -114,7 +114,7 @@ def sharedlengthnsubstrings(s1, s2, n, readingframe=1):
             if substring == s2[i:i + n * readingframe]:
                 positions.append((pos * readingframe, i))
         if len(positions) > 0:
-            matches.append((substring, positions))
+            matches.append((substring, tuple(positions)))
     return tuple(matches)
 
 

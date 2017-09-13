@@ -9,79 +9,79 @@ class TestLengthnsubstrings(TestCase):
         s1 = "bc"
         s2 = "abcde"
         ss = sharedlengthnsubstrings(s1=s1, s2=s2, n=2, readingframe=1)
-        self.assertEqual(ss, ((('bc'),[(0, 1)]),))
+        self.assertEqual(ss, ((('bc'),((0, 1),)),))
 
     def test_fullpartsingleresultstart(self):
         s1 = "ab"
         s2 = "abcde"
         ss = sharedlengthnsubstrings(s1=s1, s2=s2, n=2, readingframe=1)
-        self.assertEqual(ss, ((('ab'), [(0, 0)]),))
+        self.assertEqual(ss, ((('ab'), ((0, 0),)),))
 
     def test_fullpartsingleresultend(self):
         s1 = "de"
         s2 = "abcde"
         ss = sharedlengthnsubstrings(s1=s1, s2=s2, n=2, readingframe=1)
-        self.assertEqual(ss, ((('de'), [(0, 3)]),))
+        self.assertEqual(ss, ((('de'), ((0, 3),)),))
 
     def test_partpartsingleresult(self):
         s1 = "fbcg"
         s2 = "abcde"
         ss = sharedlengthnsubstrings(s1=s1, s2=s2, n=2, readingframe=1)
-        self.assertEqual(ss, ((('bc'), [(1, 1)]),))
+        self.assertEqual(ss, ((('bc'), ((1, 1),)),))
 
     def test_partpartsingleresultstart(self):
         s1 = "fabg"
         s2 = "abcde"
         ss = sharedlengthnsubstrings(s1=s1, s2=s2, n=2, readingframe=1)
-        self.assertEqual(ss, ((('ab'), [(1, 0)]),))
+        self.assertEqual(ss, ((('ab'), ((1, 0),)),))
 
     def test_partpartsingleresultend(self):
         s1 = "fdeg"
         s2 = "abcde"
         ss = sharedlengthnsubstrings(s1=s1, s2=s2, n=2, readingframe=1)
-        self.assertEqual(ss, ((('de'), [(1, 3)]),))
+        self.assertEqual(ss, ((('de'), ((1, 3),)),))
 
     def test_partfullsingleresult(self):
         s1 = "fbcg"
         s2 = "bc"
         ss = sharedlengthnsubstrings(s1=s1, s2=s2, n=2, readingframe=1)
-        self.assertEqual(ss, ((('bc'), [(1, 0)]),))
+        self.assertEqual(ss, ((('bc'), ((1, 0),)),))
 
     def test_partfullsingleresultstart(self):
         s1 = "abgf"
         s2 = "ab"
         ss = sharedlengthnsubstrings(s1=s1, s2=s2, n=2, readingframe=1)
-        self.assertEqual(ss, ((('ab'), [(0, 0)]),))
+        self.assertEqual(ss, ((('ab'), ((0, 0),)),))
 
     def test_partfullsingleresultend(self):
         s1 = "fgde"
         s2 = "de"
         ss = sharedlengthnsubstrings(s1=s1, s2=s2, n=2, readingframe=1)
-        self.assertEqual(ss, ((('de'), [(2, 0)]),))
+        self.assertEqual(ss, ((('de'), ((2, 0),)),))
 
     def test_doubleresult(self):
         s1 = "fdeg"
         s2 = "abcdedef"
         ss = sharedlengthnsubstrings(s1=s1, s2=s2, n=2, readingframe=1)
-        self.assertEqual(ss, ((('de', [(1, 3), (1, 5)]),)))
+        self.assertEqual(ss, ((('de', ((1, 3), (1, 5),)),)))
 
     def test_fullpartdoubleresult(self):
         s1 = "de"
         s2 = "abcdedef"
         ss = sharedlengthnsubstrings(s1=s1, s2=s2, n=2, readingframe=1)
-        self.assertEqual(ss, ((('de', [(0, 3), (0, 5)]),)))
+        self.assertEqual(ss, ((('de', ((0, 3), (0, 5),)),)))
 
     def test_partfulldoubleresult(self):
         s1 = "fdeg"
         s2 = "dede"
         ss = sharedlengthnsubstrings(s1=s1, s2=s2, n=2, readingframe=1)
-        self.assertEqual(ss, ((('de', [(1, 0), (1, 2)]),)))
+        self.assertEqual(ss, ((('de', ((1, 0), (1, 2),)),)))
 
     def test_readingframe2(self):
         s1 = "cdefgi"
         s2 = "abcdefgh"
         ss = sharedlengthnsubstrings(s1=s1, s2=s2, n=2, readingframe=2)
-        self.assertEqual(ss, ((('cdef', [(0, 2)]),)))
+        self.assertEqual(ss, ((('cdef', ((0, 2),)),)))
 
 
 class TestSubstrings(TestCase):
@@ -90,8 +90,9 @@ class TestSubstrings(TestCase):
         s1 = 'bc'
         s2 = 'abcde'
         ss = sharedsubstrings(s1=s1, s2=s2, readingframe=1)
-        self.assertEqual(ss, ((('b', [(0, 1)]), ('c', [(1, 2)])),
-                              (('bc', [(0, 1)]),)))
+        self.assertEqual(ss, ((('b', ((0, 1),)),
+                               ('c', ((1, 2),))),
+                              (('bc', ((0, 1),)),)))
 
 
 class TestLongestSubstrings(TestCase):
@@ -100,10 +101,10 @@ class TestLongestSubstrings(TestCase):
         s1 = 'bc'
         s2 = 'abcde'
         ss = longestsharedsubstrings(s1=s1, s2=s2, readingframe=1)
-        self.assertEqual(ss, ((('bc', [(0, 1)]),)))
+        self.assertEqual(ss, ((('bc', ((0, 1),)),)))
 
     def test_doubleresult(self):
         s1 = 'bcdabc'
         s2 = 'abcde'
         ss = longestsharedsubstrings(s1=s1, s2=s2, readingframe=1)
-        self.assertEqual(ss, (('bcd', [(0, 1)]), ('abc', [(3, 0)])))
+        self.assertEqual(ss, (('bcd', ((0, 1),)), ('abc', ((3, 0),))))
