@@ -19,7 +19,7 @@ Reviews* [http://dx.doi.org/10.1016/j.neubiorev.2016.12.021]
 See the supplementary information of this paper to see the results of such
 analyses: here_.
 
-.. _here: https://rawgit.com/gjlbeckers-uu/aglcheck/master/agl_stimulussets_analyzed/suppl_info_beckers_etal_2016_jneurobiorev_revision2.html
+.. _here: https://rawgit.com/gjlbeckers-uu/aglcheck/master/stimulussets_analyzed/suppl_info_beckers_etal_2016_jneurobiorev_revision2.html
 
 These were produced with version 0.1.0, which is saved as a separate branch.
 However, the wider objective is to provide visualization software that can be
