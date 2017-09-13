@@ -92,16 +92,16 @@ def longestsharedsubstringstable(stringdata, minlen=1, comparison=('All', 'All')
 
     def analysisf(s1, s2, readingframe):
         if transpose:
-            return ['{}&nbsp;&nbsp;{}'.format(hc(ss, s1, position=pos[0]),
-                                              hc(ss, s2, position=pos[1]))
+            return ['{}&nbsp;&nbsp;{}'.format(hc(ss, s1, position=pos[0]*readingframe),
+                                              hc(ss, s2, position=pos[1]*readingframe))
                     for (ss, positions) in
                     longestsharedsubstrings(s1, s2, readingframe)
-                    for pos in positions if len(ss) >= minlen * readingframe]
+                    for pos in positions if len(ss) >= minlen]
         else:
-            return ['{}&nbsp;&nbsp;{}'.format(hc(ss, s2, position=pos[1]),
-                                              hc(ss, s1, position=pos[0]))
+            return ['{}&nbsp;&nbsp;{}'.format(hc(ss, s2, position=pos[1]*readingframe),
+                                              hc(ss, s1, position=pos[0]*readingframe))
                     for (ss, positions) in longestsharedsubstrings(s1, s2, readingframe)
-                    for pos in positions if len(ss) >= minlen * readingframe]
+                    for pos in positions if len(ss) >= minlen]
 
     def dataaccessfunc(items):
         return items

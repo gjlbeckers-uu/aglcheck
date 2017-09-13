@@ -89,8 +89,9 @@ def sharedlengthnsubstrings(s1, s2, n, readingframe=1):
     -------
     Tuple with hits. Each hit is a two-tuple, containing a
     substring match and a two-tuple of the positions where the shared 
-    substrings occur in s1 and s2.. *Note that the positions refer to the
-    python strings, and do not take into account the reading frame*.
+    substrings occur in s1 and s2. Note that the positions refer to the
+    token strings, and not python strings. They take into account the reading
+    frame.
 
     Examples
     --------
@@ -112,7 +113,7 @@ def sharedlengthnsubstrings(s1, s2, n, readingframe=1):
         positions = []
         for i in range(0, len(s2), readingframe):
             if substring == s2[i:i + n * readingframe]:
-                positions.append((pos * readingframe, i))
+                positions.append((pos, int(i/readingframe)))
         if len(positions) > 0:
             matches.append((substring, tuple(positions)))
     return tuple(matches)
