@@ -71,7 +71,6 @@ class TestLengthnsubstrings(TestCase):
         ss = sharedlengthnsubstrings(s1=s1, s2=s2, n=2, readingframe=1)
         self.assertEqual(ss, ((('de', [(0, 3), (0, 5)]),)))
 
-
     def test_partfulldoubleresult(self):
         s1 = "fdeg"
         s2 = "dede"

@@ -20,23 +20,26 @@ strings:
     - Viol_bA_2:        afcdgc
     - Viol_nbA_1:       fadgc
     - Viol_nbA_2:       dcafgc
-    
-comparisons:
-    Habituation_vs_Test:
-        - Hab: [Hab_1, Hab_2, Hab_3, Hab_4, Hab_5, Hab_6, Hab_7 ,Hab_8 ,Hab_9]
-        - Test: [Fam_1, Fam_2, Novel_1, Novel_2, Viol_bA_1, Viol_bA_2, Viol_nbA_1, Viol_nbA_2]
+
+stringcategories:
+    Hab: [Hab_1, Hab_2, Hab_3, Hab_4, Hab_5, Hab_6, Hab_7 ,Hab_8 ,Hab_9]
+    Test: [Fam_1, Fam_2, Novel_1, Novel_2, Viol_bA_1, Viol_bA_2, Viol_nbA_1, Viol_nbA_2]
+    Fam: [Fam_1, Fam_2]               # Familiar test strings
+    Novel: [Novel_1, Novel_2]         # Novel correct test strings
+    ViolbA: [Viol_bA_1, Viol_bA_2]    # Violation test strings beginning with A
+    ViolnbA: [Viol_nbA_1, Viol_nbA_2] # Violation test strings not beginning with A
 
 labelcolors:
-    "#0071c1": [Fam_1, Fam_2]
-    "#01b0f1": [Novel_1, Novel_2]
-    "#c00000": [Viol_bA_1, Viol_bA_2]
-    "#fe0000": [Viol_nbA_1, Viol_nbA_2]
-    
+    Fam: "#0071c1"
+    Novel: "#01b0f1"
+    ViolbA: "#c00000"
+    ViolnbA: "#fe0000"
+
 tokendurations:
     a: 0.64
     c: 0.40
     d: 0.62
     f: 0.56
     g: 0.39
-    
+
 isiduration: 0.1

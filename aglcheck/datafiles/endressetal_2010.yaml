@@ -15,7 +15,7 @@ strings:
     - XXAXBX: XXAXBX
     - XXBXAX: XXBXAX
        
-comparisons:
-    Habituation_vs_test:   [[XABXXX, XAXBXX, XAXXBX, XXXABX],
-                            [AXXXXB, BXXXXA, XXABXX, XXBAXX, XXAXBX, XXBXAX]]
+stringcategories:
+    Habituation: [XABXXX, XAXBXX, XAXXBX, XXXABX]
+    Test: [AXXXXB, BXXXXA, XXABXX, XXBAXX, XXAXBX, XXBXAX]
     

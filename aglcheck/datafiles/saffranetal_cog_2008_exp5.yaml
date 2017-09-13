@@ -57,14 +57,18 @@ strings:
     - eug_jckh: jckh
     - eug_tlpb: tlpb
         
-comparisons:
-    Familiarization_vs_Test:  [[f_bc, f_bl, f_hc, f_hl, f_hkc, f_bpc, f_hpc, f_bkl, f_hkl, f_bpl, f_hpl, f_hct, f_blt, f_hlt, f_bcj, f_hcj, f_blj, f_hlj, f_bkct, f_hkct, f_hpct, f_bklt, f_hklt, f_bplt, f_hplt, f_bkcj, f_hkcj, f_bpcj, f_hpcj, f_bklj, f_bplj, f_hplj], [hgt_bkc, hgt_bpct, hgt_hklj, hut_hkt, hut_bjc, hut_hlkj, hut_bcpt, egt_bcj, egt_hpl, egt_hkcj, egt_bklt, egt_hlt, eug_lpb, eug_tch, eug_jckh, eug_tlpb]]
-    
-                         
+stringcategories:
+    Familiarization: [f_bc, f_bl, f_hc, f_hl, f_hkc, f_bpc, f_hpc, f_bkl, f_hkl, f_bpl, f_hpl, f_hct, f_blt, f_hlt, f_bcj, f_hcj, f_blj, f_hlj, f_bkct, f_hkct, f_hpct, f_bklt, f_hklt, f_bplt, f_hplt, f_bkcj, f_hkcj, f_bpcj, f_hpcj, f_bklj, f_bplj, f_hplj]
+    Test: [hgt_bkc, hgt_bpct, hgt_hklj, hut_hkt, hut_bjc, hut_hlkj, hut_bcpt, egt_bcj, egt_hpl, egt_hkcj, egt_bklt, egt_hlt, eug_lpb, eug_tch, eug_jckh, eug_tlpb]
+    HardGrammaticalTest: [hgt_bkc, hgt_bpct, hgt_hklj]
+    EasyGrammaticalTest: [egt_bcj, egt_hpl, egt_hkcj, egt_bklt, egt_hlt]
+    HardUngrammaticalTest: [hut_hkt, hut_bjc, hut_hlkj, hut_bcpt]
+    EasyUngrammaticalTest: [eug_lpb, eug_tch, eug_jckh, eug_tlpb]
+
 labelcolors:
-    "#000000":  [f_bl, f_hc, f_hl, f_hkc, f_bpc, f_hpc, f_bkl, f_hkl, f_bpl, f_hpl, f_hct, f_blt, f_hlt, f_bcj, f_hcj, f_blj]
-    "#01b0f1":  [hgt_bkc, hgt_bpct, hgt_hklj]
-    "#0071c1":  [egt_bcj, egt_hpl, egt_hkcj, egt_bklt, egt_hlt]
-    "#c00000":  [hut_hkt, hut_bjc, hut_hlkj, hut_bcpt]
-    "#fe0000":  [eug_lpb, eug_tch, eug_jckh, eug_tlpb]
+    Familiarization: "#000000"
+    HardGrammaticalTest: "#01b0f1"
+    EasyGrammaticalTest: "#0071c1"
+    HardUngrammaticalTest: "#c00000"
+    EasyUngrammaticalTest: "#fe0000"
     

@@ -10,80 +10,104 @@ __all__ = ['crosscorrelationmax', 'sharedlengthnsubstringcount',
 
 class ComparisonTable(object):
     def __init__(self, resultsdict, dataaccessfunc,
-                 stringdata, stringgroups, title=None):
+                 stringdata, comparison, title=None):
 
         self.resultsdict = resultsdict
         self.dataaccessfunc = dataaccessfunc
         self.stringdata = stringdata
-        self.stringgroups = stringgroups
-        self.labelcolors = stringdata.labelcolors
-        if not stringdata.subgroups == {}:
-            self.subgroups = stringdata.subgroups
-        else:
-            self.subgroups = stringgroups
-        self.colorlabels = dict(
-            (s, c) for c, sl in self.labelcolors.items() for s in sl)
-        for label, string in stringdata.stringdict.items():
-            if label not in self.colorlabels:
-                self.colorlabels[label] = 'black'
+        self.comparison = comparison
         self.title = title
+        self.xstringlabels = stringdata.stringcategories[comparison[0]]
+        self.ystringlabels = stringdata.stringcategories[comparison[1]]
 
     def get_matrix(self):
-        xstringlabels = list(self.stringgroups[1].values())[0]
-        ystringlabels = list(self.stringgroups[0].values())[0]
+
         matrix = []
-        for yl in ystringlabels:
+        for xl in self.xstringlabels:
             cols = []
-            for xl in xstringlabels:
-                result = self.dataaccessfunc(self.resultsdict[yl][xl])
+            for yl in self.ystringlabels:
+                result = self.dataaccessfunc(self.resultsdict[xl][yl])
                 cols.append(result)
             matrix.append(cols)
         return matrix
 
-    def get_pandaseries(self):
-        import pandas as pd
-        indextuples = []
-        values = []
-        for l1 in list(self.stringgroups[0].values())[0]:
-            g1 = None
-            for key, labels in self.subgroups.items():
-                if l1 in labels:
-                    g1 = key
-            for l2 in self.stringgroups[1].values()[0]:
-                g2 = None
-                for key, labels in self.subgroups.items():
-                    if l2 in labels:
-                        g2 = key
-                indextuples.append((g1, g2, l1, l2))
-                values.append(self.dataaccessfunc(self.resultsdict[l1][l2]))
-        names = ['subgroups_{}'.format(sg.keys()[0])
-                 for sg in self.stringgroups]
-        names.extend(['strings_{}'.format(sg.keys()[0])
-                      for sg in self.stringgroups])
-        index = pd.MultiIndex.from_tuples(indextuples, names=names)
-        return pd.Series(values, index=index)
+    # def get_pandaseries(self):
+    #     import pandas as pd
+    #     indextuples = []
+    #     values = []
+    #     for l1 in list(self.stringgroups[0].values())[0]:
+    #         g1 = None
+    #         for key, labels in self.subgroups.items():
+    #             if l1 in labels:
+    #                 g1 = key
+    #         for l2 in self.stringgroups[1].values()[0]:
+    #             g2 = None
+    #             for key, labels in self.subgroups.items():
+    #                 if l2 in labels:
+    #                     g2 = key
+    #             indextuples.append((g1, g2, l1, l2))
+    #             values.append(self.dataaccessfunc(self.resultsdict[l1][l2]))
+    #     names = ['subgroups_{}'.format(sg.keys()[0])
+    #              for sg in self.stringgroups]
+    #     names.extend(['strings_{}'.format(sg.keys()[0])
+    #                   for sg in self.stringgroups])
+    #     index = pd.MultiIndex.from_tuples(indextuples, names=names)
+    #     return pd.Series(values, index=index)
 
 
 def _analyze_datastringbystring(stringdata, analysisf, dataaccessf,
-                                title=None, comparison='full'):
-    stringgroups = stringdata.comparisons[comparison]
+                                title=None, comparison=('All','All')):
+    """
+    Private function that takes string data sets, applies an analysis function
+    to each string from a set with each string from another set. Which strings
+    are compared is determined by the `comparison` parameter. Default is `full`
+    which means that every string is compared with every other string.
+
+    The analysisf must take two strings as the first two arguments.
+
+    The dataaccessf can be used to further process the results of the
+    analysisf before the result is returned. E.g. count the number of items
+    returned.
+
+    Parameters
+    ----------
+    stringdata
+    analysisf
+    dataaccessf
+    title
+    comparison
+
+    Returns
+    -------
+
+    """
+    stringcategory0 = stringdata.stringcategories[comparison[0]]
+    stringcategory1 = stringdata.stringcategories[comparison[1]]
     rf = stringdata.readingframe
     results = {}
-    for s1label in list(stringgroups[0].values())[0]:
-        results[s1label] = {}
-        for s2label in list(stringgroups[1].values())[0]:
+    for s0label in stringcategory0:
+        results[s0label] = {}
+        for s1label in stringcategory1:
+            s0 = stringdata.stringdict[s0label]
             s1 = stringdata.stringdict[s1label]
-            s2 = stringdata.stringdict[s2label]
-            results[s1label][s2label] = analysisf(s1, s2, readingframe=rf)
+            results[s0label][s1label] = analysisf(s0, s1, readingframe=rf)
     return ComparisonTable(resultsdict=results,
                            dataaccessfunc=dataaccessf,
                            stringdata=stringdata,
-                           stringgroups=stringgroups,
+                           comparison=comparison,
                            title=title)
 
-#FIXME add _analyze_datastringbyset
+# def _analyze_datastringbystringset(stringdata, analysisf, dataaccessf,
+#                              title=None, comparison='full',
+#                              setname='stringsa'):
+#     stringlabels1 = stringdata.comparisons[comparison][0].items()
+#     stringlabels2 = stringdata.comparisons[comparison][1].items()
+#
 
-def longestsharedsubstringlength(stringdata, comparison='full'):
+#FIXME add _analyze_datastringbyset
+#FIXME add what is ploted against what
+
+def longestsharedsubstringlength(stringdata, comparison=('All','All')):
 
     def analysisf(s1, s2, readingframe):
         items = alg.longestsharedsubstrings(s1, s2, readingframe=readingframe)
@@ -100,7 +124,7 @@ def longestsharedsubstringlength(stringdata, comparison='full'):
                                        title=title, comparison=comparison)
 
 
-def longestsharedsubstringduration(stringdata, comparison='full'):
+def longestsharedsubstringduration(stringdata, comparison=('All','All')):
     def analysisf(s1, s2, readingframe):
         return alg.longestsharedsubstringduration(s1, s2,
                                                   tokendurations=stringdata.tokendurations,
@@ -113,7 +137,7 @@ def longestsharedsubstringduration(stringdata, comparison='full'):
     return _analyze_datastringbystring(stringdata, analysisf, dataaccessfunc,
                                        title=title, comparison=comparison)
 
-def crosscorrelationmax(stringdata, comparison='full'):
+def crosscorrelationmax(stringdata, comparison=('All','All')):
 
     analysisf = alg.crosscorrelate
 
@@ -124,7 +148,7 @@ def crosscorrelationmax(stringdata, comparison='full'):
                                        title=title, comparison=comparison)
 
 
-def sharedlengthnsubstringcount(stringdata, n, comparison='full'):
+def sharedlengthnsubstringcount(stringdata, n, comparison=('All','All')):
 
     def analysisf(s1, s2, readingframe):
         return alg.sharedlengthnsubstrings(s1, s2, n, readingframe)
@@ -138,7 +162,7 @@ def sharedlengthnsubstringcount(stringdata, n, comparison='full'):
     return _analyze_datastringbystring(stringdata, analysisf, dataaccessfunc,
                                        title=title, comparison=comparison)
 
-def novellengthnsubstringcount(stringdata, n, comparison='full'):
+def novellengthnsubstringcount(stringdata, n, comparison=('All','All')):
 
     def analysisf(s1, s2, readingframe):
         return alg.novellengthnsubstrings(s2, s1, n, readingframe)
@@ -152,7 +176,7 @@ def novellengthnsubstringcount(stringdata, n, comparison='full'):
     return _analyze_datastringbystring(stringdata, analysisf, dataaccessfunc,
                                        title=title, comparison=comparison)
 
-def commonstartlength(stringdata, comparison='full'):
+def commonstartlength(stringdata, comparison=('All','All')):
     analysisf = alg.commonstartlength
 
     def dataaccessfunc(item): return item
@@ -162,7 +186,7 @@ def commonstartlength(stringdata, comparison='full'):
                                        title=title, comparison=comparison)
 
 
-def commonstartduration(stringdata, comparison='full'):
+def commonstartduration(stringdata, comparison=('All','All')):
     def analysisf(s1, s2, readingframe):
         return alg.commonstartduration(s1, s2,
                                        tokendurations=stringdata.tokendurations,
@@ -175,7 +199,7 @@ def commonstartduration(stringdata, comparison='full'):
                                        title=title, comparison=comparison)
 
 
-def issame(stringdata, comparison='full'):
+def issame(stringdata, comparison=('All','All')):
 
     def analysisf(s1, s2, readingframe): return s1 == s2
 
@@ -186,7 +210,7 @@ def issame(stringdata, comparison='full'):
                                        title=title, comparison=comparison)
 
 
-def issubstring(stringdata, comparison='full'):
+def issubstring(stringdata, comparison=('All','All')):
 
     analysisf = alg.issubstring
 
@@ -196,7 +220,7 @@ def issubstring(stringdata, comparison='full'):
     return _analyze_datastringbystring(stringdata, analysisf, dataaccessfunc,
                                        title=title, comparison=comparison)
 
-def samestart(stringdata, n, comparison='full'):
+def samestart(stringdata, n, comparison=('All','All')):
 
     def analysisf(s1, s2, readingframe):
         return alg.samestart(s1, s2, n, readingframe)
@@ -208,7 +232,7 @@ def samestart(stringdata, n, comparison='full'):
                                        title, comparison=comparison)
 
 
-def levenshtein(stringdata, comparison='full'):
+def levenshtein(stringdata, comparison=('All','All')):
 
     def analysisf(s1, s2, readingframe):
         return alg.levenshtein(s1, s2, readingframe)
@@ -231,8 +255,7 @@ def plot_comparison(comparisontable, cmap=None,
         title = ct.title
         if title is None:
             title = ''
-    matrix = ct.get_matrix()
-    matrix = np.array(matrix)
+    matrix = np.array(ct.get_matrix()).T
     mmin, mmax = matrix.min(), matrix.max()
     if np.issubdtype(matrix.dtype, np.int):
         intcolors = True
@@ -244,7 +267,8 @@ def plot_comparison(comparisontable, cmap=None,
             ticks = [t for t in range(mmin, mmax + 1)]
             lut = mmax - mmin + 1
         else:
-            ticks = [t for t in range(clim[0], clim[1] + 1)]
+            ticks = [t for t in np.linspace(clim[0], clim[1], clim[1]-clim[0]+1)]
+            clim = (clim[0] - 0.5, clim[1] + 0.5)
             lut = clim[1] - clim[0] + 1
     else:
         ticks = None
@@ -256,22 +280,42 @@ def plot_comparison(comparisontable, cmap=None,
             cmap = plt.cm.get_cmap('viridis', lut)
     else:
         cmap = plt.cm.get_cmap(cmap, lut)
-    xstringlabels = list(ct.stringgroups[1].values())[0]
-    ystringlabels = list(ct.stringgroups[0].values())[0]
     ax = plt.gca()
     plt.imshow(matrix, interpolation='nearest', cmap=cmap, clim=clim)
-    plt.xticks(np.arange(len(xstringlabels)), xstringlabels)
-    plt.yticks(np.arange(len(ystringlabels)), ystringlabels)
+    plt.xticks(np.arange(len(ct.xstringlabels)), ct.xstringlabels)
+    plt.yticks(np.arange(len(ct.ystringlabels)), ct.ystringlabels)
     plt.xticks(rotation=70)
-    for color, category in ct.labelcolors.items():
-        for xticklabel in ax.get_xticklabels():
-            if xticklabel.get_text() in category:
-                xticklabel.set_color(color)
-        for yticklabel in ax.get_yticklabels():
-            if yticklabel.get_text() in category:
-                yticklabel.set_color(color)
+    for xticklabel in ax.get_xticklabels():
+        color = ct.stringdata.stringlabelcolors[xticklabel.get_text()]
+        xticklabel.set_color(color)
+    for yticklabel in ax.get_yticklabels():
+        color = ct.stringdata.stringlabelcolors[yticklabel.get_text()]
+        yticklabel.set_color(color)
     plt.title(title)
     plt.colorbar(orientation=colorbarorientation,
                  ticks=ticks,
                  shrink=colorbarshrink,
                  label=colorbarlabel)
+    return ax
+
+def plot_comparisons(*args, clim=None, colorbarorientation='vertical',
+                     colorbarshrink=1.,colorbarlabel=''):
+
+    import matplotlib.pyplot as plt
+
+    low = np.inf
+    high = -np.inf
+    for ct in args:
+        ar = np.array(ct.get_matrix())
+        low = min(low, ar.min())
+        high = max(high, ar.max())
+        clim = (low, high)
+    axes = []
+    for i,ct in enumerate(args, 1):
+        plt.subplot(1,len(args),i)
+        axes.append(plot_comparison(ct, cmap=None,
+                                    colorbarorientation=colorbarorientation,
+                                    colorbarshrink=colorbarshrink, clim=clim,
+                                    colorbarlabel=colorbarlabel,
+                                    title=None))
+    return axes

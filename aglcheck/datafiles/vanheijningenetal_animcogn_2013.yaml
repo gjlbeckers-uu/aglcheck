@@ -19,17 +19,16 @@ strings:
     - AABB: AABB
     - BBAA: BBAA
        
-comparisons:
-    Experiment_1_probeset_1:   [[ABBA, BAAB],[ABA, BAB, BBA, AAB, BAA, ABB]]
-    Experiment_1_probeset_2:   [[ABAB, BABA, AABB, BBAA],[ABA, BAB, BBA, AAB, BAA, ABB]]
-    Experiment_1_supernegative:   [[ABA, BAB],
-                                [BBA, AAB, BAA, ABB, ABBA, BAAB, ABAB, BABA, AABB, BBAA]]
-
-subgroups:
-    "Go": [ABA, BAB]
-    "NoGo": [BBA, AAB, BAA, ABB]
-    "Probe": [ABBA, BAAB, ABAB, BABA, AABB, BBAA]
+stringcategories:
+    Experiment_1_Go: [ABA, BAB]
+    Experiment_1_NoGo: [BBA, AAB, BAA, ABB]
+    Experiment_1_probeset_1: [ACA, CAC, ABBA, BAAB]
+    Experiment_1_probeset_2: [ABAB, BABA, AABB, BBAA]
+    Experiment_2_Go: [ABA, BAB, ABBA, BAAB]
+    Experiment_2_NoGo: [BBA, AAB, BAA, ABB, ABAB, BABA, AABB, BBAA]
+    Go: [ABA, BAB, ABBA, BAAB]
+    NoGo: [BBA, AAB, BAA, ABB, ABAB, BABA, AABB, BBAA]
 
 labelcolors:
-     "#0071c1":  [ABA, BAB]
-     "#c00000":  [BBA, AAB, BAA, ABB]
+     Go: "#0071c1"
+     NoGo: "#c00000"

@@ -94,29 +94,26 @@ strings:
     - Test2_XXY_4:  DDC
 
        
-comparisons:
-    Experiment_1a_phase_1:
-        - Train: [AYA_1, AYA_2, AYA_3, AAY_1, AAY_2, AAY_3]
-        - Test: [BAB, BCB, BDB, BBA, BBC, BBD]
-    Experiment_1a_phase_2:
-        - Train: [BYB_1, BYB_2, BYB_3, BBY_1, BBY_2, BBY_3]
-        - Test: [CAC, CBC, CDC, CCA, CCB, CCD]
-    Experiment_1a_phase_3:
-        - Train: [CYC_1, CYC_2, CYC_3, CCY_1, CCY_2, CCY_3]
-        - Test:  [DAD, DBD, DCD, DDA, DDB, DDC]
-    Experiment_1a_phase_4:
-        - Train: [DYD_1, DYD_2, DYD_3, DDY_1, DDY_2, DDY_3]
-        - Test: [ABA, ADA, BCB, CAC, CDC, AAB, AAD, BBC, CCA, CCD]
-    Experiment_1a_phase_5:
-        - Train: [Train_XYX_1, Train_XYX_2, Train_XYX_3, Train_XYX_4, Train_XYX_5, Train_XYX_6, Train_XXY_1, Train_XXY_2, Train_XXY_3, Train_XXY_4, Train_XXY_5, Train_XXY_6]
-          Test: [Test_XYX_1, Test_XYX_2, Test_XXY_1, Test_XXY_2, Test_XYY_1, Test_XYY_2]
-    Experiment_1b:
-        - Train: [Train_XYX_1, Train_XYX_2, Train_XYX_3, Train_XYX_4, Train_XYX_5, Train_XYX_6, Train_XXY_1, Train_XXY_2, Train_XXY_3, Train_XXY_4, Train_XXY_5, Train_XXY_6]
-        - Test: [Test1_XYX_1, Test1_XYX_2, Test1_XXY_1, Test1_XXY_2, Test1_XYY_1, Test1_XYY_2, Test2_XYX_1, Test2_XYX_2, Test2_XYX_3, Test2_XYX_4, Test2_XXY_1, Test2_XXY_2, Test2_XXY_3, Test2_XXY_4]
+stringcategories:
+    Experiment_1a_phase_1_Train: [AYA_1, AYA_2, AYA_3, AAY_1, AAY_2, AAY_3]
+    Experiment_1a_phase_1_Test: [BAB, BCB, BDB, BBA, BBC, BBD]
+    Experiment_1a_phase_2_Train: [BYB_1, BYB_2, BYB_3, BBY_1, BBY_2, BBY_3]
+    Experiment_1a_phase_2_Test: [CAC, CBC, CDC, CCA, CCB, CCD]
+    Experiment_1a_phase_3_Train: [CYC_1, CYC_2, CYC_3, CCY_1, CCY_2, CCY_3]
+    Experiment_1a_phase_3_Test:  [DAD, DBD, DCD, DDA, DDB, DDC]
+    Experiment_1a_phase_4_Train: [DYD_1, DYD_2, DYD_3, DDY_1, DDY_2, DDY_3]
+    Experiment_1a_phase_4_Test: [ABA, ADA, BCB, CAC, CDC, AAB, AAD, BBC, CCA, CCD]
+    Experiment_1a_phase_5_Train: [Train_XYX_1, Train_XYX_2, Train_XYX_3, Train_XYX_4, Train_XYX_5, Train_XYX_6, Train_XXY_1, Train_XXY_2, Train_XXY_3, Train_XXY_4, Train_XXY_5, Train_XXY_6]
+    Experiment_1a_phase_5_Test: [Test_XYX_1, Test_XYX_2, Test_XXY_1, Test_XXY_2, Test_XYY_1, Test_XYY_2]
+    Experiment_1b_Train: [Train_XYX_1, Train_XYX_2, Train_XYX_3, Train_XYX_4, Train_XYX_5, Train_XYX_6, Train_XXY_1, Train_XXY_2, Train_XXY_3, Train_XXY_4, Train_XXY_5, Train_XXY_6]
+    Experiment_1b_Test: [Test1_XYX_1, Test1_XYX_2, Test1_XXY_1, Test1_XXY_2, Test1_XYY_1, Test1_XYY_2, Test2_XYX_1, Test2_XYX_2, Test2_XYX_3, Test2_XYX_4, Test2_XXY_1, Test2_XXY_2, Test2_XXY_3, Test2_XXY_4]
+    Go: [AYA_1, AYA_2, AYA_3, BYB_1, BYB_2, BYB_3, CYC_1, CYC_2, CYC_3, DYD_1, DYD_2, DYD_3, Train_XYX_1, Train_XYX_2, Train_XYX_3, Train_XYX_4, Train_XYX_5, Train_XYX_6]
+    Nogo: [AAY_1, AAY_2, AAY_3, BBY_1, BBY_2, BBY_3, CCY_1, CCY_2, CCY_3, DDY_1, DDY_2, DDY_3, Train_XXY_1, Train_XXY_2, Train_XXY_3, Train_XXY_4, Train_XXY_5, Train_XXY_6]
+    Test2_XYX: [Test2_XYX_1, Test2_XYX_2, Test2_XYX_3, Test2_XYX_4]
+    Test2_XXY: [Test2_XXY_1, Test2_XXY_2, Test2_XXY_3, Test2_XXY_4]
 
 labelcolors:
-     "#0071c1":  [AYA_1, AYA_2, AYA_3, BYB_1, BYB_2, BYB_3, CYC_1, CYC_2, CYC_3, DYD_1, DYD_2, DYD_3, Train_XYX_1, Train_XYX_2, Train_XYX_3, Train_XYX_4, Train_XYX_5, Train_XYX_6]
-     "#c00000":  [AAY_1, AAY_2, AAY_3, BBY_1, BBY_2, BBY_3, CCY_1, CCY_2, CCY_3, DDY_1, DDY_2, DDY_3, Train_XXY_1, Train_XXY_2, Train_XXY_3, Train_XXY_4, Train_XXY_5, Train_XXY_6]
-     
-     "#7100c0": [Test2_XYX_1, Test2_XYX_2, Test2_XYX_3, Test2_XYX_4]
-     "#00a000": [Test2_XXY_1, Test2_XXY_2, Test2_XXY_3, Test2_XXY_4]
+     Go: "#0071c1"
+     Nogo: "#c00000"
+     Test2_XYX: "#7100c0"
+     Test2_XXY: "#00a000"

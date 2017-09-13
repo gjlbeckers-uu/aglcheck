@@ -34,25 +34,27 @@ strings:
     - B10:   cedf
     - B11:   dfce
 
-comparisons:
-    Exp1_Training_vs_Test:
-        - Training: [Go, NoGo]
-        - Test: [A1, A2, B1, B2]
-    Exp2_Training_vs_Test1:
-        - Training: [Go1, Go2, Go3, NoGo1, NoGo2, NoGo3]
-        - Test: [A3, B3]
-    Exp2_Training_vs_Test2:
-        - Training: [Go1, Go2, Go3, NoGo1, NoGo2, NoGo3]
-        - Test: [A4, A5, A6, A7, A8, A9, B4, B5, B6, B7, B8, B9]
-    Exp2_Training_vs_Test3:
-        - Training: [Go1, Go2, Go3, NoGo1, NoGo2, NoGo3]
-        - Test: [A10, A11, B10, B11]
+stringcategories:
+    Exp1_Training: [Go, NoGo]
+    Exp1_Go: [Go]
+    Exp1_NoGo: [NoGo]
+    Exp1_Test: [A1, A2, B1, B2]
+    Exp2_Training: [Go1, Go2, Go3, NoGo1, NoGo2, NoGo3]
+    Exp2_Go: [Go1, Go2, Go3]
+    Exp2_NoGo: [NoGo1, NoGo2, NoGo3]
+    Exp2_Test1: [A3, B3]
+    Exp2_Test2: [A4, A5, A6, A7, A8, A9, B4, B5, B6, B7, B8, B9]
+    Exp2_Test3: [A10, A11, B10, B11]
+    TestA: [A1, A2, A3, A4, A5, A6, A7, A8, A9, A10, A11]
+    TestB: [B1, B2, B3, B4, B5, B6, B7, B8, B9, B10, B11]
 
 labelcolors:
-    "#0071c1": [Go, Go1, Go2, Go3]
-    "#c00000": [NoGo, NoGo1, NoGo2, NoGo3]
-    "#7100c0": [A1, A2, A3, A4, A5, A6, A7, A8, A9, A10, A11]
-    "#00a000": [B1, B2, B3, B4, B5, B6, B7, B8, B9, B10, B11]
+    Exp1_Go: "#0071c1"
+    Exp2_Go: "#0071c1"
+    Exp1_NoGo: "#c00000"
+    Exp2_NoGo: "#c00000"
+    TestA: "#7100c0"
+    TestB: "#00a000"
     
 tokendurations:
     a: 98

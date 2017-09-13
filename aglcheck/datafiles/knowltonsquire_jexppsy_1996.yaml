@@ -67,29 +67,18 @@ strings:
     - NL07: VXJJX
     - NL08: VJJXVT
 
-comparisons:
-    Training_vs_test: [['TR01', 'TR02', 'TR03', 'TR04', 'TR05', 'TR06', 'TR07', 'TR08',
-                        'TR09', 'TR10', 'TR11', 'TR12', 'TR13', 'TR14', 'TR15', 'TR16',
-                        'TR17', 'TR18', 'TR19', 'TR20', 'TR21', 'TR22', 'TR23', 'TR24',
-                        'TR25', 'TR26'],
-                          ['GH01', 'GH02', 'GH03', 'GH04', 'GH05', 'GH06', 'GH07', 'GH08',
-                          'GL01', 'GL02', 'GL03', 'GL04', 'GL05', 'GL06', 'GL07', 'GL08',
-                          'NH01', 'NH02', 'NH03', 'NH04', 'NH05', 'NH06', 'NH07', 'NH08',
-                          'NL01', 'NL02', 'NL03', 'NL04', 'NL05', 'NL06', 'NL07', 'NL08']]
-subgroups:
-    'TR': ['TR01', 'TR02', 'TR03', 'TR04', 'TR05', 'TR06', 'TR07', 'TR08',
-           'TR09', 'TR10', 'TR11', 'TR12', 'TR13', 'TR14', 'TR15', 'TR16',
-           'TR17', 'TR18', 'TR19', 'TR20', 'TR21', 'TR22', 'TR23', 'TR24',
-           'TR25', 'TR26']
-    'GH': ['GH01', 'GH02', 'GH03', 'GH04', 'GH05', 'GH06', 'GH07', 'GH08']
-    'GL': ['GL01', 'GL02', 'GL03', 'GL04', 'GL05', 'GL06', 'GL07', 'GL08']
-    'NH': ['NH01', 'NH02', 'NH03', 'NH04', 'NH05', 'NH06', 'NH07', 'NH08']
-    'NL': ['NL01', 'NL02', 'NL03', 'NL04', 'NL05', 'NL06', 'NL07', 'NL08']
+stringcategories:
+    Training: ['TR01', 'TR02', 'TR03', 'TR04', 'TR05', 'TR06', 'TR07', 'TR08', 'TR09', 'TR10', 'TR11', 'TR12', 'TR13', 'TR14', 'TR15', 'TR16', 'TR17', 'TR18', 'TR19', 'TR20', 'TR21', 'TR22', 'TR23', 'TR24', 'TR25', 'TR26']
+    Test: ['GH01', 'GH02', 'GH03', 'GH04', 'GH05', 'GH06', 'GH07', 'GH08', 'GL01', 'GL02', 'GL03', 'GL04', 'GL05', 'GL06', 'GL07', 'GL08', 'NH01', 'NH02', 'NH03', 'NH04', 'NH05', 'NH06', 'NH07', 'NH08', 'NL01', 'NL02', 'NL03', 'NL04', 'NL05', 'NL06', 'NL07', 'NL08']
+    GrammaticalHighChunkStrength: ['GH01', 'GH02', 'GH03', 'GH04', 'GH05', 'GH06', 'GH07', 'GH08']
+    GrammaticalLowChunkStrength: ['GL01', 'GL02', 'GL03', 'GL04', 'GL05', 'GL06', 'GL07', 'GL08']
+    NonGrammaticalHighChunkStrength: ['NH01', 'NH02', 'NH03', 'NH04', 'NH05', 'NH06', 'NH07', 'NH08']
+    NonGrammaticalLowChunkStrength: ['NL01', 'NL02', 'NL03', 'NL04', 'NL05', 'NL06', 'NL07', 'NL08']
 
 
 labelcolors:
-    "#0071c1": ['GH', 'GH01', 'GH02', 'GH03', 'GH04', 'GH05', 'GH06', 'GH07', 'GH08']
-    "#01b0f1": ['GL01', 'GL02', 'GL03', 'GL04', 'GL05', 'GL06', 'GL07', 'GL08']
-    "#c00000": ['NH01', 'NH02', 'NH03', 'NH04', 'NH05', 'NH06', 'NH07', 'NH08']
-    "#fe0000": ['NL01', 'NL02', 'NL03', 'NL04', 'NL05', 'NL06', 'NL07', 'NL08']
+    GrammaticalHighChunkStrength: "#0071c1"
+    GrammaticalLowChunkStrength: "#01b0f1"
+    NonGrammaticalHighChunkStrength: "#c00000"
+    NonGrammaticalLowChunkStrength: "#fe0000"
 

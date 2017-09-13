@@ -24,14 +24,15 @@ strings:
     - T11: agdcf
     - T12: agfdc
 
-comparisons:
-    Habituation_vs_Test:
-        - Exposure: [E1, E2, E3, E4, E5, E6, E7, E8]
-        - Test: [T01, T02, T03, T04, T05, T06, T07, T08, T09, T10, T11, T12]
-                         
+stringcategories:
+    Exposure: [E1, E2, E3, E4, E5, E6, E7, E8]
+    Test: [T01, T02, T03, T04, T05, T06, T07, T08, T09, T10, T11, T12]
+    CorrectTest: [T01, T02, T03, T04]
+    ViolationTest: [T05, T06, T07, T08, T09, T10, T11, T12]
+
 labelcolors:
-    "#0071c1":  [T01, T02, T03, T04]
-    "#c00000":  [T05, T06, T07, T08, T09, T10, T11, T12]
+    CorrectTest: "#0071c1"
+    ViolationTest: "#c00000"
 
 tokendurations:
     a: 413.
@@ -39,5 +40,5 @@ tokendurations:
     d: 413.
     f: 413.
     g: 413.
-    
+
 isiduration: 150.

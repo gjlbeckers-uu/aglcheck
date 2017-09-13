@@ -89,16 +89,16 @@ def sharedlengthnsubstrings(s1, s2, n, readingframe=1):
     _checkstring(s1, readingframe=readingframe)
     _checkstring(s2, readingframe=readingframe)
     _checkpositiveint(n)
-    # which length-n substrings exist in in s1?
     s1ss = lengthnsubstrings(s1, n=n, readingframe=readingframe)
-    # create a generator of tuples with s1 substrings together
-    # with the positions where they occur in s2
-    matches = ((ss, [(pos * readingframe, i) for i in
-                     range(0, len(s2), readingframe) if
-                     (ss == s2[i:i + len(ss)])])
-               for pos, ss in enumerate(s1ss))
-    # remove the ones where the position list is empty
-    return tuple((ss, positions) for (ss, positions) in matches if positions)
+    matches = []
+    for pos, substring in enumerate(s1ss):
+        positions = []
+        for i in range(0, len(s2), readingframe):
+            if substring == s2[i:i + n * readingframe]:
+                positions.append((pos * readingframe, i))
+        if len(positions) > 0:
+            matches.append((substring, positions))
+    return tuple(matches)
 
 
 def sharedsubstrings(s1, s2, readingframe=1):
@@ -271,8 +271,8 @@ def crosscorrelate(s1, s2, readingframe=1, full=True):
 
 
 def issubstring(s1, s2, *args, **kwargs):
-    return s1.count(s2) > 0
-
+    """Is s1 a substring of s2"""
+    return s2.count(s1) > 0
 
 # we need the next function even though it seems redundant, because
 # the 'readingframe' parameter may be supplied by other functions
