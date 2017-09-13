@@ -30,7 +30,7 @@ def _checkstring(s, readingframe=1):
 
 def lengthnsubstrings(s, n, readingframe=1):
     """
-    Finds length-n substrings of s.
+    Returns a tuple of consecutive length-n substrings of s.
     
     Parameters
     ----------
@@ -46,8 +46,16 @@ def lengthnsubstrings(s, n, readingframe=1):
 
     Returns
     -------
-    Tuple with substrings.
-    
+    Tuple with substrings
+
+    Examples
+    --------
+    >>> from aglcheck.algorithms import lengthnsubstrings
+    >>> lengthnsubstrings('abcdefghi', n=4)
+    ('abcd', 'bcde', 'cdef', 'defg', 'efgh', 'fghi')
+    >>> lengthnsubstrings('a1a2a3c1b3b2b1', n=4, readingframe=2)
+    ('a1a2a3c1', 'a2a3c1b3', 'a3c1b3b2', 'c1b3b2b1')
+
     """
     _checkpositiveint(readingframe)
     _checkstring(s, readingframe=readingframe)
@@ -65,23 +73,32 @@ def sharedlengthnsubstrings(s1, s2, n, readingframe=1):
     Parameters
     ----------
     s1 : string
-        String from which length-n substrings are generated.
+        String from which length-n substrings are analyzed
     s2 : string
         String within which length-n substrings of s1 are matched
     n : positive int
         Length of the shared substrings that are considered
     readingframe : positive int, default 1
-        The number of characters that make up one string token. Normally 1,
-        so that, e.g. the string "abcd" has 4 tokens. However if there exist
-        many tokens, these can be coded with multiple ascii symbols. E.g., if
-        readingframe is 2, then "abcd" has two tokens, namely "ab" and "cd".
+        The number of characters that make up one string token. This will
+        often be `1`, so that, e.g. the string "abcd" has 4 tokens. However if
+        there are more tokens than can be coded in ascii symbols,
+        the larger readingframes are the solution. E.g., if readingframe is 2,
+        then "a1b1" has two tokens, namely "a1" and "b1".
 
     Returns
     -------
     Tuple with hits. Each hit is a two-tuple, containing a
     substring match and a two-tuple of the positions where the shared 
-    substrings occur in s1 and s2.. Note that the positions refer to the 
-    python strings, and do not take into account the reading frame.
+    substrings occur in s1 and s2.. *Note that the positions refer to the
+    python strings, and do not take into account the reading frame*.
+
+    Examples
+    --------
+    >>> from aglcheck.algorithms import sharedlengthnsubstrings
+    >>> sharedlengthnsubstrings('abcdefg', 'cdfgbcd', n=2)
+    (('bc', [(1, 4)]), ('cd', [(2, 0), (2, 5)]), ('fg', [(5, 2)]))
+    >>> sharedlengthnsubstrings('a1a2c1b2b1', 'c1b2b1a1a2', n=2, readingframe=2)
+    (('a1a2', [(0, 6)]), ('c1b2', [(4, 0)]), ('b2b1', [(6, 2)]))
 
     """
 
