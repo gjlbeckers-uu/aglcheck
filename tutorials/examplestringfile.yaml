@@ -1,9 +1,28 @@
 # Example stringfile used for tutorial
 
+# you may assign descriptive labels to the strings
 strings:
-    - ABA
-    - BAB
-    - AABA
-    - BBA
-    - BAA
-    - ABBA
+    - Go:    ABA
+    - NoGo:  BAB
+    - Test1: BAA
+    - Test2: BBA
+    - Test3: AABA
+    - Test4: ABBA
+
+# defined for specific comparisons, there may be overlap between categories
+stringcategories:
+    Training:    [Go, NoGo]
+    Test:        [Test1, Test2, Test3, Test4]
+    TestSimple:  [Test1, Test2]
+    TestComplex: [Test3, Test4]
+
+# for figures and tables, we may want to use specific colors for specific
+# categories. these are matplotlib colors.
+labelcolors:
+    Training: 'blue'
+    TestSimple: 'green'
+    TestComplex: '#ff0000' # may also be hexadecimal RGB color, red here.
+
+
+
+
