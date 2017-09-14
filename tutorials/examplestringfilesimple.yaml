@@ -1,9 +1,22 @@
 # Example simple stringfile used for tutorial
+# The string sets originate from: Wilson et al (2015) Nat Commun 6:8901.
 
+# Just a list of the strings where every ascii symbol is a token
 strings:
-    - ABA
-    - BAB
-    - AABA
-    - BBA
-    - BAA
-    - ABBA
+    - acf
+    - acfc
+    - acgf
+    - acgfc
+    - adcf
+    - adcfc
+    - adcfcg
+    - adcgf
+    - acgfcg
+    - acgfc
+    - adcfcg
+    - acfcg
+    - adcgfc
+    - afgcd
+    - afcdgc
+    - fadgc
+    - dcafgc

@@ -1,28 +1,50 @@
 # Example stringfile used for tutorial
 
-# you may assign descriptive labels to the strings
+# The string sets originate from: Wilson et al (2015) Nat Commun 6:8901.
+
+# strings are defined as a list of label: string mappings. The string labels
+# can the be used in the rest of this file
 strings:
-    - Go:    ABA
-    - NoGo:  BAB
-    - Test1: BAA
-    - Test2: BBA
-    - Test3: AABA
-    - Test4: ABBA
+    - E1:  acf
+    - E2:  acfc
+    - E3:  acgf
+    - E4:  acgfc
+    - E5:  adcf
+    - E6:  adcfc
+    - E7:  adcfcg
+    - E8:  adcgf
+    - E9:  acgfcg
+    - CT1: acgfc
+    - CT2: adcfcg
+    - CT3: acfcg
+    - CT4: adcgfc
+    - VT1: afgcd
+    - VT2: afcdgc
+    - VT3: fadgc
+    - VT4: dcafgc
 
-# defined for specific comparisons, there may be overlap between categories
+# define categories that you want to compare
 stringcategories:
-    Training:    [Go, NoGo]
-    Test:        [Test1, Test2, Test3, Test4]
-    TestSimple:  [Test1, Test2]
-    TestComplex: [Test3, Test4]
+    Exposure: [E1, E2, E3, E4, E5, E6, E7, E8, E9]
+    Test: [CT1, CT2, CT3, CT4, VT1, VT2, VT3, VT4]
+    CorrectTest: [CT1, CT2, CT3, CT4]
+    ViolatingTest: [VT1, VT2, VT3, VT4]
 
-# for figures and tables, we may want to use specific colors for specific
-# categories. these are matplotlib colors.
+# if label colors are defined here, they will be used for stringlabels in
+# plots and tables. These are matplotlib colors, so they can be hexadecimal
+# RGB colors, as is the case here, or predefined colors like 'red', 'blue' etc.
 labelcolors:
-    Training: 'blue'
-    TestSimple: 'green'
-    TestComplex: '#ff0000' # may also be hexadecimal RGB color, red here.
+    CorrectTest: "#0071c1"
+    ViolatingTest: "#c00000"
 
+# How long are the tokens? Some comparison functions use this info.
+tokendurations:
+    a: 0.64
+    c: 0.40
+    d: 0.62
+    f: 0.56
+    g: 0.39
 
-
-
+# Interstimulus duration, i.e. the duration of silence between tokens. Some
+# comparison functions use this info.
+isiduration: 0.1

@@ -1,9 +1,7 @@
 <!DOCTYPE html>
 <html>
 <head><meta charset="utf-8" />
-<title>basic_use</title>
-
-<script src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.1.10/require.min.js"></script>
+<title>basic_use</title><script src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.1.10/require.min.js"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/2.0.3/jquery.min.js"></script>
 
 <style type="text/css">
@@ -13,8 +11,8 @@
 *
 */
 /*!
- * Bootstrap v3.3.6 (http://getbootstrap.com)
- * Copyright 2011-2015 Twitter, Inc.
+ * Bootstrap v3.3.7 (http://getbootstrap.com)
+ * Copyright 2011-2016 Twitter, Inc.
  * Licensed under MIT (https://github.com/twbs/bootstrap/blob/master/LICENSE)
  */
 /*! normalize.css v3.0.3 | MIT License | github.com/necolas/normalize.css */
@@ -1109,7 +1107,6 @@ a:focus {
   text-decoration: underline;
 }
 a:focus {
-  outline: thin dotted;
   outline: 5px auto -webkit-focus-ring-color;
   outline-offset: -2px;
 }
@@ -2538,7 +2535,6 @@ select[size] {
 input[type="file"]:focus,
 input[type="radio"]:focus,
 input[type="checkbox"]:focus {
-  outline: thin dotted;
   outline: 5px auto -webkit-focus-ring-color;
   outline-offset: -2px;
 }
@@ -3029,7 +3025,6 @@ select[multiple].input-lg {
 .btn.focus,
 .btn:active.focus,
 .btn.active.focus {
-  outline: thin dotted;
   outline: 5px auto -webkit-focus-ring-color;
   outline-offset: -2px;
 }
@@ -8760,6 +8755,9 @@ body > #header .header-bar {
     margin-left: 10px;
   }
 }
+[dir="rtl"] #ipython_notebook {
+  float: right !important;
+}
 #noscript {
   width: auto;
   padding-top: 16px;
@@ -8962,8 +8960,14 @@ span#login_widget > .button .badge,
  *
  * Author: Jupyter Development Team
  */
+[dir="rtl"] #tabs li {
+  float: right;
+}
 ul#tabs {
   margin-bottom: 4px;
+}
+[dir="rtl"] ul#tabs {
+  margin-right: 0px;
 }
 ul#tabs a {
   padding-top: 6px;
@@ -8986,6 +8990,16 @@ ul.breadcrumb span {
 }
 .list_toolbar .tree-buttons {
   padding-top: 1px;
+}
+[dir="rtl"] .list_toolbar .tree-buttons {
+  float: left !important;
+}
+[dir="rtl"] .list_toolbar .pull-right {
+  padding-top: 1px;
+  float: left !important;
+}
+[dir="rtl"] .list_toolbar .pull-left {
+  float: right !important;
 }
 .dynamic-buttons {
   padding-top: 3px;
@@ -9122,6 +9136,9 @@ ul.breadcrumb span {
 #tree-selector {
   padding-right: 0px;
 }
+[dir="rtl"] #tree-selector a {
+  float: right;
+}
 #button-select-all {
   min-width: 50px;
 }
@@ -9211,6 +9228,9 @@ ul#new-menu {
   left: auto;
   right: 0;
 }
+[dir="rtl"] #new-menu {
+  text-align: right;
+}
 .kernel-menu-icon {
   padding-right: 12px;
   width: 24px;
@@ -9255,6 +9275,9 @@ ul#new-menu {
 }
 #running .panel-group .panel .panel-body .list_container .list_item:last-child {
   border-bottom: 0px;
+}
+[dir="rtl"] #running .col-sm-8 {
+  float: right !important;
 }
 .delete-button {
   display: none;
@@ -9551,6 +9574,7 @@ div.cell.selected.jupyter-soft-selected {
   }
 }
 div.inner_cell {
+  min-width: 0;
   /* Old browsers */
   display: -webkit-box;
   -webkit-box-orient: vertical;
@@ -9571,11 +9595,6 @@ div.inner_cell {
   box-flex: 1;
   /* Modern browsers */
   flex: 1;
-}
-@-moz-document url-prefix() {
-  div.inner_cell {
-    overflow-x: hidden;
-  }
 }
 /* input_area and input_prompt must match in top border and margin for alignment */
 div.input_area {
@@ -11246,7 +11265,7 @@ div#pager .ui-resizable-handle::after {
 }
 .shortcut_key {
   display: inline-block;
-  width: 20ex;
+  width: 21ex;
   text-align: right;
   font-family: monospace;
 }
@@ -11558,6 +11577,7 @@ ul.typeahead-list > li > a {
   box-shadow: 0px 0px 12px 1px rgba(87, 87, 87, 0.2);
 }
 .terminal-app .terminal {
+  width: 100%;
   float: left;
   font-family: monospace;
   color: white;
@@ -11571,6 +11591,9 @@ ul.typeahead-list > li > a {
 .terminal-app .terminal dummy-screen {
   line-height: 1em;
   font-size: 14px;
+}
+.terminal-app .terminal .xterm-rows {
+  padding: 10px;
 }
 .terminal-app .terminal-cursor {
   color: black;
@@ -11631,8 +11654,10 @@ ul.typeahead-list > li > a {
 .highlight .mh { color: #666666 } /* Literal.Number.Hex */
 .highlight .mi { color: #666666 } /* Literal.Number.Integer */
 .highlight .mo { color: #666666 } /* Literal.Number.Oct */
+.highlight .sa { color: #BA2121 } /* Literal.String.Affix */
 .highlight .sb { color: #BA2121 } /* Literal.String.Backtick */
 .highlight .sc { color: #BA2121 } /* Literal.String.Char */
+.highlight .dl { color: #BA2121 } /* Literal.String.Delimiter */
 .highlight .sd { color: #BA2121; font-style: italic } /* Literal.String.Doc */
 .highlight .s2 { color: #BA2121 } /* Literal.String.Double */
 .highlight .se { color: #BB6622; font-weight: bold } /* Literal.String.Escape */
@@ -11643,9 +11668,11 @@ ul.typeahead-list > li > a {
 .highlight .s1 { color: #BA2121 } /* Literal.String.Single */
 .highlight .ss { color: #19177C } /* Literal.String.Symbol */
 .highlight .bp { color: #008000 } /* Name.Builtin.Pseudo */
+.highlight .fm { color: #0000FF } /* Name.Function.Magic */
 .highlight .vc { color: #19177C } /* Name.Variable.Class */
 .highlight .vg { color: #19177C } /* Name.Variable.Global */
 .highlight .vi { color: #19177C } /* Name.Variable.Instance */
+.highlight .vm { color: #19177C } /* Name.Variable.Magic */
 .highlight .il { color: #666666 } /* Literal.Number.Integer.Long */
     </style>
 <style type="text/css">
@@ -11757,10 +11784,11 @@ div#notebook {
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In&nbsp;[2]:</div>
+<div class="prompt input_prompt">In&nbsp;[1]:</div>
 <div class="inner_cell">
     <div class="input_area">
-<div class=" highlight hl-ipython3"><pre><span></span><span class="kn">from</span> <span class="nn">__future__</span> <span class="k">import</span> <span class="n">print_function</span>
+<div class=" highlight hl-ipython3"><pre><span></span><span class="c1"># import modules and functions we need</span>
+<span class="kn">from</span> <span class="nn">__future__</span> <span class="k">import</span> <span class="n">print_function</span>
 <span class="o">%</span><span class="k">matplotlib</span> inline
 <span class="kn">from</span> <span class="nn">IPython.core.display</span> <span class="k">import</span> <span class="n">HTML</span>
 <span class="kn">from</span> <span class="nn">aglcheck</span> <span class="k">import</span> <span class="n">compare_sets</span><span class="p">,</span> <span class="n">examplestringdata</span><span class="p">,</span> <span class="n">get_examplestringdata</span><span class="p">,</span> <span class="n">htmltables</span><span class="p">,</span> \
@@ -11796,17 +11824,17 @@ div#notebook {
 </div>
 <div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
-<p>1) Provide strings directly</p>
+<p>1) Provide strings directly as a list of strings</p>
 
 </div>
 </div>
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In&nbsp;[3]:</div>
+<div class="prompt input_prompt">In&nbsp;[5]:</div>
 <div class="inner_cell">
     <div class="input_area">
-<div class=" highlight hl-ipython3"><pre><span></span><span class="n">sd</span> <span class="o">=</span> <span class="n">StringData</span><span class="p">(</span><span class="n">strings</span><span class="o">=</span><span class="p">[</span><span class="s1">&#39;ABA&#39;</span><span class="p">,</span> <span class="s1">&#39;BAB&#39;</span><span class="p">,</span> <span class="s1">&#39;AABA&#39;</span><span class="p">,</span> <span class="s1">&#39;BBA&#39;</span><span class="p">,</span> <span class="s1">&#39;BAA&#39;</span><span class="p">,</span> <span class="s1">&#39;ABBA&#39;</span><span class="p">])</span>
+<div class=" highlight hl-ipython3"><pre><span></span><span class="n">sd</span> <span class="o">=</span> <span class="n">StringData</span><span class="p">(</span><span class="n">strings</span><span class="o">=</span><span class="p">[</span><span class="s1">&#39;acf&#39;</span><span class="p">,</span> <span class="s1">&#39;acfc&#39;</span><span class="p">,</span> <span class="s1">&#39;acgf&#39;</span><span class="p">,</span> <span class="s1">&#39;acgfc&#39;</span><span class="p">,</span> <span class="s1">&#39;adcf&#39;</span><span class="p">])</span>
 <span class="nb">print</span><span class="p">(</span><span class="n">sd</span><span class="p">)</span>
 </pre></div>
 
@@ -11818,15 +11846,16 @@ div#notebook {
 <div class="output">
 
 
-<div class="output_area"><div class="prompt"></div>
+<div class="output_area">
+<div class="prompt"></div>
+
 <div class="output_subarea output_stream output_stdout output_text">
 <pre>All:
-    ABA  : ABA
-    BAB  : BAB
-    AABA : AABA
-    BBA  : BBA
-    BAA  : BAA
-    ABBA : ABBA
+    acf   : acf
+    acfc  : acfc
+    acgf  : acgf
+    acgfc : acgfc
+    adcf  : adcf
 
 
 </pre>
@@ -11842,14 +11871,119 @@ div#notebook {
 </div>
 <div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
-<p>2) Read strings from a special text file (yaml format) that contains string information. See 'examplestringfile.yaml' for an example that you can use as a template.</p>
+<p>Note that the strings automaltically get labels that are identical to the strings themselves, since we didn't provide any different labels. However, it can be handy to use short labels to identify strings, like so:</p>
 
 </div>
 </div>
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In&nbsp;[4]:</div>
+<div class="prompt input_prompt">In&nbsp;[10]:</div>
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="n">sd</span> <span class="o">=</span> <span class="n">StringData</span><span class="p">(</span><span class="n">strings</span><span class="o">=</span><span class="p">[{</span><span class="s1">&#39;E1&#39;</span><span class="p">:</span> <span class="s1">&#39;acf&#39;</span><span class="p">},</span> <span class="p">{</span><span class="s1">&#39;E2&#39;</span><span class="p">:</span> <span class="s1">&#39;acfc&#39;</span><span class="p">},</span> <span class="p">{</span><span class="s1">&#39;E3&#39;</span><span class="p">:</span> <span class="s1">&#39;acgf&#39;</span><span class="p">},</span> <span class="p">{</span><span class="s1">&#39;E4&#39;</span><span class="p">:</span> <span class="s1">&#39;acgfc&#39;</span><span class="p">}])</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">sd</span><span class="p">)</span>
+</pre></div>
+
+</div>
+</div>
+</div>
+
+<div class="output_wrapper">
+<div class="output">
+
+
+<div class="output_area">
+<div class="prompt"></div>
+
+<div class="output_subarea output_stream output_stdout output_text">
+<pre>All:
+    E1 : acf
+    E2 : acfc
+    E3 : acgf
+    E4 : acgfc
+
+
+</pre>
+</div>
+</div>
+
+</div>
+</div>
+
+</div>
+<div class="cell border-box-sizing text_cell rendered">
+<div class="prompt input_prompt">
+</div>
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p>2) More often you will use a special text file (yaml format) that is human readable and writeable and that contains the string information. See '<a href="examplestringfilesimple.yaml">examplestringfilesimple.yaml</a>' for the simplest example that just contains a list of strings and that you can use as a template.</p>
+
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+<div class="prompt input_prompt">In&nbsp;[12]:</div>
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="n">sd</span> <span class="o">=</span> <span class="n">read_stringdata</span><span class="p">(</span><span class="s1">&#39;examplestringfilesimple.yaml&#39;</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">sd</span><span class="p">)</span>
+</pre></div>
+
+</div>
+</div>
+</div>
+
+<div class="output_wrapper">
+<div class="output">
+
+
+<div class="output_area">
+<div class="prompt"></div>
+
+<div class="output_subarea output_stream output_stdout output_text">
+<pre>All:
+    acf    : acf
+    acfc   : acfc
+    acgf   : acgf
+    acgfc  : acgfc
+    adcf   : adcf
+    adcfc  : adcfc
+    adcfcg : adcfcg
+    adcgf  : adcgf
+    acgfcg : acgfcg
+    acgfc  : acgfc
+    adcfcg : adcfcg
+    acfcg  : acfcg
+    adcgfc : adcgfc
+    afgcd  : afgcd
+    afcdgc : afcdgc
+    fadgc  : fadgc
+    dcafgc : dcafgc
+
+
+</pre>
+</div>
+</div>
+
+</div>
+</div>
+
+</div>
+<div class="cell border-box-sizing text_cell rendered">
+<div class="prompt input_prompt">
+</div>
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p>You can provide more information of the stringsets in such a file, for example descriptive string labels. And also string categories that can be used in comparisons. See for examle '<a href="examplestringfile.yaml">examplestringfile.yaml</a>', which you can use as a template.</p>
+
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+<div class="prompt input_prompt">In&nbsp;[13]:</div>
 <div class="inner_cell">
     <div class="input_area">
 <div class=" highlight hl-ipython3"><pre><span></span><span class="n">sd</span> <span class="o">=</span> <span class="n">read_stringdata</span><span class="p">(</span><span class="s1">&#39;examplestringfile.yaml&#39;</span><span class="p">)</span>
@@ -11864,15 +11998,36 @@ div#notebook {
 <div class="output">
 
 
-<div class="output_area"><div class="prompt"></div>
+<div class="output_area">
+<div class="prompt"></div>
+
 <div class="output_subarea output_stream output_stdout output_text">
 <pre>All:
-    ABA  : ABA
-    BAB  : BAB
-    AABA : AABA
-    BBA  : BBA
-    BAA  : BAA
-    ABBA : ABBA
+    E1  : acf
+    E2  : acfc
+    E3  : acgf
+    E4  : acgfc
+    E5  : adcf
+    E6  : adcfc
+    E7  : adcfcg
+    E8  : adcgf
+    E9  : acgfcg
+    CT1 : acgfc
+    CT2 : adcfcg
+    CT3 : acfcg
+    CT4 : adcgfc
+    VT1 : afgcd
+    VT2 : afcdgc
+    VT3 : fadgc
+    VT4 : dcafgc
+
+Exposure: [E1, E2, E3, E4, E5, E6, E7, E8, E9]
+
+Test: [CT1, CT2, CT3, CT4, VT1, VT2, VT3, VT4]
+
+CorrectTest: [CT1, CT2, CT3, CT4]
+
+ViolatingTest: [VT1, VT2, VT3, VT4]
 
 
 </pre>
@@ -11904,10 +12059,10 @@ div#notebook {
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In&nbsp;[6]:</div>
+<div class="prompt input_prompt">In&nbsp;[14]:</div>
 <div class="inner_cell">
     <div class="input_area">
-<div class=" highlight hl-ipython3"><pre><span></span><span class="n">ct</span> <span class="o">=</span> <span class="n">compare_sets</span><span class="o">.</span><span class="n">longestsharedsubstringlength</span><span class="p">(</span><span class="n">sd</span><span class="p">)</span>
+<div class=" highlight hl-ipython3"><pre><span></span><span class="n">cm</span> <span class="o">=</span> <span class="n">compare_sets</span><span class="o">.</span><span class="n">longestsharedsubstringlength</span><span class="p">(</span><span class="n">sd</span><span class="p">)</span>
 </pre></div>
 
 </div>
@@ -11920,17 +12075,17 @@ div#notebook {
 </div>
 <div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
-<p>The object that was returned, a ComparisonTable, can be used for direct vizualization of the results:</p>
+<p>The object that was returned, a ComparisonMatrix, can be used for different things, such as direct vizualization of the results in an image plot:</p>
 
 </div>
 </div>
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In&nbsp;[8]:</div>
+<div class="prompt input_prompt">In&nbsp;[15]:</div>
 <div class="inner_cell">
     <div class="input_area">
-<div class=" highlight hl-ipython3"><pre><span></span><span class="n">ax</span> <span class="o">=</span> <span class="n">plotting</span><span class="o">.</span><span class="n">plot_comparison</span><span class="p">(</span><span class="n">ct</span><span class="p">)</span>
+<div class=" highlight hl-ipython3"><pre><span></span><span class="n">ax</span> <span class="o">=</span> <span class="n">plotting</span><span class="o">.</span><span class="n">plot_comparison</span><span class="p">(</span><span class="n">cm</span><span class="p">)</span>
 </pre></div>
 
 </div>
@@ -11941,147 +12096,368 @@ div#notebook {
 <div class="output">
 
 
-<div class="output_area"><div class="prompt"></div>
+<div class="output_area">
+<div class="prompt"></div>
+
 
 
 <div class="output_png output_subarea ">
-<img src="data:image/png;base64,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
-YII=
+<img src="data:image/png;base64,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
+AElFTkSuQmCC
+"
+>
+</div>
+
+</div>
+
+</div>
+</div>
+
+</div>
+<div class="cell border-box-sizing text_cell rendered">
+<div class="prompt input_prompt">
+</div>
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p>You can also compare only specific string categories as long as they are defined in the stringdata:</p>
+
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+<div class="prompt input_prompt">In&nbsp;[17]:</div>
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="n">cm</span> <span class="o">=</span> <span class="n">compare_sets</span><span class="o">.</span><span class="n">longestsharedsubstringlength</span><span class="p">(</span><span class="n">sd</span><span class="p">,</span> <span class="n">comparison</span><span class="o">=</span><span class="p">(</span><span class="s1">&#39;Test&#39;</span><span class="p">,</span> <span class="s1">&#39;Exposure&#39;</span><span class="p">))</span>
+<span class="n">ax</span> <span class="o">=</span> <span class="n">plotting</span><span class="o">.</span><span class="n">plot_comparison</span><span class="p">(</span><span class="n">cm</span><span class="p">)</span>
+</pre></div>
+
+</div>
+</div>
+</div>
+
+<div class="output_wrapper">
+<div class="output">
+
+
+<div class="output_area">
+<div class="prompt"></div>
+
+
+
+<div class="output_png output_subarea ">
+<img src="data:image/png;base64,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
 "
 >
 </div>
@@ -12104,10 +12480,10 @@ YII=
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In&nbsp;[9]:</div>
+<div class="prompt input_prompt">In&nbsp;[19]:</div>
 <div class="inner_cell">
     <div class="input_area">
-<div class=" highlight hl-ipython3"><pre><span></span><span class="n">ct</span><span class="o">.</span><span class="n">get_matrix</span><span class="p">()</span>
+<div class=" highlight hl-ipython3"><pre><span></span><span class="n">cm</span><span class="o">.</span><span class="n">get_matrix</span><span class="p">()</span>
 </pre></div>
 
 </div>
@@ -12118,16 +12494,20 @@ YII=
 <div class="output">
 
 
-<div class="output_area"><div class="prompt output_prompt">Out[9]:</div>
+<div class="output_area">
+<div class="prompt output_prompt">Out[19]:</div>
+
 
 
 <div class="output_text output_subarea output_execute_result">
-<pre>[[3, 2, 3, 2, 2, 2],
- [2, 3, 2, 2, 2, 2],
- [3, 2, 4, 2, 2, 2],
- [2, 2, 2, 3, 2, 3],
- [2, 2, 2, 2, 3, 2],
- [2, 2, 2, 3, 2, 4]]</pre>
+<pre>[[2, 2, 4, 5, 1, 2, 2, 3, 5],
+ [2, 3, 2, 2, 4, 5, 6, 3, 3],
+ [3, 4, 2, 2, 2, 3, 4, 2, 3],
+ [1, 2, 3, 4, 3, 3, 3, 5, 4],
+ [1, 1, 1, 1, 1, 1, 1, 1, 1],
+ [1, 2, 1, 2, 1, 2, 2, 1, 2],
+ [1, 1, 1, 1, 2, 2, 2, 2, 1],
+ [1, 1, 1, 1, 2, 2, 2, 2, 1]]</pre>
 </div>
 
 </div>
@@ -12148,7 +12528,7 @@ YII=
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In&nbsp;[10]:</div>
+<div class="prompt input_prompt">In&nbsp;[20]:</div>
 <div class="inner_cell">
     <div class="input_area">
 <div class=" highlight hl-ipython3"><pre><span></span><span class="n">sd</span><span class="o">.</span><span class="n">strings</span>
@@ -12162,11 +12542,29 @@ YII=
 <div class="output">
 
 
-<div class="output_area"><div class="prompt output_prompt">Out[10]:</div>
+<div class="output_area">
+<div class="prompt output_prompt">Out[20]:</div>
+
 
 
 <div class="output_text output_subarea output_execute_result">
-<pre>[&#39;ABA&#39;, &#39;BAB&#39;, &#39;AABA&#39;, &#39;BBA&#39;, &#39;BAA&#39;, &#39;ABBA&#39;]</pre>
+<pre>[&#39;acf&#39;,
+ &#39;acfc&#39;,
+ &#39;acgf&#39;,
+ &#39;acgfc&#39;,
+ &#39;adcf&#39;,
+ &#39;adcfc&#39;,
+ &#39;adcfcg&#39;,
+ &#39;adcgf&#39;,
+ &#39;acgfcg&#39;,
+ &#39;acgfc&#39;,
+ &#39;adcfcg&#39;,
+ &#39;acfcg&#39;,
+ &#39;adcgfc&#39;,
+ &#39;afgcd&#39;,
+ &#39;afcdgc&#39;,
+ &#39;fadgc&#39;,
+ &#39;dcafgc&#39;]</pre>
 </div>
 
 </div>
@@ -12187,11 +12585,11 @@ YII=
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In&nbsp;[12]:</div>
+<div class="prompt input_prompt">In&nbsp;[21]:</div>
 <div class="inner_cell">
     <div class="input_area">
-<div class=" highlight hl-ipython3"><pre><span></span><span class="n">html</span> <span class="o">=</span> <span class="n">htmltables</span><span class="o">.</span><span class="n">longestsharedsubstringstable</span><span class="p">(</span><span class="n">sd</span><span class="p">)</span>
-<span class="n">HTML</span><span class="p">(</span><span class="n">html</span><span class="p">)</span>
+<div class=" highlight hl-ipython3"><pre><span></span><span class="n">htmlcode</span> <span class="o">=</span> <span class="n">htmltables</span><span class="o">.</span><span class="n">longestsharedsubstringstable</span><span class="p">(</span><span class="n">sd</span><span class="p">)</span> 
+<span class="n">HTML</span><span class="p">(</span><span class="n">htmlcode</span><span class="p">)</span>
 </pre></div>
 
 </div>
@@ -12202,10 +12600,12 @@ YII=
 <div class="output">
 
 
-<div class="output_area"><div class="prompt output_prompt">Out[12]:</div>
+<div class="output_area">
+<div class="prompt output_prompt">Out[21]:</div>
+
 
 <div class="output_html rendered_html output_subarea output_execute_result">
-<style>thead {align:center;}tbody {color:black;}table, th, td {border: 1px solid black; border-collapse: collapse;} th, td {padding: 15px;}</style><table><caption>Longest shared substrings</caption><thead><tr><th></th><th scope="col"><span style="color:black">ABA</span><br>ABA</th><th scope="col"><span style="color:black">BAB</span><br>BAB</th><th scope="col"><span style="color:black">AABA</span><br>AABA</th><th scope="col"><span style="color:black">BBA</span><br>BBA</th><th scope="col"><span style="color:black">BAA</span><br>BAA</th><th scope="col"><span style="color:black">ABBA</span><br>ABBA</th></tr></thead><tr><th scope="row"><span style="color:black">ABA</span><br>ABA</th><td><span style="color:#FF4500">ABA</span>&nbsp;&nbsp;<span style="color:#FF4500">ABA</span><br></td><td>A<span style="color:#FF4500">BA</span>&nbsp;&nbsp;<span style="color:#FF4500">BA</span>B<br><span style="color:#FF4500">AB</span>A&nbsp;&nbsp;B<span style="color:#FF4500">AB</span><br></td><td><span style="color:#FF4500">ABA</span>&nbsp;&nbsp;A<span style="color:#FF4500">ABA</span><br></td><td>A<span style="color:#FF4500">BA</span>&nbsp;&nbsp;B<span style="color:#FF4500">BA</span><br></td><td>A<span style="color:#FF4500">BA</span>&nbsp;&nbsp;<span style="color:#FF4500">BA</span>A<br></td><td><span style="color:#FF4500">AB</span>A&nbsp;&nbsp;<span style="color:#FF4500">AB</span>BA<br>A<span style="color:#FF4500">BA</span>&nbsp;&nbsp;AB<span style="color:#FF4500">BA</span><br></td></tr><tr><th scope="row"><span style="color:black">BAB</span><br>BAB</th><td>B<span style="color:#FF4500">AB</span>&nbsp;&nbsp;<span style="color:#FF4500">AB</span>A<br><span style="color:#FF4500">BA</span>B&nbsp;&nbsp;A<span style="color:#FF4500">BA</span><br></td><td><span style="color:#FF4500">BAB</span>&nbsp;&nbsp;<span style="color:#FF4500">BAB</span><br></td><td>B<span style="color:#FF4500">AB</span>&nbsp;&nbsp;A<span style="color:#FF4500">AB</span>A<br><span style="color:#FF4500">BA</span>B&nbsp;&nbsp;AA<span style="color:#FF4500">BA</span><br></td><td><span style="color:#FF4500">BA</span>B&nbsp;&nbsp;B<span style="color:#FF4500">BA</span><br></td><td><span style="color:#FF4500">BA</span>B&nbsp;&nbsp;<span style="color:#FF4500">BA</span>A<br></td><td>B<span style="color:#FF4500">AB</span>&nbsp;&nbsp;<span style="color:#FF4500">AB</span>BA<br><span style="color:#FF4500">BA</span>B&nbsp;&nbsp;AB<span style="color:#FF4500">BA</span><br></td></tr><tr><th scope="row"><span style="color:black">AABA</span><br>AABA</th><td>A<span style="color:#FF4500">ABA</span>&nbsp;&nbsp;<span style="color:#FF4500">ABA</span><br></td><td>AA<span style="color:#FF4500">BA</span>&nbsp;&nbsp;<span style="color:#FF4500">BA</span>B<br>A<span style="color:#FF4500">AB</span>A&nbsp;&nbsp;B<span style="color:#FF4500">AB</span><br></td><td><span style="color:#FF4500">AABA</span>&nbsp;&nbsp;<span style="color:#FF4500">AABA</span><br></td><td>AA<span style="color:#FF4500">BA</span>&nbsp;&nbsp;B<span style="color:#FF4500">BA</span><br></td><td>AA<span style="color:#FF4500">BA</span>&nbsp;&nbsp;<span style="color:#FF4500">BA</span>A<br><span style="color:#FF4500">AA</span>BA&nbsp;&nbsp;B<span style="color:#FF4500">AA</span><br></td><td>A<span style="color:#FF4500">AB</span>A&nbsp;&nbsp;<span style="color:#FF4500">AB</span>BA<br>AA<span style="color:#FF4500">BA</span>&nbsp;&nbsp;AB<span style="color:#FF4500">BA</span><br></td></tr><tr><th scope="row"><span style="color:black">BBA</span><br>BBA</th><td>B<span style="color:#FF4500">BA</span>&nbsp;&nbsp;A<span style="color:#FF4500">BA</span><br></td><td>B<span style="color:#FF4500">BA</span>&nbsp;&nbsp;<span style="color:#FF4500">BA</span>B<br></td><td>B<span style="color:#FF4500">BA</span>&nbsp;&nbsp;AA<span style="color:#FF4500">BA</span><br></td><td><span style="color:#FF4500">BBA</span>&nbsp;&nbsp;<span style="color:#FF4500">BBA</span><br></td><td>B<span style="color:#FF4500">BA</span>&nbsp;&nbsp;<span style="color:#FF4500">BA</span>A<br></td><td><span style="color:#FF4500">BBA</span>&nbsp;&nbsp;A<span style="color:#FF4500">BBA</span><br></td></tr><tr><th scope="row"><span style="color:black">BAA</span><br>BAA</th><td><span style="color:#FF4500">BA</span>A&nbsp;&nbsp;A<span style="color:#FF4500">BA</span><br></td><td><span style="color:#FF4500">BA</span>A&nbsp;&nbsp;<span style="color:#FF4500">BA</span>B<br></td><td>B<span style="color:#FF4500">AA</span>&nbsp;&nbsp;<span style="color:#FF4500">AA</span>BA<br><span style="color:#FF4500">BA</span>A&nbsp;&nbsp;AA<span style="color:#FF4500">BA</span><br></td><td><span style="color:#FF4500">BA</span>A&nbsp;&nbsp;B<span style="color:#FF4500">BA</span><br></td><td><span style="color:#FF4500">BAA</span>&nbsp;&nbsp;<span style="color:#FF4500">BAA</span><br></td><td><span style="color:#FF4500">BA</span>A&nbsp;&nbsp;AB<span style="color:#FF4500">BA</span><br></td></tr><tr><th scope="row"><span style="color:black">ABBA</span><br>ABBA</th><td><span style="color:#FF4500">AB</span>BA&nbsp;&nbsp;<span style="color:#FF4500">AB</span>A<br>AB<span style="color:#FF4500">BA</span>&nbsp;&nbsp;A<span style="color:#FF4500">BA</span><br></td><td>AB<span style="color:#FF4500">BA</span>&nbsp;&nbsp;<span style="color:#FF4500">BA</span>B<br><span style="color:#FF4500">AB</span>BA&nbsp;&nbsp;B<span style="color:#FF4500">AB</span><br></td><td><span style="color:#FF4500">AB</span>BA&nbsp;&nbsp;A<span style="color:#FF4500">AB</span>A<br>AB<span style="color:#FF4500">BA</span>&nbsp;&nbsp;AA<span style="color:#FF4500">BA</span><br></td><td>A<span style="color:#FF4500">BBA</span>&nbsp;&nbsp;<span style="color:#FF4500">BBA</span><br></td><td>AB<span style="color:#FF4500">BA</span>&nbsp;&nbsp;<span style="color:#FF4500">BA</span>A<br></td><td><span style="color:#FF4500">ABBA</span>&nbsp;&nbsp;<span style="color:#FF4500">ABBA</span><br></td></tr></table>
+<style>thead {align:center;}tbody {color:black;}table, th, td {border: 1px solid black; border-collapse: collapse;} th, td {padding: 15px;}</style><table><caption>Longest shared substrings</caption><thead><tr><th></th><th scope="col"><span style="color:black">E1</span><br>acf</th><th scope="col"><span style="color:black">E2</span><br>acfc</th><th scope="col"><span style="color:black">E3</span><br>acgf</th><th scope="col"><span style="color:black">E4</span><br>acgfc</th><th scope="col"><span style="color:black">E5</span><br>adcf</th><th scope="col"><span style="color:black">E6</span><br>adcfc</th><th scope="col"><span style="color:black">E7</span><br>adcfcg</th><th scope="col"><span style="color:black">E8</span><br>adcgf</th><th scope="col"><span style="color:black">E9</span><br>acgfcg</th><th scope="col"><span style="color:#0071c1">CT1</span><br>acgfc</th><th scope="col"><span style="color:#0071c1">CT2</span><br>adcfcg</th><th scope="col"><span style="color:#0071c1">CT3</span><br>acfcg</th><th scope="col"><span style="color:#0071c1">CT4</span><br>adcgfc</th><th scope="col"><span style="color:#c00000">VT1</span><br>afgcd</th><th scope="col"><span style="color:#c00000">VT2</span><br>afcdgc</th><th scope="col"><span style="color:#c00000">VT3</span><br>fadgc</th><th scope="col"><span style="color:#c00000">VT4</span><br>dcafgc</th></tr></thead><tr><th scope="row"><span style="color:black">E1</span><br>acf</th><td><span style="color:#FF4500">acf</span>&nbsp;&nbsp;<span style="color:#FF4500">acf</span><br></td><td><span style="color:#FF4500">acf</span>&nbsp;&nbsp;<span style="color:#FF4500">acf</span>c<br></td><td><span style="color:#FF4500">ac</span>f&nbsp;&nbsp;<span style="color:#FF4500">ac</span>gf<br></td><td><span style="color:#FF4500">ac</span>f&nbsp;&nbsp;<span style="color:#FF4500">ac</span>gfc<br></td><td>a<span style="color:#FF4500">cf</span>&nbsp;&nbsp;ad<span style="color:#FF4500">cf</span><br></td><td>a<span style="color:#FF4500">cf</span>&nbsp;&nbsp;ad<span style="color:#FF4500">cf</span>c<br></td><td>a<span style="color:#FF4500">cf</span>&nbsp;&nbsp;ad<span style="color:#FF4500">cf</span>cg<br></td><td><span style="color:#FF4500">a</span>cf&nbsp;&nbsp;<span style="color:#FF4500">a</span>dcgf<br>a<span style="color:#FF4500">c</span>f&nbsp;&nbsp;ad<span style="color:#FF4500">c</span>gf<br>ac<span style="color:#FF4500">f</span>&nbsp;&nbsp;adcg<span style="color:#FF4500">f</span><br></td><td><span style="color:#FF4500">ac</span>f&nbsp;&nbsp;<span style="color:#FF4500">ac</span>gfcg<br></td><td><span style="color:#FF4500">ac</span>f&nbsp;&nbsp;<span style="color:#FF4500">ac</span>gfc<br></td><td>a<span style="color:#FF4500">cf</span>&nbsp;&nbsp;ad<span style="color:#FF4500">cf</span>cg<br></td><td><span style="color:#FF4500">acf</span>&nbsp;&nbsp;<span style="color:#FF4500">acf</span>cg<br></td><td><span style="color:#FF4500">a</span>cf&nbsp;&nbsp;<span style="color:#FF4500">a</span>dcgfc<br>a<span style="color:#FF4500">c</span>f&nbsp;&nbsp;ad<span style="color:#FF4500">c</span>gfc<br>ac<span style="color:#FF4500">f</span>&nbsp;&nbsp;adcg<span style="color:#FF4500">f</span>c<br>a<span style="color:#FF4500">c</span>f&nbsp;&nbsp;adcgf<span style="color:#FF4500">c</span><br></td><td><span style="color:#FF4500">a</span>cf&nbsp;&nbsp;<span style="color:#FF4500">a</span>fgcd<br>ac<span style="color:#FF4500">f</span>&nbsp;&nbsp;a<span style="color:#FF4500">f</span>gcd<br>a<span style="color:#FF4500">c</span>f&nbsp;&nbsp;afg<span style="color:#FF4500">c</span>d<br></td><td><span style="color:#FF4500">a</span>cf&nbsp;&nbsp;<span style="color:#FF4500">a</span>fcdgc<br>ac<span style="color:#FF4500">f</span>&nbsp;&nbsp;a<span style="color:#FF4500">f</span>cdgc<br>a<span style="color:#FF4500">c</span>f&nbsp;&nbsp;af<span style="color:#FF4500">c</span>dgc<br>a<span style="color:#FF4500">c</span>f&nbsp;&nbsp;afcdg<span style="color:#FF4500">c</span><br></td><td>ac<span style="color:#FF4500">f</span>&nbsp;&nbsp;<span style="color:#FF4500">f</span>adgc<br><span style="color:#FF4500">a</span>cf&nbsp;&nbsp;f<span style="color:#FF4500">a</span>dgc<br>a<span style="color:#FF4500">c</span>f&nbsp;&nbsp;fadg<span style="color:#FF4500">c</span><br></td><td>a<span style="color:#FF4500">c</span>f&nbsp;&nbsp;d<span style="color:#FF4500">c</span>afgc<br><span style="color:#FF4500">a</span>cf&nbsp;&nbsp;dc<span style="color:#FF4500">a</span>fgc<br>ac<span style="color:#FF4500">f</span>&nbsp;&nbsp;dca<span style="color:#FF4500">f</span>gc<br>a<span style="color:#FF4500">c</span>f&nbsp;&nbsp;dcafg<span style="color:#FF4500">c</span><br></td></tr><tr><th scope="row"><span style="color:black">E2</span><br>acfc</th><td><span style="color:#FF4500">acf</span>c&nbsp;&nbsp;<span style="color:#FF4500">acf</span><br></td><td><span style="color:#FF4500">acfc</span>&nbsp;&nbsp;<span style="color:#FF4500">acfc</span><br></td><td><span style="color:#FF4500">ac</span>fc&nbsp;&nbsp;<span style="color:#FF4500">ac</span>gf<br></td><td><span style="color:#FF4500">ac</span>fc&nbsp;&nbsp;<span style="color:#FF4500">ac</span>gfc<br>ac<span style="color:#FF4500">fc</span>&nbsp;&nbsp;acg<span style="color:#FF4500">fc</span><br></td><td>a<span style="color:#FF4500">cf</span>c&nbsp;&nbsp;ad<span style="color:#FF4500">cf</span><br></td><td>a<span style="color:#FF4500">cfc</span>&nbsp;&nbsp;ad<span style="color:#FF4500">cfc</span><br></td><td>a<span style="color:#FF4500">cfc</span>&nbsp;&nbsp;ad<span style="color:#FF4500">cfc</span>g<br></td><td><span style="color:#FF4500">a</span>cfc&nbsp;&nbsp;<span style="color:#FF4500">a</span>dcgf<br>a<span style="color:#FF4500">c</span>fc&nbsp;&nbsp;ad<span style="color:#FF4500">c</span>gf<br>acf<span style="color:#FF4500">c</span>&nbsp;&nbsp;ad<span style="color:#FF4500">c</span>gf<br>ac<span style="color:#FF4500">f</span>c&nbsp;&nbsp;adcg<span style="color:#FF4500">f</span><br></td><td><span style="color:#FF4500">ac</span>fc&nbsp;&nbsp;<span style="color:#FF4500">ac</span>gfcg<br>ac<span style="color:#FF4500">fc</span>&nbsp;&nbsp;acg<span style="color:#FF4500">fc</span>g<br></td><td><span style="color:#FF4500">ac</span>fc&nbsp;&nbsp;<span style="color:#FF4500">ac</span>gfc<br>ac<span style="color:#FF4500">fc</span>&nbsp;&nbsp;acg<span style="color:#FF4500">fc</span><br></td><td>a<span style="color:#FF4500">cfc</span>&nbsp;&nbsp;ad<span style="color:#FF4500">cfc</span>g<br></td><td><span style="color:#FF4500">acfc</span>&nbsp;&nbsp;<span style="color:#FF4500">acfc</span>g<br></td><td>ac<span style="color:#FF4500">fc</span>&nbsp;&nbsp;adcg<span style="color:#FF4500">fc</span><br></td><td><span style="color:#FF4500">a</span>cfc&nbsp;&nbsp;<span style="color:#FF4500">a</span>fgcd<br>ac<span style="color:#FF4500">f</span>c&nbsp;&nbsp;a<span style="color:#FF4500">f</span>gcd<br>a<span style="color:#FF4500">c</span>fc&nbsp;&nbsp;afg<span style="color:#FF4500">c</span>d<br>acf<span style="color:#FF4500">c</span>&nbsp;&nbsp;afg<span style="color:#FF4500">c</span>d<br></td><td>ac<span style="color:#FF4500">fc</span>&nbsp;&nbsp;a<span style="color:#FF4500">fc</span>dgc<br></td><td>ac<span style="color:#FF4500">f</span>c&nbsp;&nbsp;<span style="color:#FF4500">f</span>adgc<br><span style="color:#FF4500">a</span>cfc&nbsp;&nbsp;f<span style="color:#FF4500">a</span>dgc<br>a<span style="color:#FF4500">c</span>fc&nbsp;&nbsp;fadg<span style="color:#FF4500">c</span><br>acf<span style="color:#FF4500">c</span>&nbsp;&nbsp;fadg<span style="color:#FF4500">c</span><br></td><td>a<span style="color:#FF4500">c</span>fc&nbsp;&nbsp;d<span style="color:#FF4500">c</span>afgc<br>acf<span style="color:#FF4500">c</span>&nbsp;&nbsp;d<span style="color:#FF4500">c</span>afgc<br><span style="color:#FF4500">a</span>cfc&nbsp;&nbsp;dc<span style="color:#FF4500">a</span>fgc<br>ac<span style="color:#FF4500">f</span>c&nbsp;&nbsp;dca<span style="color:#FF4500">f</span>gc<br>a<span style="color:#FF4500">c</span>fc&nbsp;&nbsp;dcafg<span style="color:#FF4500">c</span><br>acf<span style="color:#FF4500">c</span>&nbsp;&nbsp;dcafg<span style="color:#FF4500">c</span><br></td></tr><tr><th scope="row"><span style="color:black">E3</span><br>acgf</th><td><span style="color:#FF4500">ac</span>gf&nbsp;&nbsp;<span style="color:#FF4500">ac</span>f<br></td><td><span style="color:#FF4500">ac</span>gf&nbsp;&nbsp;<span style="color:#FF4500">ac</span>fc<br></td><td><span style="color:#FF4500">acgf</span>&nbsp;&nbsp;<span style="color:#FF4500">acgf</span><br></td><td><span style="color:#FF4500">acgf</span>&nbsp;&nbsp;<span style="color:#FF4500">acgf</span>c<br></td><td><span style="color:#FF4500">a</span>cgf&nbsp;&nbsp;<span style="color:#FF4500">a</span>dcf<br>a<span style="color:#FF4500">c</span>gf&nbsp;&nbsp;ad<span style="color:#FF4500">c</span>f<br>acg<span style="color:#FF4500">f</span>&nbsp;&nbsp;adc<span style="color:#FF4500">f</span><br></td><td><span style="color:#FF4500">a</span>cgf&nbsp;&nbsp;<span style="color:#FF4500">a</span>dcfc<br>a<span style="color:#FF4500">c</span>gf&nbsp;&nbsp;ad<span style="color:#FF4500">c</span>fc<br>acg<span style="color:#FF4500">f</span>&nbsp;&nbsp;adc<span style="color:#FF4500">f</span>c<br>a<span style="color:#FF4500">c</span>gf&nbsp;&nbsp;adcf<span style="color:#FF4500">c</span><br></td><td>a<span style="color:#FF4500">cg</span>f&nbsp;&nbsp;adcf<span style="color:#FF4500">cg</span><br></td><td>a<span style="color:#FF4500">cgf</span>&nbsp;&nbsp;ad<span style="color:#FF4500">cgf</span><br></td><td><span style="color:#FF4500">acgf</span>&nbsp;&nbsp;<span style="color:#FF4500">acgf</span>cg<br></td><td><span style="color:#FF4500">acgf</span>&nbsp;&nbsp;<span style="color:#FF4500">acgf</span>c<br></td><td>a<span style="color:#FF4500">cg</span>f&nbsp;&nbsp;adcf<span style="color:#FF4500">cg</span><br></td><td><span style="color:#FF4500">ac</span>gf&nbsp;&nbsp;<span style="color:#FF4500">ac</span>fcg<br>a<span style="color:#FF4500">cg</span>f&nbsp;&nbsp;acf<span style="color:#FF4500">cg</span><br></td><td>a<span style="color:#FF4500">cgf</span>&nbsp;&nbsp;ad<span style="color:#FF4500">cgf</span>c<br></td><td><span style="color:#FF4500">a</span>cgf&nbsp;&nbsp;<span style="color:#FF4500">a</span>fgcd<br>acg<span style="color:#FF4500">f</span>&nbsp;&nbsp;a<span style="color:#FF4500">f</span>gcd<br>ac<span style="color:#FF4500">g</span>f&nbsp;&nbsp;af<span style="color:#FF4500">g</span>cd<br>a<span style="color:#FF4500">c</span>gf&nbsp;&nbsp;afg<span style="color:#FF4500">c</span>d<br></td><td><span style="color:#FF4500">a</span>cgf&nbsp;&nbsp;<span style="color:#FF4500">a</span>fcdgc<br>acg<span style="color:#FF4500">f</span>&nbsp;&nbsp;a<span style="color:#FF4500">f</span>cdgc<br>a<span style="color:#FF4500">c</span>gf&nbsp;&nbsp;af<span style="color:#FF4500">c</span>dgc<br>ac<span style="color:#FF4500">g</span>f&nbsp;&nbsp;afcd<span style="color:#FF4500">g</span>c<br>a<span style="color:#FF4500">c</span>gf&nbsp;&nbsp;afcdg<span style="color:#FF4500">c</span><br></td><td>acg<span style="color:#FF4500">f</span>&nbsp;&nbsp;<span style="color:#FF4500">f</span>adgc<br><span style="color:#FF4500">a</span>cgf&nbsp;&nbsp;f<span style="color:#FF4500">a</span>dgc<br>ac<span style="color:#FF4500">g</span>f&nbsp;&nbsp;fad<span style="color:#FF4500">g</span>c<br>a<span style="color:#FF4500">c</span>gf&nbsp;&nbsp;fadg<span style="color:#FF4500">c</span><br></td><td>a<span style="color:#FF4500">c</span>gf&nbsp;&nbsp;d<span style="color:#FF4500">c</span>afgc<br><span style="color:#FF4500">a</span>cgf&nbsp;&nbsp;dc<span style="color:#FF4500">a</span>fgc<br>acg<span style="color:#FF4500">f</span>&nbsp;&nbsp;dca<span style="color:#FF4500">f</span>gc<br>ac<span style="color:#FF4500">g</span>f&nbsp;&nbsp;dcaf<span style="color:#FF4500">g</span>c<br>a<span style="color:#FF4500">c</span>gf&nbsp;&nbsp;dcafg<span style="color:#FF4500">c</span><br></td></tr><tr><th scope="row"><span style="color:black">E4</span><br>acgfc</th><td><span style="color:#FF4500">ac</span>gfc&nbsp;&nbsp;<span style="color:#FF4500">ac</span>f<br></td><td><span style="color:#FF4500">ac</span>gfc&nbsp;&nbsp;<span style="color:#FF4500">ac</span>fc<br>acg<span style="color:#FF4500">fc</span>&nbsp;&nbsp;ac<span style="color:#FF4500">fc</span><br></td><td><span style="color:#FF4500">acgf</span>c&nbsp;&nbsp;<span style="color:#FF4500">acgf</span><br></td><td><span style="color:#FF4500">acgfc</span>&nbsp;&nbsp;<span style="color:#FF4500">acgfc</span><br></td><td><span style="color:#FF4500">a</span>cgfc&nbsp;&nbsp;<span style="color:#FF4500">a</span>dcf<br>a<span style="color:#FF4500">c</span>gfc&nbsp;&nbsp;ad<span style="color:#FF4500">c</span>f<br>acgf<span style="color:#FF4500">c</span>&nbsp;&nbsp;ad<span style="color:#FF4500">c</span>f<br>acg<span style="color:#FF4500">f</span>c&nbsp;&nbsp;adc<span style="color:#FF4500">f</span><br></td><td>acg<span style="color:#FF4500">fc</span>&nbsp;&nbsp;adc<span style="color:#FF4500">fc</span><br></td><td>acg<span style="color:#FF4500">fc</span>&nbsp;&nbsp;adc<span style="color:#FF4500">fc</span>g<br>a<span style="color:#FF4500">cg</span>fc&nbsp;&nbsp;adcf<span style="color:#FF4500">cg</span><br></td><td>a<span style="color:#FF4500">cgf</span>c&nbsp;&nbsp;ad<span style="color:#FF4500">cgf</span><br></td><td><span style="color:#FF4500">acgfc</span>&nbsp;&nbsp;<span style="color:#FF4500">acgfc</span>g<br></td><td><span style="color:#FF4500">acgfc</span>&nbsp;&nbsp;<span style="color:#FF4500">acgfc</span><br></td><td>acg<span style="color:#FF4500">fc</span>&nbsp;&nbsp;adc<span style="color:#FF4500">fc</span>g<br>a<span style="color:#FF4500">cg</span>fc&nbsp;&nbsp;adcf<span style="color:#FF4500">cg</span><br></td><td><span style="color:#FF4500">ac</span>gfc&nbsp;&nbsp;<span style="color:#FF4500">ac</span>fcg<br>acg<span style="color:#FF4500">fc</span>&nbsp;&nbsp;ac<span style="color:#FF4500">fc</span>g<br>a<span style="color:#FF4500">cg</span>fc&nbsp;&nbsp;acf<span style="color:#FF4500">cg</span><br></td><td>a<span style="color:#FF4500">cgfc</span>&nbsp;&nbsp;ad<span style="color:#FF4500">cgfc</span><br></td><td><span style="color:#FF4500">a</span>cgfc&nbsp;&nbsp;<span style="color:#FF4500">a</span>fgcd<br>acg<span style="color:#FF4500">f</span>c&nbsp;&nbsp;a<span style="color:#FF4500">f</span>gcd<br>ac<span style="color:#FF4500">g</span>fc&nbsp;&nbsp;af<span style="color:#FF4500">g</span>cd<br>a<span style="color:#FF4500">c</span>gfc&nbsp;&nbsp;afg<span style="color:#FF4500">c</span>d<br>acgf<span style="color:#FF4500">c</span>&nbsp;&nbsp;afg<span style="color:#FF4500">c</span>d<br></td><td>acg<span style="color:#FF4500">fc</span>&nbsp;&nbsp;a<span style="color:#FF4500">fc</span>dgc<br></td><td>acg<span style="color:#FF4500">f</span>c&nbsp;&nbsp;<span style="color:#FF4500">f</span>adgc<br><span style="color:#FF4500">a</span>cgfc&nbsp;&nbsp;f<span style="color:#FF4500">a</span>dgc<br>ac<span style="color:#FF4500">g</span>fc&nbsp;&nbsp;fad<span style="color:#FF4500">g</span>c<br>a<span style="color:#FF4500">c</span>gfc&nbsp;&nbsp;fadg<span style="color:#FF4500">c</span><br>acgf<span style="color:#FF4500">c</span>&nbsp;&nbsp;fadg<span style="color:#FF4500">c</span><br></td><td>a<span style="color:#FF4500">c</span>gfc&nbsp;&nbsp;d<span style="color:#FF4500">c</span>afgc<br>acgf<span style="color:#FF4500">c</span>&nbsp;&nbsp;d<span style="color:#FF4500">c</span>afgc<br><span style="color:#FF4500">a</span>cgfc&nbsp;&nbsp;dc<span style="color:#FF4500">a</span>fgc<br>acg<span style="color:#FF4500">f</span>c&nbsp;&nbsp;dca<span style="color:#FF4500">f</span>gc<br>ac<span style="color:#FF4500">g</span>fc&nbsp;&nbsp;dcaf<span style="color:#FF4500">g</span>c<br>a<span style="color:#FF4500">c</span>gfc&nbsp;&nbsp;dcafg<span style="color:#FF4500">c</span><br>acgf<span style="color:#FF4500">c</span>&nbsp;&nbsp;dcafg<span style="color:#FF4500">c</span><br></td></tr><tr><th scope="row"><span style="color:black">E5</span><br>adcf</th><td>ad<span style="color:#FF4500">cf</span>&nbsp;&nbsp;a<span style="color:#FF4500">cf</span><br></td><td>ad<span style="color:#FF4500">cf</span>&nbsp;&nbsp;a<span style="color:#FF4500">cf</span>c<br></td><td><span style="color:#FF4500">a</span>dcf&nbsp;&nbsp;<span style="color:#FF4500">a</span>cgf<br>ad<span style="color:#FF4500">c</span>f&nbsp;&nbsp;a<span style="color:#FF4500">c</span>gf<br>adc<span style="color:#FF4500">f</span>&nbsp;&nbsp;acg<span style="color:#FF4500">f</span><br></td><td><span style="color:#FF4500">a</span>dcf&nbsp;&nbsp;<span style="color:#FF4500">a</span>cgfc<br>ad<span style="color:#FF4500">c</span>f&nbsp;&nbsp;a<span style="color:#FF4500">c</span>gfc<br>adc<span style="color:#FF4500">f</span>&nbsp;&nbsp;acg<span style="color:#FF4500">f</span>c<br>ad<span style="color:#FF4500">c</span>f&nbsp;&nbsp;acgf<span style="color:#FF4500">c</span><br></td><td><span style="color:#FF4500">adcf</span>&nbsp;&nbsp;<span style="color:#FF4500">adcf</span><br></td><td><span style="color:#FF4500">adcf</span>&nbsp;&nbsp;<span style="color:#FF4500">adcf</span>c<br></td><td><span style="color:#FF4500">adcf</span>&nbsp;&nbsp;<span style="color:#FF4500">adcf</span>cg<br></td><td><span style="color:#FF4500">adc</span>f&nbsp;&nbsp;<span style="color:#FF4500">adc</span>gf<br></td><td><span style="color:#FF4500">a</span>dcf&nbsp;&nbsp;<span style="color:#FF4500">a</span>cgfcg<br>ad<span style="color:#FF4500">c</span>f&nbsp;&nbsp;a<span style="color:#FF4500">c</span>gfcg<br>adc<span style="color:#FF4500">f</span>&nbsp;&nbsp;acg<span style="color:#FF4500">f</span>cg<br>ad<span style="color:#FF4500">c</span>f&nbsp;&nbsp;acgf<span style="color:#FF4500">c</span>g<br></td><td><span style="color:#FF4500">a</span>dcf&nbsp;&nbsp;<span style="color:#FF4500">a</span>cgfc<br>ad<span style="color:#FF4500">c</span>f&nbsp;&nbsp;a<span style="color:#FF4500">c</span>gfc<br>adc<span style="color:#FF4500">f</span>&nbsp;&nbsp;acg<span style="color:#FF4500">f</span>c<br>ad<span style="color:#FF4500">c</span>f&nbsp;&nbsp;acgf<span style="color:#FF4500">c</span><br></td><td><span style="color:#FF4500">adcf</span>&nbsp;&nbsp;<span style="color:#FF4500">adcf</span>cg<br></td><td>ad<span style="color:#FF4500">cf</span>&nbsp;&nbsp;a<span style="color:#FF4500">cf</span>cg<br></td><td><span style="color:#FF4500">adc</span>f&nbsp;&nbsp;<span style="color:#FF4500">adc</span>gfc<br></td><td><span style="color:#FF4500">a</span>dcf&nbsp;&nbsp;<span style="color:#FF4500">a</span>fgcd<br>adc<span style="color:#FF4500">f</span>&nbsp;&nbsp;a<span style="color:#FF4500">f</span>gcd<br>ad<span style="color:#FF4500">c</span>f&nbsp;&nbsp;afg<span style="color:#FF4500">c</span>d<br>a<span style="color:#FF4500">d</span>cf&nbsp;&nbsp;afgc<span style="color:#FF4500">d</span><br></td><td><span style="color:#FF4500">a</span>dcf&nbsp;&nbsp;<span style="color:#FF4500">a</span>fcdgc<br>adc<span style="color:#FF4500">f</span>&nbsp;&nbsp;a<span style="color:#FF4500">f</span>cdgc<br>ad<span style="color:#FF4500">c</span>f&nbsp;&nbsp;af<span style="color:#FF4500">c</span>dgc<br>a<span style="color:#FF4500">d</span>cf&nbsp;&nbsp;afc<span style="color:#FF4500">d</span>gc<br>ad<span style="color:#FF4500">c</span>f&nbsp;&nbsp;afcdg<span style="color:#FF4500">c</span><br></td><td><span style="color:#FF4500">ad</span>cf&nbsp;&nbsp;f<span style="color:#FF4500">ad</span>gc<br></td><td>a<span style="color:#FF4500">dc</span>f&nbsp;&nbsp;<span style="color:#FF4500">dc</span>afgc<br></td></tr><tr><th scope="row"><span style="color:black">E6</span><br>adcfc</th><td>ad<span style="color:#FF4500">cf</span>c&nbsp;&nbsp;a<span style="color:#FF4500">cf</span><br></td><td>ad<span style="color:#FF4500">cfc</span>&nbsp;&nbsp;a<span style="color:#FF4500">cfc</span><br></td><td><span style="color:#FF4500">a</span>dcfc&nbsp;&nbsp;<span style="color:#FF4500">a</span>cgf<br>ad<span style="color:#FF4500">c</span>fc&nbsp;&nbsp;a<span style="color:#FF4500">c</span>gf<br>adcf<span style="color:#FF4500">c</span>&nbsp;&nbsp;a<span style="color:#FF4500">c</span>gf<br>adc<span style="color:#FF4500">f</span>c&nbsp;&nbsp;acg<span style="color:#FF4500">f</span><br></td><td>adc<span style="color:#FF4500">fc</span>&nbsp;&nbsp;acg<span style="color:#FF4500">fc</span><br></td><td><span style="color:#FF4500">adcf</span>c&nbsp;&nbsp;<span style="color:#FF4500">adcf</span><br></td><td><span style="color:#FF4500">adcfc</span>&nbsp;&nbsp;<span style="color:#FF4500">adcfc</span><br></td><td><span style="color:#FF4500">adcfc</span>&nbsp;&nbsp;<span style="color:#FF4500">adcfc</span>g<br></td><td><span style="color:#FF4500">adc</span>fc&nbsp;&nbsp;<span style="color:#FF4500">adc</span>gf<br></td><td>adc<span style="color:#FF4500">fc</span>&nbsp;&nbsp;acg<span style="color:#FF4500">fc</span>g<br></td><td>adc<span style="color:#FF4500">fc</span>&nbsp;&nbsp;acg<span style="color:#FF4500">fc</span><br></td><td><span style="color:#FF4500">adcfc</span>&nbsp;&nbsp;<span style="color:#FF4500">adcfc</span>g<br></td><td>ad<span style="color:#FF4500">cfc</span>&nbsp;&nbsp;a<span style="color:#FF4500">cfc</span>g<br></td><td><span style="color:#FF4500">adc</span>fc&nbsp;&nbsp;<span style="color:#FF4500">adc</span>gfc<br></td><td><span style="color:#FF4500">a</span>dcfc&nbsp;&nbsp;<span style="color:#FF4500">a</span>fgcd<br>adc<span style="color:#FF4500">f</span>c&nbsp;&nbsp;a<span style="color:#FF4500">f</span>gcd<br>ad<span style="color:#FF4500">c</span>fc&nbsp;&nbsp;afg<span style="color:#FF4500">c</span>d<br>adcf<span style="color:#FF4500">c</span>&nbsp;&nbsp;afg<span style="color:#FF4500">c</span>d<br>a<span style="color:#FF4500">d</span>cfc&nbsp;&nbsp;afgc<span style="color:#FF4500">d</span><br></td><td>adc<span style="color:#FF4500">fc</span>&nbsp;&nbsp;a<span style="color:#FF4500">fc</span>dgc<br></td><td><span style="color:#FF4500">ad</span>cfc&nbsp;&nbsp;f<span style="color:#FF4500">ad</span>gc<br></td><td>a<span style="color:#FF4500">dc</span>fc&nbsp;&nbsp;<span style="color:#FF4500">dc</span>afgc<br></td></tr><tr><th scope="row"><span style="color:black">E7</span><br>adcfcg</th><td>ad<span style="color:#FF4500">cf</span>cg&nbsp;&nbsp;a<span style="color:#FF4500">cf</span><br></td><td>ad<span style="color:#FF4500">cfc</span>g&nbsp;&nbsp;a<span style="color:#FF4500">cfc</span><br></td><td>adcf<span style="color:#FF4500">cg</span>&nbsp;&nbsp;a<span style="color:#FF4500">cg</span>f<br></td><td>adcf<span style="color:#FF4500">cg</span>&nbsp;&nbsp;a<span style="color:#FF4500">cg</span>fc<br>adc<span style="color:#FF4500">fc</span>g&nbsp;&nbsp;acg<span style="color:#FF4500">fc</span><br></td><td><span style="color:#FF4500">adcf</span>cg&nbsp;&nbsp;<span style="color:#FF4500">adcf</span><br></td><td><span style="color:#FF4500">adcfc</span>g&nbsp;&nbsp;<span style="color:#FF4500">adcfc</span><br></td><td><span style="color:#FF4500">adcfcg</span>&nbsp;&nbsp;<span style="color:#FF4500">adcfcg</span><br></td><td><span style="color:#FF4500">adc</span>fcg&nbsp;&nbsp;<span style="color:#FF4500">adc</span>gf<br></td><td>adc<span style="color:#FF4500">fcg</span>&nbsp;&nbsp;acg<span style="color:#FF4500">fcg</span><br></td><td>adcf<span style="color:#FF4500">cg</span>&nbsp;&nbsp;a<span style="color:#FF4500">cg</span>fc<br>adc<span style="color:#FF4500">fc</span>g&nbsp;&nbsp;acg<span style="color:#FF4500">fc</span><br></td><td><span style="color:#FF4500">adcfcg</span>&nbsp;&nbsp;<span style="color:#FF4500">adcfcg</span><br></td><td>ad<span style="color:#FF4500">cfcg</span>&nbsp;&nbsp;a<span style="color:#FF4500">cfcg</span><br></td><td><span style="color:#FF4500">adc</span>fcg&nbsp;&nbsp;<span style="color:#FF4500">adc</span>gfc<br></td><td><span style="color:#FF4500">a</span>dcfcg&nbsp;&nbsp;<span style="color:#FF4500">a</span>fgcd<br>adc<span style="color:#FF4500">f</span>cg&nbsp;&nbsp;a<span style="color:#FF4500">f</span>gcd<br>adcfc<span style="color:#FF4500">g</span>&nbsp;&nbsp;af<span style="color:#FF4500">g</span>cd<br>ad<span style="color:#FF4500">c</span>fcg&nbsp;&nbsp;afg<span style="color:#FF4500">c</span>d<br>adcf<span style="color:#FF4500">c</span>g&nbsp;&nbsp;afg<span style="color:#FF4500">c</span>d<br>a<span style="color:#FF4500">d</span>cfcg&nbsp;&nbsp;afgc<span style="color:#FF4500">d</span><br></td><td>adc<span style="color:#FF4500">fc</span>g&nbsp;&nbsp;a<span style="color:#FF4500">fc</span>dgc<br></td><td><span style="color:#FF4500">ad</span>cfcg&nbsp;&nbsp;f<span style="color:#FF4500">ad</span>gc<br></td><td>a<span style="color:#FF4500">dc</span>fcg&nbsp;&nbsp;<span style="color:#FF4500">dc</span>afgc<br></td></tr><tr><th scope="row"><span style="color:black">E8</span><br>adcgf</th><td><span style="color:#FF4500">a</span>dcgf&nbsp;&nbsp;<span style="color:#FF4500">a</span>cf<br>ad<span style="color:#FF4500">c</span>gf&nbsp;&nbsp;a<span style="color:#FF4500">c</span>f<br>adcg<span style="color:#FF4500">f</span>&nbsp;&nbsp;ac<span style="color:#FF4500">f</span><br></td><td><span style="color:#FF4500">a</span>dcgf&nbsp;&nbsp;<span style="color:#FF4500">a</span>cfc<br>ad<span style="color:#FF4500">c</span>gf&nbsp;&nbsp;a<span style="color:#FF4500">c</span>fc<br>adcg<span style="color:#FF4500">f</span>&nbsp;&nbsp;ac<span style="color:#FF4500">f</span>c<br>ad<span style="color:#FF4500">c</span>gf&nbsp;&nbsp;acf<span style="color:#FF4500">c</span><br></td><td>ad<span style="color:#FF4500">cgf</span>&nbsp;&nbsp;a<span style="color:#FF4500">cgf</span><br></td><td>ad<span style="color:#FF4500">cgf</span>&nbsp;&nbsp;a<span style="color:#FF4500">cgf</span>c<br></td><td><span style="color:#FF4500">adc</span>gf&nbsp;&nbsp;<span style="color:#FF4500">adc</span>f<br></td><td><span style="color:#FF4500">adc</span>gf&nbsp;&nbsp;<span style="color:#FF4500">adc</span>fc<br></td><td><span style="color:#FF4500">adc</span>gf&nbsp;&nbsp;<span style="color:#FF4500">adc</span>fcg<br></td><td><span style="color:#FF4500">adcgf</span>&nbsp;&nbsp;<span style="color:#FF4500">adcgf</span><br></td><td>ad<span style="color:#FF4500">cgf</span>&nbsp;&nbsp;a<span style="color:#FF4500">cgf</span>cg<br></td><td>ad<span style="color:#FF4500">cgf</span>&nbsp;&nbsp;a<span style="color:#FF4500">cgf</span>c<br></td><td><span style="color:#FF4500">adc</span>gf&nbsp;&nbsp;<span style="color:#FF4500">adc</span>fcg<br></td><td>ad<span style="color:#FF4500">cg</span>f&nbsp;&nbsp;acf<span style="color:#FF4500">cg</span><br></td><td><span style="color:#FF4500">adcgf</span>&nbsp;&nbsp;<span style="color:#FF4500">adcgf</span>c<br></td><td><span style="color:#FF4500">a</span>dcgf&nbsp;&nbsp;<span style="color:#FF4500">a</span>fgcd<br>adcg<span style="color:#FF4500">f</span>&nbsp;&nbsp;a<span style="color:#FF4500">f</span>gcd<br>adc<span style="color:#FF4500">g</span>f&nbsp;&nbsp;af<span style="color:#FF4500">g</span>cd<br>ad<span style="color:#FF4500">c</span>gf&nbsp;&nbsp;afg<span style="color:#FF4500">c</span>d<br>a<span style="color:#FF4500">d</span>cgf&nbsp;&nbsp;afgc<span style="color:#FF4500">d</span><br></td><td><span style="color:#FF4500">a</span>dcgf&nbsp;&nbsp;<span style="color:#FF4500">a</span>fcdgc<br>adcg<span style="color:#FF4500">f</span>&nbsp;&nbsp;a<span style="color:#FF4500">f</span>cdgc<br>ad<span style="color:#FF4500">c</span>gf&nbsp;&nbsp;af<span style="color:#FF4500">c</span>dgc<br>a<span style="color:#FF4500">d</span>cgf&nbsp;&nbsp;afc<span style="color:#FF4500">d</span>gc<br>adc<span style="color:#FF4500">g</span>f&nbsp;&nbsp;afcd<span style="color:#FF4500">g</span>c<br>ad<span style="color:#FF4500">c</span>gf&nbsp;&nbsp;afcdg<span style="color:#FF4500">c</span><br></td><td><span style="color:#FF4500">ad</span>cgf&nbsp;&nbsp;f<span style="color:#FF4500">ad</span>gc<br></td><td>a<span style="color:#FF4500">dc</span>gf&nbsp;&nbsp;<span style="color:#FF4500">dc</span>afgc<br></td></tr><tr><th scope="row"><span style="color:black">E9</span><br>acgfcg</th><td><span style="color:#FF4500">ac</span>gfcg&nbsp;&nbsp;<span style="color:#FF4500">ac</span>f<br></td><td><span style="color:#FF4500">ac</span>gfcg&nbsp;&nbsp;<span style="color:#FF4500">ac</span>fc<br>acg<span style="color:#FF4500">fc</span>g&nbsp;&nbsp;ac<span style="color:#FF4500">fc</span><br></td><td><span style="color:#FF4500">acgf</span>cg&nbsp;&nbsp;<span style="color:#FF4500">acgf</span><br></td><td><span style="color:#FF4500">acgfc</span>g&nbsp;&nbsp;<span style="color:#FF4500">acgfc</span><br></td><td><span style="color:#FF4500">a</span>cgfcg&nbsp;&nbsp;<span style="color:#FF4500">a</span>dcf<br>a<span style="color:#FF4500">c</span>gfcg&nbsp;&nbsp;ad<span style="color:#FF4500">c</span>f<br>acgf<span style="color:#FF4500">c</span>g&nbsp;&nbsp;ad<span style="color:#FF4500">c</span>f<br>acg<span style="color:#FF4500">f</span>cg&nbsp;&nbsp;adc<span style="color:#FF4500">f</span><br></td><td>acg<span style="color:#FF4500">fc</span>g&nbsp;&nbsp;adc<span style="color:#FF4500">fc</span><br></td><td>acg<span style="color:#FF4500">fcg</span>&nbsp;&nbsp;adc<span style="color:#FF4500">fcg</span><br></td><td>a<span style="color:#FF4500">cgf</span>cg&nbsp;&nbsp;ad<span style="color:#FF4500">cgf</span><br></td><td><span style="color:#FF4500">acgfcg</span>&nbsp;&nbsp;<span style="color:#FF4500">acgfcg</span><br></td><td><span style="color:#FF4500">acgfc</span>g&nbsp;&nbsp;<span style="color:#FF4500">acgfc</span><br></td><td>acg<span style="color:#FF4500">fcg</span>&nbsp;&nbsp;adc<span style="color:#FF4500">fcg</span><br></td><td>acg<span style="color:#FF4500">fcg</span>&nbsp;&nbsp;ac<span style="color:#FF4500">fcg</span><br></td><td>a<span style="color:#FF4500">cgfc</span>g&nbsp;&nbsp;ad<span style="color:#FF4500">cgfc</span><br></td><td><span style="color:#FF4500">a</span>cgfcg&nbsp;&nbsp;<span style="color:#FF4500">a</span>fgcd<br>acg<span style="color:#FF4500">f</span>cg&nbsp;&nbsp;a<span style="color:#FF4500">f</span>gcd<br>ac<span style="color:#FF4500">g</span>fcg&nbsp;&nbsp;af<span style="color:#FF4500">g</span>cd<br>acgfc<span style="color:#FF4500">g</span>&nbsp;&nbsp;af<span style="color:#FF4500">g</span>cd<br>a<span style="color:#FF4500">c</span>gfcg&nbsp;&nbsp;afg<span style="color:#FF4500">c</span>d<br>acgf<span style="color:#FF4500">c</span>g&nbsp;&nbsp;afg<span style="color:#FF4500">c</span>d<br></td><td>acg<span style="color:#FF4500">fc</span>g&nbsp;&nbsp;a<span style="color:#FF4500">fc</span>dgc<br></td><td>acg<span style="color:#FF4500">f</span>cg&nbsp;&nbsp;<span style="color:#FF4500">f</span>adgc<br><span style="color:#FF4500">a</span>cgfcg&nbsp;&nbsp;f<span style="color:#FF4500">a</span>dgc<br>ac<span style="color:#FF4500">g</span>fcg&nbsp;&nbsp;fad<span style="color:#FF4500">g</span>c<br>acgfc<span style="color:#FF4500">g</span>&nbsp;&nbsp;fad<span style="color:#FF4500">g</span>c<br>a<span style="color:#FF4500">c</span>gfcg&nbsp;&nbsp;fadg<span style="color:#FF4500">c</span><br>acgf<span style="color:#FF4500">c</span>g&nbsp;&nbsp;fadg<span style="color:#FF4500">c</span><br></td><td>a<span style="color:#FF4500">c</span>gfcg&nbsp;&nbsp;d<span style="color:#FF4500">c</span>afgc<br>acgf<span style="color:#FF4500">c</span>g&nbsp;&nbsp;d<span style="color:#FF4500">c</span>afgc<br><span style="color:#FF4500">a</span>cgfcg&nbsp;&nbsp;dc<span style="color:#FF4500">a</span>fgc<br>acg<span style="color:#FF4500">f</span>cg&nbsp;&nbsp;dca<span style="color:#FF4500">f</span>gc<br>ac<span style="color:#FF4500">g</span>fcg&nbsp;&nbsp;dcaf<span style="color:#FF4500">g</span>c<br>acgfc<span style="color:#FF4500">g</span>&nbsp;&nbsp;dcaf<span style="color:#FF4500">g</span>c<br>a<span style="color:#FF4500">c</span>gfcg&nbsp;&nbsp;dcafg<span style="color:#FF4500">c</span><br>acgf<span style="color:#FF4500">c</span>g&nbsp;&nbsp;dcafg<span style="color:#FF4500">c</span><br></td></tr><tr><th scope="row"><span style="color:#0071c1">CT1</span><br>acgfc</th><td><span style="color:#FF4500">ac</span>gfc&nbsp;&nbsp;<span style="color:#FF4500">ac</span>f<br></td><td><span style="color:#FF4500">ac</span>gfc&nbsp;&nbsp;<span style="color:#FF4500">ac</span>fc<br>acg<span style="color:#FF4500">fc</span>&nbsp;&nbsp;ac<span style="color:#FF4500">fc</span><br></td><td><span style="color:#FF4500">acgf</span>c&nbsp;&nbsp;<span style="color:#FF4500">acgf</span><br></td><td><span style="color:#FF4500">acgfc</span>&nbsp;&nbsp;<span style="color:#FF4500">acgfc</span><br></td><td><span style="color:#FF4500">a</span>cgfc&nbsp;&nbsp;<span style="color:#FF4500">a</span>dcf<br>a<span style="color:#FF4500">c</span>gfc&nbsp;&nbsp;ad<span style="color:#FF4500">c</span>f<br>acgf<span style="color:#FF4500">c</span>&nbsp;&nbsp;ad<span style="color:#FF4500">c</span>f<br>acg<span style="color:#FF4500">f</span>c&nbsp;&nbsp;adc<span style="color:#FF4500">f</span><br></td><td>acg<span style="color:#FF4500">fc</span>&nbsp;&nbsp;adc<span style="color:#FF4500">fc</span><br></td><td>acg<span style="color:#FF4500">fc</span>&nbsp;&nbsp;adc<span style="color:#FF4500">fc</span>g<br>a<span style="color:#FF4500">cg</span>fc&nbsp;&nbsp;adcf<span style="color:#FF4500">cg</span><br></td><td>a<span style="color:#FF4500">cgf</span>c&nbsp;&nbsp;ad<span style="color:#FF4500">cgf</span><br></td><td><span style="color:#FF4500">acgfc</span>&nbsp;&nbsp;<span style="color:#FF4500">acgfc</span>g<br></td><td><span style="color:#FF4500">acgfc</span>&nbsp;&nbsp;<span style="color:#FF4500">acgfc</span><br></td><td>acg<span style="color:#FF4500">fc</span>&nbsp;&nbsp;adc<span style="color:#FF4500">fc</span>g<br>a<span style="color:#FF4500">cg</span>fc&nbsp;&nbsp;adcf<span style="color:#FF4500">cg</span><br></td><td><span style="color:#FF4500">ac</span>gfc&nbsp;&nbsp;<span style="color:#FF4500">ac</span>fcg<br>acg<span style="color:#FF4500">fc</span>&nbsp;&nbsp;ac<span style="color:#FF4500">fc</span>g<br>a<span style="color:#FF4500">cg</span>fc&nbsp;&nbsp;acf<span style="color:#FF4500">cg</span><br></td><td>a<span style="color:#FF4500">cgfc</span>&nbsp;&nbsp;ad<span style="color:#FF4500">cgfc</span><br></td><td><span style="color:#FF4500">a</span>cgfc&nbsp;&nbsp;<span style="color:#FF4500">a</span>fgcd<br>acg<span style="color:#FF4500">f</span>c&nbsp;&nbsp;a<span style="color:#FF4500">f</span>gcd<br>ac<span style="color:#FF4500">g</span>fc&nbsp;&nbsp;af<span style="color:#FF4500">g</span>cd<br>a<span style="color:#FF4500">c</span>gfc&nbsp;&nbsp;afg<span style="color:#FF4500">c</span>d<br>acgf<span style="color:#FF4500">c</span>&nbsp;&nbsp;afg<span style="color:#FF4500">c</span>d<br></td><td>acg<span style="color:#FF4500">fc</span>&nbsp;&nbsp;a<span style="color:#FF4500">fc</span>dgc<br></td><td>acg<span style="color:#FF4500">f</span>c&nbsp;&nbsp;<span style="color:#FF4500">f</span>adgc<br><span style="color:#FF4500">a</span>cgfc&nbsp;&nbsp;f<span style="color:#FF4500">a</span>dgc<br>ac<span style="color:#FF4500">g</span>fc&nbsp;&nbsp;fad<span style="color:#FF4500">g</span>c<br>a<span style="color:#FF4500">c</span>gfc&nbsp;&nbsp;fadg<span style="color:#FF4500">c</span><br>acgf<span style="color:#FF4500">c</span>&nbsp;&nbsp;fadg<span style="color:#FF4500">c</span><br></td><td>a<span style="color:#FF4500">c</span>gfc&nbsp;&nbsp;d<span style="color:#FF4500">c</span>afgc<br>acgf<span style="color:#FF4500">c</span>&nbsp;&nbsp;d<span style="color:#FF4500">c</span>afgc<br><span style="color:#FF4500">a</span>cgfc&nbsp;&nbsp;dc<span style="color:#FF4500">a</span>fgc<br>acg<span style="color:#FF4500">f</span>c&nbsp;&nbsp;dca<span style="color:#FF4500">f</span>gc<br>ac<span style="color:#FF4500">g</span>fc&nbsp;&nbsp;dcaf<span style="color:#FF4500">g</span>c<br>a<span style="color:#FF4500">c</span>gfc&nbsp;&nbsp;dcafg<span style="color:#FF4500">c</span><br>acgf<span style="color:#FF4500">c</span>&nbsp;&nbsp;dcafg<span style="color:#FF4500">c</span><br></td></tr><tr><th scope="row"><span style="color:#0071c1">CT2</span><br>adcfcg</th><td>ad<span style="color:#FF4500">cf</span>cg&nbsp;&nbsp;a<span style="color:#FF4500">cf</span><br></td><td>ad<span style="color:#FF4500">cfc</span>g&nbsp;&nbsp;a<span style="color:#FF4500">cfc</span><br></td><td>adcf<span style="color:#FF4500">cg</span>&nbsp;&nbsp;a<span style="color:#FF4500">cg</span>f<br></td><td>adcf<span style="color:#FF4500">cg</span>&nbsp;&nbsp;a<span style="color:#FF4500">cg</span>fc<br>adc<span style="color:#FF4500">fc</span>g&nbsp;&nbsp;acg<span style="color:#FF4500">fc</span><br></td><td><span style="color:#FF4500">adcf</span>cg&nbsp;&nbsp;<span style="color:#FF4500">adcf</span><br></td><td><span style="color:#FF4500">adcfc</span>g&nbsp;&nbsp;<span style="color:#FF4500">adcfc</span><br></td><td><span style="color:#FF4500">adcfcg</span>&nbsp;&nbsp;<span style="color:#FF4500">adcfcg</span><br></td><td><span style="color:#FF4500">adc</span>fcg&nbsp;&nbsp;<span style="color:#FF4500">adc</span>gf<br></td><td>adc<span style="color:#FF4500">fcg</span>&nbsp;&nbsp;acg<span style="color:#FF4500">fcg</span><br></td><td>adcf<span style="color:#FF4500">cg</span>&nbsp;&nbsp;a<span style="color:#FF4500">cg</span>fc<br>adc<span style="color:#FF4500">fc</span>g&nbsp;&nbsp;acg<span style="color:#FF4500">fc</span><br></td><td><span style="color:#FF4500">adcfcg</span>&nbsp;&nbsp;<span style="color:#FF4500">adcfcg</span><br></td><td>ad<span style="color:#FF4500">cfcg</span>&nbsp;&nbsp;a<span style="color:#FF4500">cfcg</span><br></td><td><span style="color:#FF4500">adc</span>fcg&nbsp;&nbsp;<span style="color:#FF4500">adc</span>gfc<br></td><td><span style="color:#FF4500">a</span>dcfcg&nbsp;&nbsp;<span style="color:#FF4500">a</span>fgcd<br>adc<span style="color:#FF4500">f</span>cg&nbsp;&nbsp;a<span style="color:#FF4500">f</span>gcd<br>adcfc<span style="color:#FF4500">g</span>&nbsp;&nbsp;af<span style="color:#FF4500">g</span>cd<br>ad<span style="color:#FF4500">c</span>fcg&nbsp;&nbsp;afg<span style="color:#FF4500">c</span>d<br>adcf<span style="color:#FF4500">c</span>g&nbsp;&nbsp;afg<span style="color:#FF4500">c</span>d<br>a<span style="color:#FF4500">d</span>cfcg&nbsp;&nbsp;afgc<span style="color:#FF4500">d</span><br></td><td>adc<span style="color:#FF4500">fc</span>g&nbsp;&nbsp;a<span style="color:#FF4500">fc</span>dgc<br></td><td><span style="color:#FF4500">ad</span>cfcg&nbsp;&nbsp;f<span style="color:#FF4500">ad</span>gc<br></td><td>a<span style="color:#FF4500">dc</span>fcg&nbsp;&nbsp;<span style="color:#FF4500">dc</span>afgc<br></td></tr><tr><th scope="row"><span style="color:#0071c1">CT3</span><br>acfcg</th><td><span style="color:#FF4500">acf</span>cg&nbsp;&nbsp;<span style="color:#FF4500">acf</span><br></td><td><span style="color:#FF4500">acfc</span>g&nbsp;&nbsp;<span style="color:#FF4500">acfc</span><br></td><td><span style="color:#FF4500">ac</span>fcg&nbsp;&nbsp;<span style="color:#FF4500">ac</span>gf<br>acf<span style="color:#FF4500">cg</span>&nbsp;&nbsp;a<span style="color:#FF4500">cg</span>f<br></td><td><span style="color:#FF4500">ac</span>fcg&nbsp;&nbsp;<span style="color:#FF4500">ac</span>gfc<br>acf<span style="color:#FF4500">cg</span>&nbsp;&nbsp;a<span style="color:#FF4500">cg</span>fc<br>ac<span style="color:#FF4500">fc</span>g&nbsp;&nbsp;acg<span style="color:#FF4500">fc</span><br></td><td>a<span style="color:#FF4500">cf</span>cg&nbsp;&nbsp;ad<span style="color:#FF4500">cf</span><br></td><td>a<span style="color:#FF4500">cfc</span>g&nbsp;&nbsp;ad<span style="color:#FF4500">cfc</span><br></td><td>a<span style="color:#FF4500">cfcg</span>&nbsp;&nbsp;ad<span style="color:#FF4500">cfcg</span><br></td><td>acf<span style="color:#FF4500">cg</span>&nbsp;&nbsp;ad<span style="color:#FF4500">cg</span>f<br></td><td>ac<span style="color:#FF4500">fcg</span>&nbsp;&nbsp;acg<span style="color:#FF4500">fcg</span><br></td><td><span style="color:#FF4500">ac</span>fcg&nbsp;&nbsp;<span style="color:#FF4500">ac</span>gfc<br>acf<span style="color:#FF4500">cg</span>&nbsp;&nbsp;a<span style="color:#FF4500">cg</span>fc<br>ac<span style="color:#FF4500">fc</span>g&nbsp;&nbsp;acg<span style="color:#FF4500">fc</span><br></td><td>a<span style="color:#FF4500">cfcg</span>&nbsp;&nbsp;ad<span style="color:#FF4500">cfcg</span><br></td><td><span style="color:#FF4500">acfcg</span>&nbsp;&nbsp;<span style="color:#FF4500">acfcg</span><br></td><td>acf<span style="color:#FF4500">cg</span>&nbsp;&nbsp;ad<span style="color:#FF4500">cg</span>fc<br>ac<span style="color:#FF4500">fc</span>g&nbsp;&nbsp;adcg<span style="color:#FF4500">fc</span><br></td><td><span style="color:#FF4500">a</span>cfcg&nbsp;&nbsp;<span style="color:#FF4500">a</span>fgcd<br>ac<span style="color:#FF4500">f</span>cg&nbsp;&nbsp;a<span style="color:#FF4500">f</span>gcd<br>acfc<span style="color:#FF4500">g</span>&nbsp;&nbsp;af<span style="color:#FF4500">g</span>cd<br>a<span style="color:#FF4500">c</span>fcg&nbsp;&nbsp;afg<span style="color:#FF4500">c</span>d<br>acf<span style="color:#FF4500">c</span>g&nbsp;&nbsp;afg<span style="color:#FF4500">c</span>d<br></td><td>ac<span style="color:#FF4500">fc</span>g&nbsp;&nbsp;a<span style="color:#FF4500">fc</span>dgc<br></td><td>ac<span style="color:#FF4500">f</span>cg&nbsp;&nbsp;<span style="color:#FF4500">f</span>adgc<br><span style="color:#FF4500">a</span>cfcg&nbsp;&nbsp;f<span style="color:#FF4500">a</span>dgc<br>acfc<span style="color:#FF4500">g</span>&nbsp;&nbsp;fad<span style="color:#FF4500">g</span>c<br>a<span style="color:#FF4500">c</span>fcg&nbsp;&nbsp;fadg<span style="color:#FF4500">c</span><br>acf<span style="color:#FF4500">c</span>g&nbsp;&nbsp;fadg<span style="color:#FF4500">c</span><br></td><td>a<span style="color:#FF4500">c</span>fcg&nbsp;&nbsp;d<span style="color:#FF4500">c</span>afgc<br>acf<span style="color:#FF4500">c</span>g&nbsp;&nbsp;d<span style="color:#FF4500">c</span>afgc<br><span style="color:#FF4500">a</span>cfcg&nbsp;&nbsp;dc<span style="color:#FF4500">a</span>fgc<br>ac<span style="color:#FF4500">f</span>cg&nbsp;&nbsp;dca<span style="color:#FF4500">f</span>gc<br>acfc<span style="color:#FF4500">g</span>&nbsp;&nbsp;dcaf<span style="color:#FF4500">g</span>c<br>a<span style="color:#FF4500">c</span>fcg&nbsp;&nbsp;dcafg<span style="color:#FF4500">c</span><br>acf<span style="color:#FF4500">c</span>g&nbsp;&nbsp;dcafg<span style="color:#FF4500">c</span><br></td></tr><tr><th scope="row"><span style="color:#0071c1">CT4</span><br>adcgfc</th><td><span style="color:#FF4500">a</span>dcgfc&nbsp;&nbsp;<span style="color:#FF4500">a</span>cf<br>ad<span style="color:#FF4500">c</span>gfc&nbsp;&nbsp;a<span style="color:#FF4500">c</span>f<br>adcgf<span style="color:#FF4500">c</span>&nbsp;&nbsp;a<span style="color:#FF4500">c</span>f<br>adcg<span style="color:#FF4500">f</span>c&nbsp;&nbsp;ac<span style="color:#FF4500">f</span><br></td><td>adcg<span style="color:#FF4500">fc</span>&nbsp;&nbsp;ac<span style="color:#FF4500">fc</span><br></td><td>ad<span style="color:#FF4500">cgf</span>c&nbsp;&nbsp;a<span style="color:#FF4500">cgf</span><br></td><td>ad<span style="color:#FF4500">cgfc</span>&nbsp;&nbsp;a<span style="color:#FF4500">cgfc</span><br></td><td><span style="color:#FF4500">adc</span>gfc&nbsp;&nbsp;<span style="color:#FF4500">adc</span>f<br></td><td><span style="color:#FF4500">adc</span>gfc&nbsp;&nbsp;<span style="color:#FF4500">adc</span>fc<br></td><td><span style="color:#FF4500">adc</span>gfc&nbsp;&nbsp;<span style="color:#FF4500">adc</span>fcg<br></td><td><span style="color:#FF4500">adcgf</span>c&nbsp;&nbsp;<span style="color:#FF4500">adcgf</span><br></td><td>ad<span style="color:#FF4500">cgfc</span>&nbsp;&nbsp;a<span style="color:#FF4500">cgfc</span>g<br></td><td>ad<span style="color:#FF4500">cgfc</span>&nbsp;&nbsp;a<span style="color:#FF4500">cgfc</span><br></td><td><span style="color:#FF4500">adc</span>gfc&nbsp;&nbsp;<span style="color:#FF4500">adc</span>fcg<br></td><td>adcg<span style="color:#FF4500">fc</span>&nbsp;&nbsp;ac<span style="color:#FF4500">fc</span>g<br>ad<span style="color:#FF4500">cg</span>fc&nbsp;&nbsp;acf<span style="color:#FF4500">cg</span><br></td><td><span style="color:#FF4500">adcgfc</span>&nbsp;&nbsp;<span style="color:#FF4500">adcgfc</span><br></td><td><span style="color:#FF4500">a</span>dcgfc&nbsp;&nbsp;<span style="color:#FF4500">a</span>fgcd<br>adcg<span style="color:#FF4500">f</span>c&nbsp;&nbsp;a<span style="color:#FF4500">f</span>gcd<br>adc<span style="color:#FF4500">g</span>fc&nbsp;&nbsp;af<span style="color:#FF4500">g</span>cd<br>ad<span style="color:#FF4500">c</span>gfc&nbsp;&nbsp;afg<span style="color:#FF4500">c</span>d<br>adcgf<span style="color:#FF4500">c</span>&nbsp;&nbsp;afg<span style="color:#FF4500">c</span>d<br>a<span style="color:#FF4500">d</span>cgfc&nbsp;&nbsp;afgc<span style="color:#FF4500">d</span><br></td><td>adcg<span style="color:#FF4500">fc</span>&nbsp;&nbsp;a<span style="color:#FF4500">fc</span>dgc<br></td><td><span style="color:#FF4500">ad</span>cgfc&nbsp;&nbsp;f<span style="color:#FF4500">ad</span>gc<br></td><td>a<span style="color:#FF4500">dc</span>gfc&nbsp;&nbsp;<span style="color:#FF4500">dc</span>afgc<br></td></tr><tr><th scope="row"><span style="color:#c00000">VT1</span><br>afgcd</th><td><span style="color:#FF4500">a</span>fgcd&nbsp;&nbsp;<span style="color:#FF4500">a</span>cf<br>afg<span style="color:#FF4500">c</span>d&nbsp;&nbsp;a<span style="color:#FF4500">c</span>f<br>a<span style="color:#FF4500">f</span>gcd&nbsp;&nbsp;ac<span style="color:#FF4500">f</span><br></td><td><span style="color:#FF4500">a</span>fgcd&nbsp;&nbsp;<span style="color:#FF4500">a</span>cfc<br>afg<span style="color:#FF4500">c</span>d&nbsp;&nbsp;a<span style="color:#FF4500">c</span>fc<br>a<span style="color:#FF4500">f</span>gcd&nbsp;&nbsp;ac<span style="color:#FF4500">f</span>c<br>afg<span style="color:#FF4500">c</span>d&nbsp;&nbsp;acf<span style="color:#FF4500">c</span><br></td><td><span style="color:#FF4500">a</span>fgcd&nbsp;&nbsp;<span style="color:#FF4500">a</span>cgf<br>afg<span style="color:#FF4500">c</span>d&nbsp;&nbsp;a<span style="color:#FF4500">c</span>gf<br>af<span style="color:#FF4500">g</span>cd&nbsp;&nbsp;ac<span style="color:#FF4500">g</span>f<br>a<span style="color:#FF4500">f</span>gcd&nbsp;&nbsp;acg<span style="color:#FF4500">f</span><br></td><td><span style="color:#FF4500">a</span>fgcd&nbsp;&nbsp;<span style="color:#FF4500">a</span>cgfc<br>afg<span style="color:#FF4500">c</span>d&nbsp;&nbsp;a<span style="color:#FF4500">c</span>gfc<br>af<span style="color:#FF4500">g</span>cd&nbsp;&nbsp;ac<span style="color:#FF4500">g</span>fc<br>a<span style="color:#FF4500">f</span>gcd&nbsp;&nbsp;acg<span style="color:#FF4500">f</span>c<br>afg<span style="color:#FF4500">c</span>d&nbsp;&nbsp;acgf<span style="color:#FF4500">c</span><br></td><td><span style="color:#FF4500">a</span>fgcd&nbsp;&nbsp;<span style="color:#FF4500">a</span>dcf<br>afgc<span style="color:#FF4500">d</span>&nbsp;&nbsp;a<span style="color:#FF4500">d</span>cf<br>afg<span style="color:#FF4500">c</span>d&nbsp;&nbsp;ad<span style="color:#FF4500">c</span>f<br>a<span style="color:#FF4500">f</span>gcd&nbsp;&nbsp;adc<span style="color:#FF4500">f</span><br></td><td><span style="color:#FF4500">a</span>fgcd&nbsp;&nbsp;<span style="color:#FF4500">a</span>dcfc<br>afgc<span style="color:#FF4500">d</span>&nbsp;&nbsp;a<span style="color:#FF4500">d</span>cfc<br>afg<span style="color:#FF4500">c</span>d&nbsp;&nbsp;ad<span style="color:#FF4500">c</span>fc<br>a<span style="color:#FF4500">f</span>gcd&nbsp;&nbsp;adc<span style="color:#FF4500">f</span>c<br>afg<span style="color:#FF4500">c</span>d&nbsp;&nbsp;adcf<span style="color:#FF4500">c</span><br></td><td><span style="color:#FF4500">a</span>fgcd&nbsp;&nbsp;<span style="color:#FF4500">a</span>dcfcg<br>afgc<span style="color:#FF4500">d</span>&nbsp;&nbsp;a<span style="color:#FF4500">d</span>cfcg<br>afg<span style="color:#FF4500">c</span>d&nbsp;&nbsp;ad<span style="color:#FF4500">c</span>fcg<br>a<span style="color:#FF4500">f</span>gcd&nbsp;&nbsp;adc<span style="color:#FF4500">f</span>cg<br>afg<span style="color:#FF4500">c</span>d&nbsp;&nbsp;adcf<span style="color:#FF4500">c</span>g<br>af<span style="color:#FF4500">g</span>cd&nbsp;&nbsp;adcfc<span style="color:#FF4500">g</span><br></td><td><span style="color:#FF4500">a</span>fgcd&nbsp;&nbsp;<span style="color:#FF4500">a</span>dcgf<br>afgc<span style="color:#FF4500">d</span>&nbsp;&nbsp;a<span style="color:#FF4500">d</span>cgf<br>afg<span style="color:#FF4500">c</span>d&nbsp;&nbsp;ad<span style="color:#FF4500">c</span>gf<br>af<span style="color:#FF4500">g</span>cd&nbsp;&nbsp;adc<span style="color:#FF4500">g</span>f<br>a<span style="color:#FF4500">f</span>gcd&nbsp;&nbsp;adcg<span style="color:#FF4500">f</span><br></td><td><span style="color:#FF4500">a</span>fgcd&nbsp;&nbsp;<span style="color:#FF4500">a</span>cgfcg<br>afg<span style="color:#FF4500">c</span>d&nbsp;&nbsp;a<span style="color:#FF4500">c</span>gfcg<br>af<span style="color:#FF4500">g</span>cd&nbsp;&nbsp;ac<span style="color:#FF4500">g</span>fcg<br>a<span style="color:#FF4500">f</span>gcd&nbsp;&nbsp;acg<span style="color:#FF4500">f</span>cg<br>afg<span style="color:#FF4500">c</span>d&nbsp;&nbsp;acgf<span style="color:#FF4500">c</span>g<br>af<span style="color:#FF4500">g</span>cd&nbsp;&nbsp;acgfc<span style="color:#FF4500">g</span><br></td><td><span style="color:#FF4500">a</span>fgcd&nbsp;&nbsp;<span style="color:#FF4500">a</span>cgfc<br>afg<span style="color:#FF4500">c</span>d&nbsp;&nbsp;a<span style="color:#FF4500">c</span>gfc<br>af<span style="color:#FF4500">g</span>cd&nbsp;&nbsp;ac<span style="color:#FF4500">g</span>fc<br>a<span style="color:#FF4500">f</span>gcd&nbsp;&nbsp;acg<span style="color:#FF4500">f</span>c<br>afg<span style="color:#FF4500">c</span>d&nbsp;&nbsp;acgf<span style="color:#FF4500">c</span><br></td><td><span style="color:#FF4500">a</span>fgcd&nbsp;&nbsp;<span style="color:#FF4500">a</span>dcfcg<br>afgc<span style="color:#FF4500">d</span>&nbsp;&nbsp;a<span style="color:#FF4500">d</span>cfcg<br>afg<span style="color:#FF4500">c</span>d&nbsp;&nbsp;ad<span style="color:#FF4500">c</span>fcg<br>a<span style="color:#FF4500">f</span>gcd&nbsp;&nbsp;adc<span style="color:#FF4500">f</span>cg<br>afg<span style="color:#FF4500">c</span>d&nbsp;&nbsp;adcf<span style="color:#FF4500">c</span>g<br>af<span style="color:#FF4500">g</span>cd&nbsp;&nbsp;adcfc<span style="color:#FF4500">g</span><br></td><td><span style="color:#FF4500">a</span>fgcd&nbsp;&nbsp;<span style="color:#FF4500">a</span>cfcg<br>afg<span style="color:#FF4500">c</span>d&nbsp;&nbsp;a<span style="color:#FF4500">c</span>fcg<br>a<span style="color:#FF4500">f</span>gcd&nbsp;&nbsp;ac<span style="color:#FF4500">f</span>cg<br>afg<span style="color:#FF4500">c</span>d&nbsp;&nbsp;acf<span style="color:#FF4500">c</span>g<br>af<span style="color:#FF4500">g</span>cd&nbsp;&nbsp;acfc<span style="color:#FF4500">g</span><br></td><td><span style="color:#FF4500">a</span>fgcd&nbsp;&nbsp;<span style="color:#FF4500">a</span>dcgfc<br>afgc<span style="color:#FF4500">d</span>&nbsp;&nbsp;a<span style="color:#FF4500">d</span>cgfc<br>afg<span style="color:#FF4500">c</span>d&nbsp;&nbsp;ad<span style="color:#FF4500">c</span>gfc<br>af<span style="color:#FF4500">g</span>cd&nbsp;&nbsp;adc<span style="color:#FF4500">g</span>fc<br>a<span style="color:#FF4500">f</span>gcd&nbsp;&nbsp;adcg<span style="color:#FF4500">f</span>c<br>afg<span style="color:#FF4500">c</span>d&nbsp;&nbsp;adcgf<span style="color:#FF4500">c</span><br></td><td><span style="color:#FF4500">afgcd</span>&nbsp;&nbsp;<span style="color:#FF4500">afgcd</span><br></td><td><span style="color:#FF4500">af</span>gcd&nbsp;&nbsp;<span style="color:#FF4500">af</span>cdgc<br>afg<span style="color:#FF4500">cd</span>&nbsp;&nbsp;af<span style="color:#FF4500">cd</span>gc<br>af<span style="color:#FF4500">gc</span>d&nbsp;&nbsp;afcd<span style="color:#FF4500">gc</span><br></td><td>af<span style="color:#FF4500">gc</span>d&nbsp;&nbsp;fad<span style="color:#FF4500">gc</span><br></td><td><span style="color:#FF4500">afgc</span>d&nbsp;&nbsp;dc<span style="color:#FF4500">afgc</span><br></td></tr><tr><th scope="row"><span style="color:#c00000">VT2</span><br>afcdgc</th><td><span style="color:#FF4500">a</span>fcdgc&nbsp;&nbsp;<span style="color:#FF4500">a</span>cf<br>af<span style="color:#FF4500">c</span>dgc&nbsp;&nbsp;a<span style="color:#FF4500">c</span>f<br>afcdg<span style="color:#FF4500">c</span>&nbsp;&nbsp;a<span style="color:#FF4500">c</span>f<br>a<span style="color:#FF4500">f</span>cdgc&nbsp;&nbsp;ac<span style="color:#FF4500">f</span><br></td><td>a<span style="color:#FF4500">fc</span>dgc&nbsp;&nbsp;ac<span style="color:#FF4500">fc</span><br></td><td><span style="color:#FF4500">a</span>fcdgc&nbsp;&nbsp;<span style="color:#FF4500">a</span>cgf<br>af<span style="color:#FF4500">c</span>dgc&nbsp;&nbsp;a<span style="color:#FF4500">c</span>gf<br>afcdg<span style="color:#FF4500">c</span>&nbsp;&nbsp;a<span style="color:#FF4500">c</span>gf<br>afcd<span style="color:#FF4500">g</span>c&nbsp;&nbsp;ac<span style="color:#FF4500">g</span>f<br>a<span style="color:#FF4500">f</span>cdgc&nbsp;&nbsp;acg<span style="color:#FF4500">f</span><br></td><td>a<span style="color:#FF4500">fc</span>dgc&nbsp;&nbsp;acg<span style="color:#FF4500">fc</span><br></td><td><span style="color:#FF4500">a</span>fcdgc&nbsp;&nbsp;<span style="color:#FF4500">a</span>dcf<br>afc<span style="color:#FF4500">d</span>gc&nbsp;&nbsp;a<span style="color:#FF4500">d</span>cf<br>af<span style="color:#FF4500">c</span>dgc&nbsp;&nbsp;ad<span style="color:#FF4500">c</span>f<br>afcdg<span style="color:#FF4500">c</span>&nbsp;&nbsp;ad<span style="color:#FF4500">c</span>f<br>a<span style="color:#FF4500">f</span>cdgc&nbsp;&nbsp;adc<span style="color:#FF4500">f</span><br></td><td>a<span style="color:#FF4500">fc</span>dgc&nbsp;&nbsp;adc<span style="color:#FF4500">fc</span><br></td><td>a<span style="color:#FF4500">fc</span>dgc&nbsp;&nbsp;adc<span style="color:#FF4500">fc</span>g<br></td><td><span style="color:#FF4500">a</span>fcdgc&nbsp;&nbsp;<span style="color:#FF4500">a</span>dcgf<br>afc<span style="color:#FF4500">d</span>gc&nbsp;&nbsp;a<span style="color:#FF4500">d</span>cgf<br>af<span style="color:#FF4500">c</span>dgc&nbsp;&nbsp;ad<span style="color:#FF4500">c</span>gf<br>afcdg<span style="color:#FF4500">c</span>&nbsp;&nbsp;ad<span style="color:#FF4500">c</span>gf<br>afcd<span style="color:#FF4500">g</span>c&nbsp;&nbsp;adc<span style="color:#FF4500">g</span>f<br>a<span style="color:#FF4500">f</span>cdgc&nbsp;&nbsp;adcg<span style="color:#FF4500">f</span><br></td><td>a<span style="color:#FF4500">fc</span>dgc&nbsp;&nbsp;acg<span style="color:#FF4500">fc</span>g<br></td><td>a<span style="color:#FF4500">fc</span>dgc&nbsp;&nbsp;acg<span style="color:#FF4500">fc</span><br></td><td>a<span style="color:#FF4500">fc</span>dgc&nbsp;&nbsp;adc<span style="color:#FF4500">fc</span>g<br></td><td>a<span style="color:#FF4500">fc</span>dgc&nbsp;&nbsp;ac<span style="color:#FF4500">fc</span>g<br></td><td>a<span style="color:#FF4500">fc</span>dgc&nbsp;&nbsp;adcg<span style="color:#FF4500">fc</span><br></td><td><span style="color:#FF4500">af</span>cdgc&nbsp;&nbsp;<span style="color:#FF4500">af</span>gcd<br>afcd<span style="color:#FF4500">gc</span>&nbsp;&nbsp;af<span style="color:#FF4500">gc</span>d<br>af<span style="color:#FF4500">cd</span>gc&nbsp;&nbsp;afg<span style="color:#FF4500">cd</span><br></td><td><span style="color:#FF4500">afcdgc</span>&nbsp;&nbsp;<span style="color:#FF4500">afcdgc</span><br></td><td>afc<span style="color:#FF4500">dgc</span>&nbsp;&nbsp;fa<span style="color:#FF4500">dgc</span><br></td><td><span style="color:#FF4500">af</span>cdgc&nbsp;&nbsp;dc<span style="color:#FF4500">af</span>gc<br>afcd<span style="color:#FF4500">gc</span>&nbsp;&nbsp;dcaf<span style="color:#FF4500">gc</span><br></td></tr><tr><th scope="row"><span style="color:#c00000">VT3</span><br>fadgc</th><td>f<span style="color:#FF4500">a</span>dgc&nbsp;&nbsp;<span style="color:#FF4500">a</span>cf<br>fadg<span style="color:#FF4500">c</span>&nbsp;&nbsp;a<span style="color:#FF4500">c</span>f<br><span style="color:#FF4500">f</span>adgc&nbsp;&nbsp;ac<span style="color:#FF4500">f</span><br></td><td>f<span style="color:#FF4500">a</span>dgc&nbsp;&nbsp;<span style="color:#FF4500">a</span>cfc<br>fadg<span style="color:#FF4500">c</span>&nbsp;&nbsp;a<span style="color:#FF4500">c</span>fc<br><span style="color:#FF4500">f</span>adgc&nbsp;&nbsp;ac<span style="color:#FF4500">f</span>c<br>fadg<span style="color:#FF4500">c</span>&nbsp;&nbsp;acf<span style="color:#FF4500">c</span><br></td><td>f<span style="color:#FF4500">a</span>dgc&nbsp;&nbsp;<span style="color:#FF4500">a</span>cgf<br>fadg<span style="color:#FF4500">c</span>&nbsp;&nbsp;a<span style="color:#FF4500">c</span>gf<br>fad<span style="color:#FF4500">g</span>c&nbsp;&nbsp;ac<span style="color:#FF4500">g</span>f<br><span style="color:#FF4500">f</span>adgc&nbsp;&nbsp;acg<span style="color:#FF4500">f</span><br></td><td>f<span style="color:#FF4500">a</span>dgc&nbsp;&nbsp;<span style="color:#FF4500">a</span>cgfc<br>fadg<span style="color:#FF4500">c</span>&nbsp;&nbsp;a<span style="color:#FF4500">c</span>gfc<br>fad<span style="color:#FF4500">g</span>c&nbsp;&nbsp;ac<span style="color:#FF4500">g</span>fc<br><span style="color:#FF4500">f</span>adgc&nbsp;&nbsp;acg<span style="color:#FF4500">f</span>c<br>fadg<span style="color:#FF4500">c</span>&nbsp;&nbsp;acgf<span style="color:#FF4500">c</span><br></td><td>f<span style="color:#FF4500">ad</span>gc&nbsp;&nbsp;<span style="color:#FF4500">ad</span>cf<br></td><td>f<span style="color:#FF4500">ad</span>gc&nbsp;&nbsp;<span style="color:#FF4500">ad</span>cfc<br></td><td>f<span style="color:#FF4500">ad</span>gc&nbsp;&nbsp;<span style="color:#FF4500">ad</span>cfcg<br></td><td>f<span style="color:#FF4500">ad</span>gc&nbsp;&nbsp;<span style="color:#FF4500">ad</span>cgf<br></td><td>f<span style="color:#FF4500">a</span>dgc&nbsp;&nbsp;<span style="color:#FF4500">a</span>cgfcg<br>fadg<span style="color:#FF4500">c</span>&nbsp;&nbsp;a<span style="color:#FF4500">c</span>gfcg<br>fad<span style="color:#FF4500">g</span>c&nbsp;&nbsp;ac<span style="color:#FF4500">g</span>fcg<br><span style="color:#FF4500">f</span>adgc&nbsp;&nbsp;acg<span style="color:#FF4500">f</span>cg<br>fadg<span style="color:#FF4500">c</span>&nbsp;&nbsp;acgf<span style="color:#FF4500">c</span>g<br>fad<span style="color:#FF4500">g</span>c&nbsp;&nbsp;acgfc<span style="color:#FF4500">g</span><br></td><td>f<span style="color:#FF4500">a</span>dgc&nbsp;&nbsp;<span style="color:#FF4500">a</span>cgfc<br>fadg<span style="color:#FF4500">c</span>&nbsp;&nbsp;a<span style="color:#FF4500">c</span>gfc<br>fad<span style="color:#FF4500">g</span>c&nbsp;&nbsp;ac<span style="color:#FF4500">g</span>fc<br><span style="color:#FF4500">f</span>adgc&nbsp;&nbsp;acg<span style="color:#FF4500">f</span>c<br>fadg<span style="color:#FF4500">c</span>&nbsp;&nbsp;acgf<span style="color:#FF4500">c</span><br></td><td>f<span style="color:#FF4500">ad</span>gc&nbsp;&nbsp;<span style="color:#FF4500">ad</span>cfcg<br></td><td>f<span style="color:#FF4500">a</span>dgc&nbsp;&nbsp;<span style="color:#FF4500">a</span>cfcg<br>fadg<span style="color:#FF4500">c</span>&nbsp;&nbsp;a<span style="color:#FF4500">c</span>fcg<br><span style="color:#FF4500">f</span>adgc&nbsp;&nbsp;ac<span style="color:#FF4500">f</span>cg<br>fadg<span style="color:#FF4500">c</span>&nbsp;&nbsp;acf<span style="color:#FF4500">c</span>g<br>fad<span style="color:#FF4500">g</span>c&nbsp;&nbsp;acfc<span style="color:#FF4500">g</span><br></td><td>f<span style="color:#FF4500">ad</span>gc&nbsp;&nbsp;<span style="color:#FF4500">ad</span>cgfc<br></td><td>fad<span style="color:#FF4500">gc</span>&nbsp;&nbsp;af<span style="color:#FF4500">gc</span>d<br></td><td>fa<span style="color:#FF4500">dgc</span>&nbsp;&nbsp;afc<span style="color:#FF4500">dgc</span><br></td><td><span style="color:#FF4500">fadgc</span>&nbsp;&nbsp;<span style="color:#FF4500">fadgc</span><br></td><td>fad<span style="color:#FF4500">gc</span>&nbsp;&nbsp;dcaf<span style="color:#FF4500">gc</span><br></td></tr><tr><th scope="row"><span style="color:#c00000">VT4</span><br>dcafgc</th><td>dc<span style="color:#FF4500">a</span>fgc&nbsp;&nbsp;<span style="color:#FF4500">a</span>cf<br>d<span style="color:#FF4500">c</span>afgc&nbsp;&nbsp;a<span style="color:#FF4500">c</span>f<br>dcafg<span style="color:#FF4500">c</span>&nbsp;&nbsp;a<span style="color:#FF4500">c</span>f<br>dca<span style="color:#FF4500">f</span>gc&nbsp;&nbsp;ac<span style="color:#FF4500">f</span><br></td><td>dc<span style="color:#FF4500">a</span>fgc&nbsp;&nbsp;<span style="color:#FF4500">a</span>cfc<br>d<span style="color:#FF4500">c</span>afgc&nbsp;&nbsp;a<span style="color:#FF4500">c</span>fc<br>dcafg<span style="color:#FF4500">c</span>&nbsp;&nbsp;a<span style="color:#FF4500">c</span>fc<br>dca<span style="color:#FF4500">f</span>gc&nbsp;&nbsp;ac<span style="color:#FF4500">f</span>c<br>d<span style="color:#FF4500">c</span>afgc&nbsp;&nbsp;acf<span style="color:#FF4500">c</span><br>dcafg<span style="color:#FF4500">c</span>&nbsp;&nbsp;acf<span style="color:#FF4500">c</span><br></td><td>dc<span style="color:#FF4500">a</span>fgc&nbsp;&nbsp;<span style="color:#FF4500">a</span>cgf<br>d<span style="color:#FF4500">c</span>afgc&nbsp;&nbsp;a<span style="color:#FF4500">c</span>gf<br>dcafg<span style="color:#FF4500">c</span>&nbsp;&nbsp;a<span style="color:#FF4500">c</span>gf<br>dcaf<span style="color:#FF4500">g</span>c&nbsp;&nbsp;ac<span style="color:#FF4500">g</span>f<br>dca<span style="color:#FF4500">f</span>gc&nbsp;&nbsp;acg<span style="color:#FF4500">f</span><br></td><td>dc<span style="color:#FF4500">a</span>fgc&nbsp;&nbsp;<span style="color:#FF4500">a</span>cgfc<br>d<span style="color:#FF4500">c</span>afgc&nbsp;&nbsp;a<span style="color:#FF4500">c</span>gfc<br>dcafg<span style="color:#FF4500">c</span>&nbsp;&nbsp;a<span style="color:#FF4500">c</span>gfc<br>dcaf<span style="color:#FF4500">g</span>c&nbsp;&nbsp;ac<span style="color:#FF4500">g</span>fc<br>dca<span style="color:#FF4500">f</span>gc&nbsp;&nbsp;acg<span style="color:#FF4500">f</span>c<br>d<span style="color:#FF4500">c</span>afgc&nbsp;&nbsp;acgf<span style="color:#FF4500">c</span><br>dcafg<span style="color:#FF4500">c</span>&nbsp;&nbsp;acgf<span style="color:#FF4500">c</span><br></td><td><span style="color:#FF4500">dc</span>afgc&nbsp;&nbsp;a<span style="color:#FF4500">dc</span>f<br></td><td><span style="color:#FF4500">dc</span>afgc&nbsp;&nbsp;a<span style="color:#FF4500">dc</span>fc<br></td><td><span style="color:#FF4500">dc</span>afgc&nbsp;&nbsp;a<span style="color:#FF4500">dc</span>fcg<br></td><td><span style="color:#FF4500">dc</span>afgc&nbsp;&nbsp;a<span style="color:#FF4500">dc</span>gf<br></td><td>dc<span style="color:#FF4500">a</span>fgc&nbsp;&nbsp;<span style="color:#FF4500">a</span>cgfcg<br>d<span style="color:#FF4500">c</span>afgc&nbsp;&nbsp;a<span style="color:#FF4500">c</span>gfcg<br>dcafg<span style="color:#FF4500">c</span>&nbsp;&nbsp;a<span style="color:#FF4500">c</span>gfcg<br>dcaf<span style="color:#FF4500">g</span>c&nbsp;&nbsp;ac<span style="color:#FF4500">g</span>fcg<br>dca<span style="color:#FF4500">f</span>gc&nbsp;&nbsp;acg<span style="color:#FF4500">f</span>cg<br>d<span style="color:#FF4500">c</span>afgc&nbsp;&nbsp;acgf<span style="color:#FF4500">c</span>g<br>dcafg<span style="color:#FF4500">c</span>&nbsp;&nbsp;acgf<span style="color:#FF4500">c</span>g<br>dcaf<span style="color:#FF4500">g</span>c&nbsp;&nbsp;acgfc<span style="color:#FF4500">g</span><br></td><td>dc<span style="color:#FF4500">a</span>fgc&nbsp;&nbsp;<span style="color:#FF4500">a</span>cgfc<br>d<span style="color:#FF4500">c</span>afgc&nbsp;&nbsp;a<span style="color:#FF4500">c</span>gfc<br>dcafg<span style="color:#FF4500">c</span>&nbsp;&nbsp;a<span style="color:#FF4500">c</span>gfc<br>dcaf<span style="color:#FF4500">g</span>c&nbsp;&nbsp;ac<span style="color:#FF4500">g</span>fc<br>dca<span style="color:#FF4500">f</span>gc&nbsp;&nbsp;acg<span style="color:#FF4500">f</span>c<br>d<span style="color:#FF4500">c</span>afgc&nbsp;&nbsp;acgf<span style="color:#FF4500">c</span><br>dcafg<span style="color:#FF4500">c</span>&nbsp;&nbsp;acgf<span style="color:#FF4500">c</span><br></td><td><span style="color:#FF4500">dc</span>afgc&nbsp;&nbsp;a<span style="color:#FF4500">dc</span>fcg<br></td><td>dc<span style="color:#FF4500">a</span>fgc&nbsp;&nbsp;<span style="color:#FF4500">a</span>cfcg<br>d<span style="color:#FF4500">c</span>afgc&nbsp;&nbsp;a<span style="color:#FF4500">c</span>fcg<br>dcafg<span style="color:#FF4500">c</span>&nbsp;&nbsp;a<span style="color:#FF4500">c</span>fcg<br>dca<span style="color:#FF4500">f</span>gc&nbsp;&nbsp;ac<span style="color:#FF4500">f</span>cg<br>d<span style="color:#FF4500">c</span>afgc&nbsp;&nbsp;acf<span style="color:#FF4500">c</span>g<br>dcafg<span style="color:#FF4500">c</span>&nbsp;&nbsp;acf<span style="color:#FF4500">c</span>g<br>dcaf<span style="color:#FF4500">g</span>c&nbsp;&nbsp;acfc<span style="color:#FF4500">g</span><br></td><td><span style="color:#FF4500">dc</span>afgc&nbsp;&nbsp;a<span style="color:#FF4500">dc</span>gfc<br></td><td>dc<span style="color:#FF4500">afgc</span>&nbsp;&nbsp;<span style="color:#FF4500">afgc</span>d<br></td><td>dc<span style="color:#FF4500">af</span>gc&nbsp;&nbsp;<span style="color:#FF4500">af</span>cdgc<br>dcaf<span style="color:#FF4500">gc</span>&nbsp;&nbsp;afcd<span style="color:#FF4500">gc</span><br></td><td>dcaf<span style="color:#FF4500">gc</span>&nbsp;&nbsp;fad<span style="color:#FF4500">gc</span><br></td><td><span style="color:#FF4500">dcafgc</span>&nbsp;&nbsp;<span style="color:#FF4500">dcafgc</span><br></td></tr></table>
 </div>
 
 </div>
@@ -12219,7 +12619,30 @@ YII=
 </div>
 <div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
-<h2 id="String-labels">String labels<a class="anchor-link" href="#String-labels">&#182;</a></h2>
+<p>If you want to save the html to a file, you can use the 'htmltables.save_html' function. The parameter 'include_doctags' determines, if you want to make it a full html document that can be opened in a browser, or just the table html code itself.</p>
+
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+<div class="prompt input_prompt">In&nbsp;[22]:</div>
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="n">htmltables</span><span class="o">.</span><span class="n">save_html</span><span class="p">(</span><span class="n">htmlcode</span><span class="o">=</span><span class="n">htmlcode</span><span class="p">,</span> <span class="n">filename</span><span class="o">=</span><span class="s1">&#39;exampletable.html&#39;</span><span class="p">,</span> <span class="n">include_doctags</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+</pre></div>
+
+</div>
+</div>
+</div>
+
+</div>
+<div class="cell border-box-sizing text_cell rendered">
+<div class="prompt input_prompt">
+</div>
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<h2 id="Other-comparisons">Other comparisons<a class="anchor-link" href="#Other-comparisons">&#182;</a></h2>
 </div>
 </div>
 </div>
@@ -12228,18 +12651,18 @@ YII=
 </div>
 <div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
-<p>You want to refer to strings with a label, not the string itself. For example, if strings are long, or have different functions. You can do this by providing the strings in a different way, not as a list of strings, but a list of dictionaries:</p>
+<p>We looked at the 'longestsharedsubstrings' functions above, but we can look at different kinds of similarities between string sets.</p>
 
 </div>
 </div>
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In&nbsp;[13]:</div>
+<div class="prompt input_prompt">In&nbsp;[23]:</div>
 <div class="inner_cell">
     <div class="input_area">
-<div class=" highlight hl-ipython3"><pre><span></span><span class="n">sd</span> <span class="o">=</span> <span class="n">StringData</span><span class="p">(</span><span class="n">strings</span><span class="o">=</span><span class="p">[{</span><span class="s1">&#39;Go&#39;</span><span class="p">:</span> <span class="s1">&#39;abcdefg&#39;</span><span class="p">},</span> <span class="p">{</span><span class="s1">&#39;NoGo&#39;</span><span class="p">:</span> <span class="s1">&#39;hijklmn&#39;</span><span class="p">},</span> <span class="p">{</span><span class="s1">&#39;Test1&#39;</span><span class="p">:</span> <span class="s1">&#39;cdefgij&#39;</span><span class="p">},</span> <span class="p">{</span><span class="s1">&#39;Test2&#39;</span><span class="p">:</span> <span class="s1">&#39;klmnefg&#39;</span><span class="p">}])</span>
-<span class="nb">print</span><span class="p">(</span><span class="n">sd</span><span class="p">)</span>
+<div class=" highlight hl-ipython3"><pre><span></span><span class="n">cm</span> <span class="o">=</span> <span class="n">compare_sets</span><span class="o">.</span><span class="n">crosscorrelationmax</span><span class="p">(</span><span class="n">sd</span><span class="p">,</span> <span class="n">comparison</span><span class="o">=</span><span class="p">(</span><span class="s1">&#39;Test&#39;</span><span class="p">,</span> <span class="s1">&#39;Exposure&#39;</span><span class="p">))</span>
+<span class="n">ax</span> <span class="o">=</span> <span class="n">plotting</span><span class="o">.</span><span class="n">plot_comparison</span><span class="p">(</span><span class="n">cm</span><span class="p">)</span>
 </pre></div>
 
 </div>
@@ -12250,174 +12673,134 @@ YII=
 <div class="output">
 
 
-<div class="output_area"><div class="prompt"></div>
-<div class="output_subarea output_stream output_stdout output_text">
-<pre>All:
-    Go    : abcdefg
-    NoGo  : hijklmn
-    Test1 : cdefgij
-    Test2 : klmnefg
+<div class="output_area">
+<div class="prompt"></div>
 
-
-</pre>
-</div>
-</div>
-
-</div>
-</div>
-
-</div>
-<div class="cell border-box-sizing code_cell rendered">
-<div class="input">
-<div class="prompt input_prompt">In&nbsp;[16]:</div>
-<div class="inner_cell">
-    <div class="input_area">
-<div class=" highlight hl-ipython3"><pre><span></span><span class="n">ct</span> <span class="o">=</span> <span class="n">compare_sets</span><span class="o">.</span><span class="n">longestsharedsubstringlength</span><span class="p">(</span><span class="n">sd</span><span class="p">)</span>
-<span class="n">ax</span> <span class="o">=</span> <span class="n">plotting</span><span class="o">.</span><span class="n">plot_comparison</span><span class="p">(</span><span class="n">ct</span><span class="p">)</span>
-</pre></div>
-
-</div>
-</div>
-</div>
-
-<div class="output_wrapper">
-<div class="output">
-
-
-<div class="output_area"><div class="prompt"></div>
 
 
 <div class="output_png output_subarea ">
-<img src="data:image/png;base64,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
-AAAASUVORK5CYII=
+<img src="data:image/png;base64,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
 "
 >
 </div>
@@ -12428,13 +12811,21 @@ AAAASUVORK5CYII=
 </div>
 
 </div>
+<div class="cell border-box-sizing text_cell rendered">
+<div class="prompt input_prompt">
+</div>
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<h2 id="Available-comparison-functions-for-plotting">Available comparison functions for plotting<a class="anchor-link" href="#Available-comparison-functions-for-plotting">&#182;</a></h2>
+</div>
+</div>
+</div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In&nbsp;[17]:</div>
+<div class="prompt input_prompt">In&nbsp;[28]:</div>
 <div class="inner_cell">
     <div class="input_area">
-<div class=" highlight hl-ipython3"><pre><span></span><span class="n">html</span> <span class="o">=</span> <span class="n">htmltables</span><span class="o">.</span><span class="n">longestsharedsubstringstable</span><span class="p">(</span><span class="n">sd</span><span class="p">)</span>
-<span class="n">HTML</span><span class="p">(</span><span class="n">html</span><span class="p">)</span>
+<div class=" highlight hl-ipython3"><pre><span></span><span class="n">compare_sets</span><span class="o">.</span><span class="n">availableanalysisfunctions</span><span class="o">.</span><span class="n">keys</span><span class="p">()</span>
 </pre></div>
 
 </div>
@@ -12445,10 +12836,13 @@ AAAASUVORK5CYII=
 <div class="output">
 
 
-<div class="output_area"><div class="prompt output_prompt">Out[17]:</div>
+<div class="output_area">
+<div class="prompt output_prompt">Out[28]:</div>
 
-<div class="output_html rendered_html output_subarea output_execute_result">
-<style>thead {align:center;}tbody {color:black;}table, th, td {border: 1px solid black; border-collapse: collapse;} th, td {padding: 15px;}</style><table><caption>Longest shared substrings</caption><thead><tr><th></th><th scope="col"><span style="color:black">Go</span><br>abcdefg</th><th scope="col"><span style="color:black">NoGo</span><br>hijklmn</th><th scope="col"><span style="color:black">Test1</span><br>cdefgij</th><th scope="col"><span style="color:black">Test2</span><br>klmnefg</th></tr></thead><tr><th scope="row"><span style="color:black">Go</span><br>abcdefg</th><td><span style="color:#FF4500">abcdefg</span>&nbsp;&nbsp;<span style="color:#FF4500">abcdefg</span><br></td><td></td><td>ab<span style="color:#FF4500">cdefg</span>&nbsp;&nbsp;<span style="color:#FF4500">cdefg</span>ij<br></td><td>abcd<span style="color:#FF4500">efg</span>&nbsp;&nbsp;klmn<span style="color:#FF4500">efg</span><br></td></tr><tr><th scope="row"><span style="color:black">NoGo</span><br>hijklmn</th><td></td><td><span style="color:#FF4500">hijklmn</span>&nbsp;&nbsp;<span style="color:#FF4500">hijklmn</span><br></td><td>h<span style="color:#FF4500">ij</span>klmn&nbsp;&nbsp;cdefg<span style="color:#FF4500">ij</span><br></td><td>hij<span style="color:#FF4500">klmn</span>&nbsp;&nbsp;<span style="color:#FF4500">klmn</span>efg<br></td></tr><tr><th scope="row"><span style="color:black">Test1</span><br>cdefgij</th><td><span style="color:#FF4500">cdefg</span>ij&nbsp;&nbsp;ab<span style="color:#FF4500">cdefg</span><br></td><td>cdefg<span style="color:#FF4500">ij</span>&nbsp;&nbsp;h<span style="color:#FF4500">ij</span>klmn<br></td><td><span style="color:#FF4500">cdefgij</span>&nbsp;&nbsp;<span style="color:#FF4500">cdefgij</span><br></td><td>cd<span style="color:#FF4500">efg</span>ij&nbsp;&nbsp;klmn<span style="color:#FF4500">efg</span><br></td></tr><tr><th scope="row"><span style="color:black">Test2</span><br>klmnefg</th><td>klmn<span style="color:#FF4500">efg</span>&nbsp;&nbsp;abcd<span style="color:#FF4500">efg</span><br></td><td><span style="color:#FF4500">klmn</span>efg&nbsp;&nbsp;hij<span style="color:#FF4500">klmn</span><br></td><td>klmn<span style="color:#FF4500">efg</span>&nbsp;&nbsp;cd<span style="color:#FF4500">efg</span>ij<br></td><td><span style="color:#FF4500">klmnefg</span>&nbsp;&nbsp;<span style="color:#FF4500">klmnefg</span><br></td></tr></table>
+
+
+<div class="output_text output_subarea output_execute_result">
+<pre>dict_keys([&#39;crosscorrelationmax&#39;, &#39;sharedlengthnsubstringcount&#39;, &#39;longestsharedsubstringlength&#39;, &#39;longestsharedsubstringduration&#39;, &#39;novellengthnsubstringcount&#39;, &#39;commonstartduration&#39;, &#39;commonstartlength&#39;, &#39;issubstring&#39;, &#39;issame&#39;, &#39;samestart&#39;, &#39;levenshtein&#39;])</pre>
 </div>
 
 </div>
@@ -12456,16 +12850,43 @@ AAAASUVORK5CYII=
 </div>
 </div>
 
+</div>
+<div class="cell border-box-sizing text_cell rendered">
+<div class="prompt input_prompt">
+</div>
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<h2 id="Available-comparison-functions-for-tables">Available comparison functions for tables<a class="anchor-link" href="#Available-comparison-functions-for-tables">&#182;</a></h2>
+</div>
+</div>
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In&nbsp;[&nbsp;]:</div>
+<div class="prompt input_prompt">In&nbsp;[29]:</div>
 <div class="inner_cell">
     <div class="input_area">
-<div class=" highlight hl-ipython3"><pre><span></span> 
+<div class=" highlight hl-ipython3"><pre><span></span><span class="n">htmltables</span><span class="o">.</span><span class="n">availableanalysisfunctions</span><span class="o">.</span><span class="n">keys</span><span class="p">()</span>
 </pre></div>
 
 </div>
+</div>
+</div>
+
+<div class="output_wrapper">
+<div class="output">
+
+
+<div class="output_area">
+<div class="prompt output_prompt">Out[29]:</div>
+
+
+
+<div class="output_text output_subarea output_execute_result">
+<pre>dict_keys([&#39;crosscorrelationmaxtable&#39;, &#39;issubstringtable&#39;, &#39;longestsharedsubstringstable&#39;, &#39;startswithtable&#39;])</pre>
+</div>
+
+</div>
+
 </div>
 </div>
 
@@ -12473,4 +12894,8 @@ AAAASUVORK5CYII=
     </div>
   </div>
 </body>
+
+ 
+
+
 </html>

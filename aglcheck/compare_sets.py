@@ -1,10 +1,10 @@
 from . import algorithms as alg
 
-__all__ = ['crosscorrelationmax', 'sharedlengthnsubstringcount',
-           'longestsharedsubstringlength', 'longestsharedsubstringduration',
-           'novellengthnsubstringcount', 'commonstartduration',
-           'commonstartlength', 'issubstring', 'issame', 'samestart',
-           'levenshtein']
+__all__ = ['availableanalysisfunctions', 'crosscorrelationmax',
+           'sharedlengthnsubstringcount', 'longestsharedsubstringlength',
+           'longestsharedsubstringduration', 'novellengthnsubstringcount',
+           'commonstartduration', 'commonstartlength', 'issubstring', 'issame',
+           'samestart', 'levenshtein']
 
 
 class ComparisonMatrix(object):
@@ -236,3 +236,18 @@ def levenshtein(stringdata, comparison=('All', 'All')):
     title = 'Levenshtein distance'
     return _analyze_stringbystring(stringdata, analysisf, dataaccessfunc,
                                    title, comparison=comparison)
+
+
+availableanalysisfunctions = {
+    'crosscorrelationmax': crosscorrelationmax,
+    'sharedlengthnsubstringcount': sharedlengthnsubstringcount,
+    'longestsharedsubstringlength': longestsharedsubstringlength,
+    'longestsharedsubstringduration': longestsharedsubstringduration,
+    'novellengthnsubstringcount': novellengthnsubstringcount,
+    'commonstartduration': commonstartduration,
+    'commonstartlength': commonstartlength,
+    'issubstring': issubstring,
+    'issame': issame,
+    'samestart': samestart,
+    'levenshtein': levenshtein
+}

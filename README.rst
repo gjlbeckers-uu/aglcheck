@@ -61,7 +61,7 @@ corresponding duration (B):
     :width: 100%
 
 Quantifications and visualizations can be produced based on a very simple, human 
-read- and writable text file (yaml format) that lists the strings of interest, 
+readable and writable text file (yaml format) that lists the strings of interest,
 and, optionally, defines categories to be compared and other information (see example_)
 
 .. _example: https://github.com/gjlbeckers-uu/aglcheck/blob/master/aglcheck/datafiles/wilsonetal_natcomm_2015.yaml
