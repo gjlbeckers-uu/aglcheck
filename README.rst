@@ -10,7 +10,7 @@ What is aglcheck?
 similaritites between strings used in artificial grammar learning (AGL) 
 experiments. It has lower-level funtions to compare individual strings, but 
 probably even more useful is its functionality to easily compare sets of 
-strings and vizualize the results in image plots, or in tables that highlight 
+strings and visualize the results in image plots, or in tables that highlight
 where in the strings matches occur.
 
 An example of how visualization can be useful, consider the following strings, used
