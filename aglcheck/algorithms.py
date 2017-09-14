@@ -139,11 +139,18 @@ def sharedsubstrings(s1, s2, readingframe=1):
     -------
     Tuple with hits. Each hit is a two-tuple, containing a
     substring match and the number of times it occurs.
-
+    
+    Examples
+    --------
+    >>> from aglcheck.algorithms import sharedsubstrings
+    >>> sharedsubstrings('abcd', 'cdecd')
+    ((('c', ((2, 0), (2, 3))), ('d', ((3, 1), (3, 4)))),
+     (('cd', ((2, 0), (2, 3))),))
+    >>> sharedsubstrings('a1a2', 'a2a3a1a2', readingframe=2)
+    ((('a1', ((0, 2),)), ('a2', ((1, 0), (1, 3)))), (('a1a2', ((0, 2),)),))
+     
     """
-    # we apply find_lengthnsubstrings on all possible length-n
-    # substrings of s1 this returns a list (n-lengths) of lists of tuples
-    # (string, count)
+
     matches = [sharedlengthnsubstrings(s1, s2, n, readingframe)
                for n in range(1, len(s1) + 1)]
     # remove empty 'matches'
@@ -170,7 +177,17 @@ def longestsharedsubstrings(s1, s2, readingframe=1):
     Returns
     -------
     Tuple with hits. Each hit is a two-tuple, containing a
-    substring match and the number of times it occurs.
+    substring match and the positions where it occurs.
+    
+    Examples
+    --------
+    >>> from aglcheck.algorithms import longestsharedsubstrings
+    >>> longestsharedsubstrings('acd', 'cdacdeacd')
+    (('acd', ((0, 2), (0, 6))),)
+    >>> longestsharedsubstrings('acde', 'cdbcdeacd')
+    (('acd', ((0, 6),)), ('cde', ((1, 3),)))
+    >>> longestsharedsubstrings('a1a2', 'a2a3a1a2a1', readingframe=2)
+    (('a1a2', ((0, 2),)),)
     
     """
     for n in range(len(s1)//readingframe, 0, -1):
