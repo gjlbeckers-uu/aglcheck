@@ -99,7 +99,7 @@ def sharedlengthnsubstrings(s1, s2, n, readingframe=1):
     >>> sharedlengthnsubstrings('abcdefg', 'cdfgbcd', n=2)
     (('bc', ((1, 4),)), ('cd', ((2, 0), (2, 5))), ('fg', ((5, 2),)))
     >>> sharedlengthnsubstrings('a1a2c1b2b1', 'c1b2b1a1a2', n=2, readingframe=2)
-    (('a1a2', ((0, 6),)), ('c1b2', ((4, 0),)), ('b2b1', ((6, 2),)))
+    (('a1a2', ((0, 3),)), ('c1b2', ((2, 0),)), ('b2b1', ((3, 1),)))
 
     """
 
