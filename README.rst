@@ -131,7 +131,6 @@ reproducible and documented analyses.
 
 Copyright and License
 ---------------------
-
 :copyright: Copyright 2016-2017 by Gabriel Beckers, Utrecht University.
 :license: 3-Clause Revised BSD License, see LICENSE.txt for details.
 
