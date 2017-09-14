@@ -126,7 +126,7 @@ distribution Anaconda_ for easy installation, although it is not required.
 I also recommend using Jupyter_ Notebook for interactive data science and
 reproducible and documented analyses.
 
-.. _Jupyter https://jupyter.org/index.html
+.. _Jupyter: https://jupyter.org/index.html
 
 
 Copyright and License
