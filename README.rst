@@ -123,8 +123,11 @@ distribution Anaconda_ for easy installation, although it is not required.
 
 .. _Anaconda: https://www.continuum.io/downloads
 
-I also recommend using Jupyter Notebook for interactive data science and
-reproducible and documented analyses: https://jupyter.org/index.html
+I also recommend using Jupyter_ Notebook for interactive data science and
+reproducible and documented analyses.
+
+.. _https://jupyter.org/index.html
+
 
 Copyright and License
 ---------------------
