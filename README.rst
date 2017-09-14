@@ -62,7 +62,8 @@ corresponding duration (B):
 
 Quantifications and visualizations can be produced based on a very simple, human 
 readable and writable text file (yaml format) that lists the strings of interest,
-and, optionally, defines categories to be compared and other information (see example_)
+and, optionally, defines categories to be compared, as well as other
+information (see example_)
 
 .. _example: https://github.com/gjlbeckers-uu/aglcheck/blob/master/aglcheck/datafiles/wilsonetal_natcomm_2015.yaml
 
