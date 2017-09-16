@@ -37,7 +37,7 @@ class ComparisonMatrix(object):
             matrix.append(cols)
         return matrix
 
-    def get_pandaseries(self, name=None):
+    def get_pandasseries(self, name=None):
         import pandas as pd
         if name is None:
             name = self.name
