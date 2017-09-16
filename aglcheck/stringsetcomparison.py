@@ -1,4 +1,4 @@
-from . import algorithms as alg
+from . import stringcomparison as alg
 
 __all__ = ['availableanalysisfunctions', 'crosscorrelationmax',
            'sharedlengthnsubstringcount', 'longestsharedsubstringlength',

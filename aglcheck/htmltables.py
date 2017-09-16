@@ -1,7 +1,7 @@
 import numpy as np
-from .algorithms import longestsharedsubstrings, crosscorrelate, startswith, \
+from .stringcomparison import longestsharedsubstrings, crosscorrelate, startswith, \
                         issubstring, commonstart
-from .compare_sets import _analyze_stringbystring
+from .stringsetcomparison import _analyze_stringbystring
 
 __all__ = ['availableanalysisfunctions', 'crosscorrelationmaxtable',
            'htmltable', 'issubstringtable', 'longestsharedsubstringstable',

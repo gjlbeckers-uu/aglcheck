@@ -1,6 +1,6 @@
 from unittest import TestCase
 
-from aglcheck.algorithms import sharedlengthnsubstrings, sharedsubstrings, \
+from aglcheck.stringcomparison import sharedlengthnsubstrings, sharedsubstrings, \
     longestsharedsubstrings, novellengthnsubstrings
 
 class TestLengthnSubstrings(TestCase):

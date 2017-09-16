@@ -50,7 +50,7 @@ def lengthnsubstrings(s, n, readingframe=1):
 
     Examples
     --------
-    >>> from aglcheck.algorithms import lengthnsubstrings
+    >>> from aglcheck.stringcomparison import lengthnsubstrings
     >>> lengthnsubstrings('abcdefghi', n=4)
     ('abcd', 'bcde', 'cdef', 'defg', 'efgh', 'fghi')
     >>> lengthnsubstrings('a1a2a3c1b3b2b1', n=4, readingframe=2)
@@ -94,7 +94,7 @@ def sharedlengthnsubstrings(s1, s2, n, readingframe=1):
 
     Examples
     --------
-    >>> from aglcheck.algorithms import sharedlengthnsubstrings
+    >>> from aglcheck.stringcomparison import sharedlengthnsubstrings
     >>> sharedlengthnsubstrings('abcdefg', 'cdfgbcd', n=2)
     (('bc', ((1, 4),)), ('cd', ((2, 0), (2, 5))), ('fg', ((5, 2),)))
     >>> sharedlengthnsubstrings('a1a2c1b2b1', 'c1b2b1a1a2', n=2, readingframe=2)
@@ -143,7 +143,7 @@ def sharedsubstrings(s1, s2, readingframe=1):
 
     Examples
     --------
-    >>> from aglcheck.algorithms import sharedsubstrings
+    >>> from aglcheck.stringcomparison import sharedsubstrings
     >>> sharedsubstrings('abcd', 'cdecd')
     ((('c', ((2, 0), (2, 3))), ('d', ((3, 1), (3, 4)))),
      (('cd', ((2, 0), (2, 3))),))
@@ -184,7 +184,7 @@ def longestsharedsubstrings(s1, s2, readingframe=1):
 
     Examples
     --------
-    >>> from aglcheck.algorithms import longestsharedsubstrings
+    >>> from aglcheck.stringcomparison import longestsharedsubstrings
     >>> longestsharedsubstrings('acd', 'cdacdeacd')
     (('acd', ((0, 2), (0, 6))),)
     >>> longestsharedsubstrings('acde', 'cdbcdeacd')
@@ -229,7 +229,7 @@ def longestsharedsubstringduration(s1, s2, tokendurations, isiduration,
 
         Examples
         --------
-        >>> from aglcheck.algorithms import longestsharedsubstringduration
+        >>> from aglcheck.stringcomparison import longestsharedsubstringduration
         >>> longestsharedsubstringduration('abc', 'aab', {'a': 1., 'b': 2.}, .2)
         3.2
         
@@ -271,7 +271,7 @@ def novellengthnsubstrings(s1, s2, n, readingframe=1):
 
     Examples
     --------
-    >>> from aglcheck.algorithms import novellengthnsubstrings
+    >>> from aglcheck.stringcomparison import novellengthnsubstrings
     >>> novellengthnsubstrings('abcdef', 'adcdeg', n=2)
     (('ab', 0), ('bc', 1), ('ef', 4))
     >>> novellengthnsubstrings('abcdefgh', 'abcdeggh', n=2, readingframe=2)
@@ -312,7 +312,7 @@ def commonstart(s1, s2, readingframe=1):
     
     Examples
     --------
-    >>> from aglcheck.algorithms import commonstart
+    >>> from aglcheck.stringcomparison import commonstart
     >>> commonstart('abcde', 'abcef')
     'abc'
     >>> commonstart('abcdef', 'abcefg', readingframe=2)

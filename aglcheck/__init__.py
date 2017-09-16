@@ -1,8 +1,8 @@
 from __future__ import absolute_import
 from .stringdata import read_stringdata, StringData
 from ._examples import examplestringdata, get_examplestringdata
-from . import algorithms
-from . import compare_sets
+from . import stringcomparison
+from . import stringsetcomparison
 from . import plotting
 from . import htmltables
 
