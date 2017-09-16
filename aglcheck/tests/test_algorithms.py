@@ -1,9 +1,9 @@
 from unittest import TestCase
 
 from aglcheck.algorithms import sharedlengthnsubstrings, sharedsubstrings, \
-    longestsharedsubstrings
+    longestsharedsubstrings, novellengthnsubstrings
 
-class TestLengthnsubstrings(TestCase):
+class TestLengthnSubstrings(TestCase):
 
     def test_fullpartsingleresult(self):
         s1 = "bc"
@@ -81,7 +81,7 @@ class TestLengthnsubstrings(TestCase):
         s1 = "cdefgi"
         s2 = "abcdefgh"
         ss = sharedlengthnsubstrings(s1=s1, s2=s2, n=2, readingframe=2)
-        self.assertEqual(ss, ((('cdef', ((0, 2),)),)))
+        self.assertEqual(ss, ((('cdef', ((0, 1),)),)))
 
 
 class TestSubstrings(TestCase):
@@ -108,3 +108,42 @@ class TestLongestSubstrings(TestCase):
         s2 = 'abcde'
         ss = longestsharedsubstrings(s1=s1, s2=s2, readingframe=1)
         self.assertEqual(ss, (('bcd', ((0, 1),)), ('abc', ((3, 0),))))
+
+
+class TestNovelLengthnSubstrings(TestCase):
+
+    def test_singleresultn1(self):
+        s1 = 'abc'
+        s2 = 'abd'
+        ss = novellengthnsubstrings(s1, s2, n=1, readingframe=1)
+        self.assertEqual(ss, (('c', 2),))
+
+    def test_singleresultn2(self):
+        s1 = 'abc'
+        s2 = 'abd'
+        ss = novellengthnsubstrings(s1, s2, n=2, readingframe=1)
+        self.assertEqual(ss, (('bc', 1),))
+
+    def test_doubleresultn1(self):
+        s1 = 'abc'
+        s2 = 'ade'
+        ss = novellengthnsubstrings(s1, s2, n=1, readingframe=1)
+        self.assertEqual(ss, (('b', 1),('c', 2)))
+
+    def test_doubleresultn2(self):
+        s1 = 'abc'
+        s2 = 'ade'
+        ss = novellengthnsubstrings(s1, s2, n=2, readingframe=1)
+        self.assertEqual(ss, (('ab', 0),('bc', 1)))
+
+    def test_singleresultn2readingframe2(self):
+        s1 = 'abcdefghij'
+        s2 = 'azcdefghij'
+        ss = novellengthnsubstrings(s1, s2, n=2, readingframe=2)
+        self.assertEqual(ss, (('abcd', 0),))
+
+    def test_doubleresultn2readingframe2(self):
+        s1 = 'abcdefghij'
+        s2 = 'abcdfeghij'
+        ss = novellengthnsubstrings(s1, s2, n=2, readingframe=2)
+        self.assertEqual(ss, (('cdef', 1), ('efgh', 2)))
