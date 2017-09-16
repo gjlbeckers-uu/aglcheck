@@ -1,3 +1,4 @@
+import inspect
 from . import stringcomparison as alg
 
 __all__ = ['availableanalysisfunctions', 'crosscorrelationmax',
@@ -9,15 +10,21 @@ __all__ = ['availableanalysisfunctions', 'crosscorrelationmax',
 
 class ComparisonMatrix(object):
     def __init__(self, resultsdict, dataaccessfunc,
-                 stringdata, comparison, title=None):
+                 stringdata, comparison, name, title=None):
 
         self.resultsdict = resultsdict
         self.dataaccessfunc = dataaccessfunc
         self.stringdata = stringdata
         self.comparison = comparison
+        self.name = name
         self.title = title
         self.xstringlabels = stringdata.stringcategories[comparison[0]]
         self.ystringlabels = stringdata.stringcategories[comparison[1]]
+
+    def __str__(self):
+        pass
+
+    __repr__ = __str__
 
     def get_matrix(self):
 
@@ -30,28 +37,25 @@ class ComparisonMatrix(object):
             matrix.append(cols)
         return matrix
 
-        # def get_pandaseries(self):
-        #     import pandas as pd
-        #     indextuples = []
-        #     values = []
-        #     for l1 in list(self.stringgroups[0].values())[0]:
-        #         g1 = None
-        #         for key, labels in self.subgroups.items():
-        #             if l1 in labels:
-        #                 g1 = key
-        #         for l2 in self.stringgroups[1].values()[0]:
-        #             g2 = None
-        #             for key, labels in self.subgroups.items():
-        #                 if l2 in labels:
-        #                     g2 = key
-        #             indextuples.append((g1, g2, l1, l2))
-        #             values.append(self.dataaccessfunc(self.resultsdict[l1][l2]))
-        #     names = ['subgroups_{}'.format(sg.keys()[0])
-        #              for sg in self.stringgroups]
-        #     names.extend(['strings_{}'.format(sg.keys()[0])
-        #                   for sg in self.stringgroups])
-        #     index = pd.MultiIndex.from_tuples(indextuples, names=names)
-        #     return pd.Series(values, index=index)
+    def get_pandaseries(self, name=None):
+        import pandas as pd
+        if name is None:
+            name = self.name
+        indextuples = []
+        values = []
+        c0 = self.comparison[0]
+        c1 = self.comparison[1]
+        for l0 in self.xstringlabels:
+            for l1 in self.ystringlabels:
+                indextuples.append((c0, c1, l0, l1))
+                values.append(self.dataaccessfunc(self.resultsdict[l0][l1]))
+        # names = ['subgroups_{}'.format(c)
+        #          for c, s in self.stringdata.stringcategories.items()]
+        # names.extend(['strings_{}'.format(l)
+        #               for l in self.stringdata.stringlabels])
+        names = ('category1', 'category2', 'string1', 'string2')
+        index = pd.MultiIndex.from_tuples(indextuples, names=names)
+        return pd.Series(values, index=index, name=name)
 
 
 def _analyze_stringbystring(stringdata, analysisf, dataaccessf,
@@ -84,6 +88,7 @@ def _analyze_stringbystring(stringdata, analysisf, dataaccessf,
     visualization.
 
     """
+    callingfname = inspect.stack()[1][3]
     stringcategory0 = stringdata.stringcategories[comparison[0]]
     stringcategory1 = stringdata.stringcategories[comparison[1]]
     rf = stringdata.readingframe
@@ -98,6 +103,7 @@ def _analyze_stringbystring(stringdata, analysisf, dataaccessf,
                             dataaccessfunc=dataaccessf,
                             stringdata=stringdata,
                             comparison=comparison,
+                            name=callingfname,
                             title=title)
 
 
