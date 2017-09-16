@@ -1,7 +1,7 @@
 import numpy as np
 
 __all__ = ['commonstart', 'commonstartlength', 'commonstartduration',
-           'crosscorrelate', 'sharedlengthnsubstrings',
+           'crosscorrelate', 'crosscorrelationmax', 'sharedlengthnsubstrings',
            'longestsharedsubstrings', 'longestsharedsubstringduration',
            'novellengthnsubstrings', 'samestart', 'samestart',
            'sharedsubstrings']
@@ -371,6 +371,9 @@ def crosscorrelate(s1, s2, readingframe=1, full=True):
         return ccf[sa1.size - 1:-(sa1.size - 1)], \
                ccs[sa1.size - 1:-(sa1.size - 1)]
 
+def crosscorrelationmax(s1, s2, readingframe=1, full=True):
+    cc = crosscorrelate(s1=s1, s2=s2, readingframe=readingframe, full=full)
+    return max(cc[0])
 
 def issubstring(s1, s2, *args, **kwargs):
     """Is s1 a substring of s2"""

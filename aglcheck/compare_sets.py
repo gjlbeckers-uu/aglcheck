@@ -133,9 +133,9 @@ def longestsharedsubstringduration(stringdata, comparison=('All', 'All')):
 
 
 def crosscorrelationmax(stringdata, comparison=('All', 'All')):
-    analysisf = alg.crosscorrelate
+    analysisf = alg.crosscorrelationmax
 
-    def dataaccessfunc(items): return max(items[0])
+    def dataaccessfunc(m): return m
 
     title = 'Maximum crosscorrelation'
     return _analyze_stringbystring(stringdata, analysisf, dataaccessfunc,
