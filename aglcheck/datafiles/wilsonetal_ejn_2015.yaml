@@ -2,6 +2,8 @@
 # Mixed-complexity artificial grammar learning in humans and macaque monkeys:
 # evaluating learning strategies. Eur J Neurosci 41:568–578.
 
+readingframe: 1
+
 strings:
     - E1:  acf
     - E2:  acfcg

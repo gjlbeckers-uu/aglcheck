@@ -2,6 +2,7 @@
 # Grammar Learning Depends on Implicit Acquisition of Both Abstract and
 # Exemplar-Specific Information. Journal of Experimental Psychology 22:169–181.
 
+readingframe: 1
 
 strings:
     - TR01: XXVT

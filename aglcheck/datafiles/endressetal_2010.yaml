@@ -2,6 +2,8 @@
 # (2009) The apes’ edge: positional learning in chimpanzees and humans.
 # Anim Cogn 13:483–495.
 
+readingframe: 1
+
 strings:
     - XABXXX: XABXXX
     - XAXBXX: XAXBXX

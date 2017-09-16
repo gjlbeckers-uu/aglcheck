@@ -2,6 +2,7 @@
 # Alter K, Petkov CI (2015) EEG potentials associated with artificial grammar
 # learning in the primate brain. Brain and Language 148:74–80.
 
+readingframe: 1
 
 strings:
     - E1:  acfc

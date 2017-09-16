@@ -3,6 +3,8 @@
 # Auditory sequence processing reveals evolutionarily conserved regions of
 # frontal cortex in macaques and humans. Nat Commun 6:8901.
 
+readingframe: 1
+
 strings:
     - E1:  acf
     - E2:  acfc

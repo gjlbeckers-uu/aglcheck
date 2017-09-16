@@ -2,6 +2,8 @@
 # Artificial grammar learning in zebra finches and human adults: XYX versus
 # XXY. Anim Cogn 18:151–164.
 
+readingframe: 1
+
 strings:
     - AYA_1: ABA
     - AYA_2: ACA

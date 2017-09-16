@@ -2,6 +2,8 @@
 # Hulst B van der, Cate C ten (2013) Rule learning by zebra finches in an
 # artificial grammar learning task: which rule? Anim Cogn 16:165–175.
 
+readingframe: 1
+
 strings:
     - ABA:  ABA
     - BAB:  BAB

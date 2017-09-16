@@ -2,6 +2,8 @@
 # use positional and transitional cues to distinguish vocal element strings.
 # Behavioural Processes, 117:29–34.
 
+readingframe: 1
+
 strings:
     - Go:    abcdefabefcdab
     - NoGo:  abdfcedfabceab

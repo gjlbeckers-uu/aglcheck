@@ -2,6 +2,10 @@
 
 # The string sets originate from: Wilson et al (2015) Nat Commun 6:8901.
 
+# the readingframe defines how many ascii characters make up one token
+readingframe: 1
+
+
 # strings are defined as a list of label: string mappings. The string labels
 # can the be used in the rest of this file
 strings:

@@ -2,6 +2,8 @@
 # Marslen-Wilson WD, Smith K, Petkov CI (2013) Auditory Artificial Grammar
 # Learning in Macaque and Marmoset Monkeys. J Neurosci 33:18825–18835.
 
+readingframe: 1
+
 strings:
     - Hab_1:            acf
     - Hab_2:            acfc
