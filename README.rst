@@ -43,6 +43,7 @@ Lastly, *aglcheck*, is easy to extend. With a few lines of Python you can
 contribute your own algorithm, which can then be used within a framework that
 does string reading and visualization for you.
 
+
 Example
 -------
 An example of how visualization can be useful, consider the following strings,
@@ -86,9 +87,10 @@ used in Wilson et al. (2015) Nat. Commun. [http://dx.doi.org/10.1038/ncomms9901]
 |           | VT4   |  dcafgc |
 +-----------+-------+---------+
 
-In this string design, there is a bias in shared maximum fragment length (A)
-and corresponding duration (B), which is much more easily seen in an image plot
-than in the table above:
+In this string design, there is a bias in shared maximum fragment between
+grammar consistent and gramar violating test string length and corresponding
+duration, which is much more easily seen in the image plots below than in the
+table above:
 
 .. image:: example_figures/example_fig_sharedchunklength_1.png
     :width: 100%
@@ -140,6 +142,7 @@ organized for general use.
 
 Contributions in any form are very welcome.
 
+
 Documentation
 -------------
 There is no formal documentation yet, but for now the jupyter notebook in the
@@ -157,7 +160,8 @@ distribution Anaconda_ for easy installation, although it is not required.
 .. _Anaconda: https://www.continuum.io/downloads
 
 I also recommend using Jupyter_ Notebook for interactive data science and
-reproducible and documented analyses.
+reproducible and documented analyses. The tutorial mentioned above is an
+example of its use.
 
 .. _Jupyter: https://jupyter.org/index.html
 
@@ -166,6 +170,7 @@ Copyright and License
 ---------------------
 :copyright: Copyright 2016-2017 by Gabriel Beckers, Utrecht University.
 :license: 3-Clause Revised BSD License, see LICENSE.txt for details.
+
 
 Contact
 -------
