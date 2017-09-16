@@ -8,14 +8,43 @@ What is aglcheck?
 -----------------
 *aglcheck* is a python library for analyzing fragment-based, non-grammatical 
 similaritites between strings used in artificial grammar learning (AGL) 
-experiments. It has lower-level functions to compare individual strings, but
-probably even more useful is its functionality to easily compare sets of 
-strings and visualize the results in image plots, or in tables that highlight
-matching string fragments in color. This enables the fast identification of
-potential problems in experimental design. But the library can also be used
-to quantify the extent of different types of fragment based similarity and
-test how well they fit response behavior.
+experiments. It has lower-level functions to analyze and compare individual
+strings, but probably even more useful is its functionality to easily compare
+sets of strings and visualize the results in image plots, or in tables that
+highlight matching string fragments in color. Further, similarity values
+between sets of strings sets are available as data frames for statistical
+analyses, for example to test for association with behavioral responses, in
+the Python library Pandas_.
 
+.. _Pandas: http://pandas.pydata.org
+
+The goal of *aglcheck* is to enable the fast identification of potential
+problems in experimental designs. It can be useful for those who design an
+AGL experiment, but also for those who review an AGL manuscript for a
+scientific journal or want to evaluate the likelihood of alternative
+explanations in published work in which the possibility of fragment-based
+similarity may not have been (sufficiently) considered by authors and
+reviewers.
+
+*aglcheck* is already useful from this point of view, but it is still being
+developed. A future goal is to make it trivially easy to use, perhaps even
+without installing a Python environment (i.e. through a Jupyter Notebook
+webserver). For now you need a Python environment, though (see below).
+
+Another explicit goal is to make the software very reliable. Users should have
+high confidence that the results are correct, given that they are designing
+scientific experiments or checking the experimental design or results of
+others. A testing framework is in place, and test cases for the most important
+algorithms are included. In addition, everything is programmed in Python, and
+the code is open source, so it is easy to inspect what is going on under the
+hood.
+
+Lastly, *aglcheck*, is easy to extend. With a few lines of Python you can
+contribute your own algorithm, which can then be used within a framework that
+does string reading and visualization for you.
+
+Example
+-------
 An example of how visualization can be useful, consider the following strings,
 used in Wilson et al. (2015) Nat. Commun. [http://dx.doi.org/10.1038/ncomms9901]:
 
@@ -58,7 +87,8 @@ used in Wilson et al. (2015) Nat. Commun. [http://dx.doi.org/10.1038/ncomms9901]
 +-----------+-------+---------+
 
 In this string design, there is a bias in shared maximum fragment length (A)
-and corresponding duration (B):
+and corresponding duration (B), which is much more easily seen in an image plot
+than in the table above:
 
 .. image:: example_figures/example_fig_sharedchunklength_1.png
     :width: 100%
@@ -70,13 +100,12 @@ information (see example_)
 
 .. _example: https://github.com/gjlbeckers-uu/aglcheck/blob/master/aglcheck/datafiles/wilsonetal_natcomm_2015.yaml
 
-aglcheck can produce HTML tables that highlight in color where in strings
-matches are found (e.g., see table_)
+aglcheck can produce HTML tables that highlight in color the specific
+similarities between individual strings (e.g., see table_)
 
 .. _table: https://rawgit.com/gjlbeckers-uu/aglcheck/master/example_figures/example_table.html
 
-
-aglcheck was initially written to analyze string sets for potential confounds
+*aglcheck* was initially written to analyze string sets for potential confounds
 based on acoustic similarity in a sample of 9 AGL studies in nonhuman animals
 for the scientific paper:
 
@@ -98,14 +127,18 @@ Development status
 ------------------
 This is beta software. It does what it was initially was designed for, and
 should also be usable for other applications. The lack of formal documentation
-is the biggest hurdle, but see below. Contributions in any form are very
-welcome.
+is the biggest hurdle, but there is a tutorial jupyter notebook that should be
+sufficient as an example of how to use aglcheck.
+
+A testing framework is in place and test cases for the most important
+algorithms are included. To run the test, use 'aglcheck.test()'.
 
 The 0.1.x series is intended to remain compatible with the the jupyter
 notebook that produces the supplementary information. The 0.2.x series should
 be refactored so that functions and classes are more logically named and
 organized for general use.
 
+Contributions in any form are very welcome.
 
 Documentation
 -------------
