@@ -35,14 +35,14 @@ def lengthnsubstrings(s, n, readingframe=1):
     Parameters
     ----------
     s : string
-        String from which length-n substrings are generated. 
+        Token string from which length-n substrings are generated. 
     n : positive int
         Length of the shared substrings that are considered
     readingframe : positive int, default 1
         The number of characters that make up one string token. Normally 1,
         so that, e.g. the string "abcd" has 4 tokens. However if there exist
         many tokens, these can be coded with multiple ascii symbols. E.g., if
-        readingframe is 2, then "abcd" has two tokens, namely "ab" and "cd".
+        readingframe is 2, then "a1a2" has two tokens, namely "a1" and "a2".
 
     Returns
     -------
@@ -73,9 +73,9 @@ def sharedlengthnsubstrings(s1, s2, n, readingframe=1):
     Parameters
     ----------
     s1 : string
-        String from which length-n substrings are analyzed
+        Token string from which length-n substrings are analyzed
     s2 : string
-        String within which length-n substrings of s1 are matched
+        Token string within which length-n substrings of s1 are matched
     n : positive int
         Length of the shared substrings that are considered
     readingframe : positive int, default 1
@@ -83,15 +83,14 @@ def sharedlengthnsubstrings(s1, s2, n, readingframe=1):
         often be `1`, so that, e.g. the string "abcd" has 4 tokens. However if
         there are more tokens than can be coded in ascii symbols,
         the larger readingframes are the solution. E.g., if readingframe is 2,
-        then "a1b1" has two tokens, namely "a1" and "b1".
+        then "a1a2" has two tokens, namely "a1" and "a2".
 
     Returns
     -------
-    Tuple with hits. Each hit is a two-tuple, containing a
-    substring match and a two-tuple of the positions where the shared 
-    substrings occur in s1 and s2. Note that the positions refer to the
-    token strings, and not python strings. They take into account the reading
-    frame.
+    Tuple with hits. Each hit is a two-tuple, containing a substring match and 
+    a two-tuple of the positions where the shared  substrings occur in s1 and 
+    s2. Note that the positions refer to the token strings, and not python 
+    strings. They take into account the reading frame.
 
     Examples
     --------
@@ -126,20 +125,22 @@ def sharedsubstrings(s1, s2, readingframe=1):
     Parameters
     ----------
     s1 : string
-        String from which length-n substrings are generated.
+        Token string from which length-n substrings are generated.
     s2 : string
-        String within which length-n substrings of s1 are matched.
+        Token string within which length-n substrings of s1 are matched.
     readingframe : positive int, default 1
         The number of characters that make up one string token. Normally 1,
         so that, e.g. the string "abcd" has 4 tokens. However if there exist
         many tokens, these can be coded with multiple ascii symbols. E.g., if
-        readingframe is 2, then "abcd" has two tokens, namely "ab" and "cd".
+        readingframe is 2, then "a1a2" has two tokens, namely "a1" and "a2".
 
     Returns
     -------
-    Tuple with hits. Each hit is a two-tuple, containing a
-    substring match and the number of times it occurs.
-    
+    Tuple with hits. Each hit is a two-tuple, containing a substring match and 
+    a two-tuple of the positions where the shared  substrings occur in s1 and 
+    s2. Note that the positions refer to the token strings, and not python 
+    strings. They take into account the reading frame.
+
     Examples
     --------
     >>> from aglcheck.algorithms import sharedsubstrings
@@ -165,20 +166,22 @@ def longestsharedsubstrings(s1, s2, readingframe=1):
     Parameters
     ----------
     s1 : string
-        String from which length-n substrings are generated.
+        Token string from which length-n substrings are generated.
     s2 : string
-        String within which length-n substrings of s1 are matched.
+        Token string within which length-n substrings of s1 are matched.
     readingframe : positive int, default 1
         The number of characters that make up one string token. Normally 1,
         so that, e.g. the string "abcd" has 4 tokens. However if there exist
         many tokens, these can be coded with multiple ascii symbols. E.g., if
-        readingframe is 2, then "abcd" has two tokens, namely "ab" and "cd".
+        readingframe is 2, then "a1a2" has two tokens, namely "a1" and "a2".
 
     Returns
     -------
-    Tuple with hits. Each hit is a two-tuple, containing a
-    substring match and the positions where it occurs.
-    
+    Tuple with hits. Each hit is a two-tuple, containing a substring match and 
+    a two-tuple of the positions where the shared  substrings occur in s1 and 
+    s2. Note that the positions refer to the token strings, and not python 
+    strings. They take into account the reading frame.
+
     Examples
     --------
     >>> from aglcheck.algorithms import longestsharedsubstrings
@@ -199,6 +202,38 @@ def longestsharedsubstrings(s1, s2, readingframe=1):
 
 def longestsharedsubstringduration(s1, s2, tokendurations, isiduration,
                                    readingframe=1):
+    """
+        Finds longest shared substrings of s1 in s2, and calculates their 
+        duration.
+
+        Parameters
+        ----------
+        s1 : string
+            Token string from which length-n substrings are generated.
+        s2 : string
+            Token string within which length-n substrings of s1 are matched.
+        tokendurations: dict
+            A dictionary in which every token occurring in s1 and s2 is a key
+            that maps to its duration.
+        isiduration: float
+            The duration of silence between tokens. Assumed to be fixed.
+        readingframe : positive int, default 1
+            The number of characters that make up one string token. Normally 1,
+            so that, e.g. the string "abcd" has 4 tokens. However if there exist
+            many tokens, these can be coded with multiple ascii symbols. E.g., if
+            readingframe is 2, then "a1a2" has two tokens, namely "a1" and "a2".
+
+        Returns
+        -------
+        float: duration of the longest shared substring.
+
+        Examples
+        --------
+        >>> from aglcheck.algorithms import longestsharedsubstringduration
+        >>> longestsharedsubstringduration('abc', 'aab', {'a': 1., 'b': 2.}, .2)
+        3.2
+        
+    """
     durations = [0.]
     for s, positions in longestsharedsubstrings(s1=s1, s2=s2,
                                                 readingframe=readingframe):
@@ -216,24 +251,32 @@ def novellengthnsubstrings(s1, s2, n, readingframe=1):
     Parameters
     ----------
     s1 : string
-        String from which length-n substrings are generated.
+        Token string from which length-n substrings are generated.
     s2 : string
-        String within which length-n substrings of s1 are matched
+        Token string within which length-n substrings of s1 are matched
     n : positive int
         Length of the shared substrings that are considered
     readingframe : positive int, default 1
         The number of characters that make up one string token. Normally 1,
         so that, e.g. the string "abcd" has 4 tokens. However if there exist
         many tokens, these can be coded with multiple ascii symbols. E.g., if
-        readingframe is 2, then "abcd" has two tokens, namely "ab" and "cd".
+        readingframe is 2, then "a1a2" has two tokens, namely "a1" and "a2".
 
     Returns
     -------
-    Tuple with hits. Each hit is a two-tuple, containing a 
-    substring mismatch and the position where the shared 
-    substrings occurs in s1. Note that the positions refer to the 
-    python strings, and do not take into account the reading frame.
+    Tuple with hits. Each hit is a two-tuple, containing a substring match and 
+    a nuber of the positions where the novel substrings occur in s1. Note 
+    that the positions refer to the token strings, and not python strings. 
+    They take into account the reading frame.
 
+    Examples
+    --------
+    >>> from aglcheck.algorithms import novellengthnsubstrings
+    >>> novellengthnsubstrings('abcdef', 'adcdeg', n=2)
+    (('ab', 0), ('bc', 1), ('ef', 4))
+    >>> novellengthnsubstrings('abcdefgh', 'abcdeggh', n=2, readingframe=2)
+    (('cdef', 1), ('efgh', 2))
+    
     """
 
     _checkpositiveint(readingframe)
@@ -251,6 +294,30 @@ def commonstart(s1, s2, readingframe=1):
     """
     Returns the substring that s1 and s2 share from the beginning.
 
+    Parameters
+    ----------
+    s1 : string
+        Token string
+    s2 : string
+        Token string
+   readingframe : positive int, default 1
+        The number of characters that make up one string token. Normally 1,
+        so that, e.g. the string "abcd" has 4 tokens. However if there exist
+        many tokens, these can be coded with multiple ascii symbols. E.g., if
+        readingframe is 2, then "a1a2" has two tokens, namely "a1" and "a2".
+
+    Returns
+    -------
+    string: Token string that s1 and s2 share from the beginning.
+    
+    Examples
+    --------
+    >>> from aglcheck.algorithms import commonstart
+    >>> commonstart('abcde', 'abcef')
+    'abc'
+    >>> commonstart('abcdef', 'abcefg', readingframe=2)
+    'ab'
+    
     """
     # check if parameters make sense
     _checkstring(s1, readingframe=readingframe)
