@@ -12896,6 +12896,622 @@ qmM46YiEAaBybWOyD8TLZFfbWuz4gxffLI+OSRhm1vk66deqZtbhnDDMLDcnDDPLzQnDzHJzwjCz
 </div>
 
 </div>
+<div class="cell border-box-sizing text_cell rendered">
+<div class="prompt input_prompt">
+</div>
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<h2 id="Analyses-in-Pandas">Analyses in Pandas<a class="anchor-link" href="#Analyses-in-Pandas">&#182;</a></h2>
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered">
+<div class="prompt input_prompt">
+</div>
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p>For statistical analyses I recommend to use Pandas Series and DataFrames. You need to have Pandas installed.</p>
+
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+<div class="prompt input_prompt">In&nbsp;[16]:</div>
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="kn">import</span> <span class="nn">pandas</span> <span class="k">as</span> <span class="nn">pd</span>
+</pre></div>
+
+</div>
+</div>
+</div>
+
+</div>
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+<div class="prompt input_prompt">In&nbsp;[17]:</div>
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="n">cm</span> <span class="o">=</span> <span class="n">stringsetcomparison</span><span class="o">.</span><span class="n">longestsharedsubstringlength</span><span class="p">(</span><span class="n">sd</span><span class="p">,</span> <span class="n">comparison</span><span class="o">=</span><span class="p">(</span><span class="s1">&#39;Test&#39;</span><span class="p">,</span> <span class="s1">&#39;Exposure&#39;</span><span class="p">))</span>
+<span class="n">lss</span> <span class="o">=</span> <span class="n">cm</span><span class="o">.</span><span class="n">get_pandaseries</span><span class="p">()</span>
+<span class="n">lss</span>
+</pre></div>
+
+</div>
+</div>
+</div>
+
+<div class="output_wrapper">
+<div class="output">
+
+
+<div class="output_area">
+<div class="prompt output_prompt">Out[17]:</div>
+
+
+
+<div class="output_text output_subarea output_execute_result">
+<pre>category1  category2  string1  string2
+Test       Exposure   CT1      E1         2
+                               E2         2
+                               E3         4
+                               E4         5
+                               E5         1
+                               E6         2
+                               E7         2
+                               E8         3
+                               E9         5
+                      CT2      E1         2
+                               E2         3
+                               E3         2
+                               E4         2
+                               E5         4
+                               E6         5
+                               E7         6
+                               E8         3
+                               E9         3
+                      CT3      E1         3
+                               E2         4
+                               E3         2
+                               E4         2
+                               E5         2
+                               E6         3
+                               E7         4
+                               E8         2
+                               E9         3
+                      CT4      E1         1
+                               E2         2
+                               E3         3
+                                         ..
+                      VT1      E7         1
+                               E8         1
+                               E9         1
+                      VT2      E1         1
+                               E2         2
+                               E3         1
+                               E4         2
+                               E5         1
+                               E6         2
+                               E7         2
+                               E8         1
+                               E9         2
+                      VT3      E1         1
+                               E2         1
+                               E3         1
+                               E4         1
+                               E5         2
+                               E6         2
+                               E7         2
+                               E8         2
+                               E9         1
+                      VT4      E1         1
+                               E2         1
+                               E3         1
+                               E4         1
+                               E5         2
+                               E6         2
+                               E7         2
+                               E8         2
+                               E9         1
+Name: longestsharedsubstringlength, Length: 72, dtype: int64</pre>
+</div>
+
+</div>
+
+</div>
+</div>
+
+</div>
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+<div class="prompt input_prompt">In&nbsp;[18]:</div>
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="n">cm</span> <span class="o">=</span> <span class="n">stringsetcomparison</span><span class="o">.</span><span class="n">crosscorrelationmax</span><span class="p">(</span><span class="n">sd</span><span class="p">,</span> <span class="n">comparison</span><span class="o">=</span><span class="p">(</span><span class="s1">&#39;Test&#39;</span><span class="p">,</span> <span class="s1">&#39;Exposure&#39;</span><span class="p">))</span>
+<span class="n">crcm</span> <span class="o">=</span> <span class="n">cm</span><span class="o">.</span><span class="n">get_pandaseries</span><span class="p">()</span>
+<span class="n">crcm</span>
+</pre></div>
+
+</div>
+</div>
+</div>
+
+<div class="output_wrapper">
+<div class="output">
+
+
+<div class="output_area">
+<div class="prompt output_prompt">Out[18]:</div>
+
+
+
+<div class="output_text output_subarea output_execute_result">
+<pre>category1  category2  string1  string2
+Test       Exposure   CT1      E1         2
+                               E2         2
+                               E3         4
+                               E4         5
+                               E5         2
+                               E6         3
+                               E7         3
+                               E8         3
+                               E9         5
+                      CT2      E1         2
+                               E2         3
+                               E3         2
+                               E4         3
+                               E5         4
+                               E6         5
+                               E7         6
+                               E8         3
+                               E9         4
+                      CT3      E1         3
+                               E2         4
+                               E3         2
+                               E4         2
+                               E5         2
+                               E6         3
+                               E7         4
+                               E8         2
+                               E9         3
+                      CT4      E1         1
+                               E2         2
+                               E3         3
+                                         ..
+                      VT1      E7         1
+                               E8         1
+                               E9         2
+                      VT2      E1         1
+                               E2         2
+                               E3         1
+                               E4         2
+                               E5         2
+                               E6         2
+                               E7         2
+                               E8         2
+                               E9         2
+                      VT3      E1         1
+                               E2         2
+                               E3         2
+                               E4         2
+                               E5         2
+                               E6         2
+                               E7         2
+                               E8         2
+                               E9         2
+                      VT4      E1         1
+                               E2         2
+                               E3         2
+                               E4         2
+                               E5         2
+                               E6         2
+                               E7         3
+                               E8         3
+                               E9         2
+Name: crosscorrelationmax, Length: 72, dtype: int64</pre>
+</div>
+
+</div>
+
+</div>
+</div>
+
+</div>
+<div class="cell border-box-sizing text_cell rendered">
+<div class="prompt input_prompt">
+</div>
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p>You can merge these two Series in a DataFrame for analyses</p>
+
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+<div class="prompt input_prompt">In&nbsp;[19]:</div>
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="n">df</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">concat</span><span class="p">([</span><span class="n">lss</span><span class="p">,</span><span class="n">crcm</span><span class="p">],</span> <span class="n">axis</span><span class="o">=</span><span class="mi">1</span><span class="p">)</span>
+<span class="n">df</span>
+</pre></div>
+
+</div>
+</div>
+</div>
+
+<div class="output_wrapper">
+<div class="output">
+
+
+<div class="output_area">
+<div class="prompt output_prompt">Out[19]:</div>
+
+
+<div class="output_html rendered_html output_subarea output_execute_result">
+<div>
+<style>
+    .dataframe thead tr:only-child th {
+        text-align: right;
+    }
+
+    .dataframe thead th {
+        text-align: left;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+</style>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th>longestsharedsubstringlength</th>
+      <th>crosscorrelationmax</th>
+    </tr>
+    <tr>
+      <th>category1</th>
+      <th>category2</th>
+      <th>string1</th>
+      <th>string2</th>
+      <th></th>
+      <th></th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th rowspan="61" valign="top">Test</th>
+      <th rowspan="61" valign="top">Exposure</th>
+      <th rowspan="9" valign="top">CT1</th>
+      <th>E1</th>
+      <td>2</td>
+      <td>2</td>
+    </tr>
+    <tr>
+      <th>E2</th>
+      <td>2</td>
+      <td>2</td>
+    </tr>
+    <tr>
+      <th>E3</th>
+      <td>4</td>
+      <td>4</td>
+    </tr>
+    <tr>
+      <th>E4</th>
+      <td>5</td>
+      <td>5</td>
+    </tr>
+    <tr>
+      <th>E5</th>
+      <td>1</td>
+      <td>2</td>
+    </tr>
+    <tr>
+      <th>E6</th>
+      <td>2</td>
+      <td>3</td>
+    </tr>
+    <tr>
+      <th>E7</th>
+      <td>2</td>
+      <td>3</td>
+    </tr>
+    <tr>
+      <th>E8</th>
+      <td>3</td>
+      <td>3</td>
+    </tr>
+    <tr>
+      <th>E9</th>
+      <td>5</td>
+      <td>5</td>
+    </tr>
+    <tr>
+      <th rowspan="9" valign="top">CT2</th>
+      <th>E1</th>
+      <td>2</td>
+      <td>2</td>
+    </tr>
+    <tr>
+      <th>E2</th>
+      <td>3</td>
+      <td>3</td>
+    </tr>
+    <tr>
+      <th>E3</th>
+      <td>2</td>
+      <td>2</td>
+    </tr>
+    <tr>
+      <th>E4</th>
+      <td>2</td>
+      <td>3</td>
+    </tr>
+    <tr>
+      <th>E5</th>
+      <td>4</td>
+      <td>4</td>
+    </tr>
+    <tr>
+      <th>E6</th>
+      <td>5</td>
+      <td>5</td>
+    </tr>
+    <tr>
+      <th>E7</th>
+      <td>6</td>
+      <td>6</td>
+    </tr>
+    <tr>
+      <th>E8</th>
+      <td>3</td>
+      <td>3</td>
+    </tr>
+    <tr>
+      <th>E9</th>
+      <td>3</td>
+      <td>4</td>
+    </tr>
+    <tr>
+      <th rowspan="9" valign="top">CT3</th>
+      <th>E1</th>
+      <td>3</td>
+      <td>3</td>
+    </tr>
+    <tr>
+      <th>E2</th>
+      <td>4</td>
+      <td>4</td>
+    </tr>
+    <tr>
+      <th>E3</th>
+      <td>2</td>
+      <td>2</td>
+    </tr>
+    <tr>
+      <th>E4</th>
+      <td>2</td>
+      <td>2</td>
+    </tr>
+    <tr>
+      <th>E5</th>
+      <td>2</td>
+      <td>2</td>
+    </tr>
+    <tr>
+      <th>E6</th>
+      <td>3</td>
+      <td>3</td>
+    </tr>
+    <tr>
+      <th>E7</th>
+      <td>4</td>
+      <td>4</td>
+    </tr>
+    <tr>
+      <th>E8</th>
+      <td>2</td>
+      <td>2</td>
+    </tr>
+    <tr>
+      <th>E9</th>
+      <td>3</td>
+      <td>3</td>
+    </tr>
+    <tr>
+      <th rowspan="3" valign="top">CT4</th>
+      <th>E1</th>
+      <td>1</td>
+      <td>1</td>
+    </tr>
+    <tr>
+      <th>E2</th>
+      <td>2</td>
+      <td>2</td>
+    </tr>
+    <tr>
+      <th>E3</th>
+      <td>3</td>
+      <td>3</td>
+    </tr>
+    <tr>
+      <th>...</th>
+      <th>...</th>
+      <td>...</td>
+      <td>...</td>
+    </tr>
+    <tr>
+      <th rowspan="3" valign="top">VT1</th>
+      <th>E7</th>
+      <td>1</td>
+      <td>1</td>
+    </tr>
+    <tr>
+      <th>E8</th>
+      <td>1</td>
+      <td>1</td>
+    </tr>
+    <tr>
+      <th>E9</th>
+      <td>1</td>
+      <td>2</td>
+    </tr>
+    <tr>
+      <th rowspan="9" valign="top">VT2</th>
+      <th>E1</th>
+      <td>1</td>
+      <td>1</td>
+    </tr>
+    <tr>
+      <th>E2</th>
+      <td>2</td>
+      <td>2</td>
+    </tr>
+    <tr>
+      <th>E3</th>
+      <td>1</td>
+      <td>1</td>
+    </tr>
+    <tr>
+      <th>E4</th>
+      <td>2</td>
+      <td>2</td>
+    </tr>
+    <tr>
+      <th>E5</th>
+      <td>1</td>
+      <td>2</td>
+    </tr>
+    <tr>
+      <th>E6</th>
+      <td>2</td>
+      <td>2</td>
+    </tr>
+    <tr>
+      <th>E7</th>
+      <td>2</td>
+      <td>2</td>
+    </tr>
+    <tr>
+      <th>E8</th>
+      <td>1</td>
+      <td>2</td>
+    </tr>
+    <tr>
+      <th>E9</th>
+      <td>2</td>
+      <td>2</td>
+    </tr>
+    <tr>
+      <th rowspan="9" valign="top">VT3</th>
+      <th>E1</th>
+      <td>1</td>
+      <td>1</td>
+    </tr>
+    <tr>
+      <th>E2</th>
+      <td>1</td>
+      <td>2</td>
+    </tr>
+    <tr>
+      <th>E3</th>
+      <td>1</td>
+      <td>2</td>
+    </tr>
+    <tr>
+      <th>E4</th>
+      <td>1</td>
+      <td>2</td>
+    </tr>
+    <tr>
+      <th>E5</th>
+      <td>2</td>
+      <td>2</td>
+    </tr>
+    <tr>
+      <th>E6</th>
+      <td>2</td>
+      <td>2</td>
+    </tr>
+    <tr>
+      <th>E7</th>
+      <td>2</td>
+      <td>2</td>
+    </tr>
+    <tr>
+      <th>E8</th>
+      <td>2</td>
+      <td>2</td>
+    </tr>
+    <tr>
+      <th>E9</th>
+      <td>1</td>
+      <td>2</td>
+    </tr>
+    <tr>
+      <th rowspan="9" valign="top">VT4</th>
+      <th>E1</th>
+      <td>1</td>
+      <td>1</td>
+    </tr>
+    <tr>
+      <th>E2</th>
+      <td>1</td>
+      <td>2</td>
+    </tr>
+    <tr>
+      <th>E3</th>
+      <td>1</td>
+      <td>2</td>
+    </tr>
+    <tr>
+      <th>E4</th>
+      <td>1</td>
+      <td>2</td>
+    </tr>
+    <tr>
+      <th>E5</th>
+      <td>2</td>
+      <td>2</td>
+    </tr>
+    <tr>
+      <th>E6</th>
+      <td>2</td>
+      <td>2</td>
+    </tr>
+    <tr>
+      <th>E7</th>
+      <td>2</td>
+      <td>3</td>
+    </tr>
+    <tr>
+      <th>E8</th>
+      <td>2</td>
+      <td>3</td>
+    </tr>
+    <tr>
+      <th>E9</th>
+      <td>1</td>
+      <td>2</td>
+    </tr>
+  </tbody>
+</table>
+<p>72 rows × 2 columns</p>
+</div>
+</div>
+
+</div>
+
+</div>
+</div>
+
+</div>
     </div>
   </div>
 </body>
